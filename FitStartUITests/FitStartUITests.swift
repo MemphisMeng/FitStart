@@ -2,7 +2,7 @@
 //  FitStartUITests.swift
 //  FitStartUITests
 //
-//  Created by Minglan Zheng on 11/1/20.
+//  Created by Minglan Zheng on 11/8/20.
 //
 
 import XCTest

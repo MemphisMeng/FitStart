@@ -7,62 +7,84 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B12E3951254F65BF00DBC2D3 /* FitStartApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12E3950254F65BF00DBC2D3 /* FitStartApp.swift */; };
-		B12E3953254F65BF00DBC2D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12E3952254F65BF00DBC2D3 /* ContentView.swift */; };
-		B12E3955254F65C100DBC2D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12E3954254F65C100DBC2D3 /* Assets.xcassets */; };
-		B12E3958254F65C100DBC2D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12E3957254F65C100DBC2D3 /* Preview Assets.xcassets */; };
-		B12E3963254F65C100DBC2D3 /* FitStartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12E3962254F65C100DBC2D3 /* FitStartTests.swift */; };
-		B12E396E254F65C100DBC2D3 /* FitStartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12E396D254F65C100DBC2D3 /* FitStartUITests.swift */; };
+		B14F3EB725587D7F00D1B7BB /* FitStart.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B14F3EB525587D7F00D1B7BB /* FitStart.xcdatamodeld */; };
+		B14F3EBF2558823100D1B7BB /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14F3EBE2558823100D1B7BB /* ModelData.swift */; };
+		B14F3EC425588A9000D1B7BB /* ExAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14F3EC325588A9000D1B7BB /* ExAnimation.swift */; };
+		B189CB90255856B300FFBDEA /* FitStartApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B189CB8F255856B300FFBDEA /* FitStartApp.swift */; };
+		B189CB92255856B300FFBDEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B189CB91255856B300FFBDEA /* ContentView.swift */; };
+		B189CB94255856B700FFBDEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B189CB93255856B700FFBDEA /* Assets.xcassets */; };
+		B189CB97255856B700FFBDEA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B189CB96255856B700FFBDEA /* Preview Assets.xcassets */; };
+		B189CB99255856B700FFBDEA /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B189CB98255856B700FFBDEA /* Persistence.swift */; };
+		B189CBA7255856B800FFBDEA /* FitStartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B189CBA6255856B800FFBDEA /* FitStartTests.swift */; };
+		B189CBB2255856B800FFBDEA /* FitStartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B189CBB1255856B800FFBDEA /* FitStartUITests.swift */; };
+		B189CBD025585B2700FFBDEA /* Pal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B189CBCF25585B2700FFBDEA /* Pal.swift */; };
+		B189CBD525585B5F00FFBDEA /* Fitness.swift in Sources */ = {isa = PBXBuildFile; fileRef = B189CBD425585B5F00FFBDEA /* Fitness.swift */; };
+		B189CBDA25585B7800FFBDEA /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B189CBD925585B7800FFBDEA /* Meal.swift */; };
+		B189CBDF25585BAF00FFBDEA /* OnBoardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B189CBDE25585BAF00FFBDEA /* OnBoardScreen.swift */; };
+		B189CBE725585D5B00FFBDEA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B189CBE625585D5B00FFBDEA /* HomeViewModel.swift */; };
+		B189CBEC25585DF600FFBDEA /* NewDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B189CBEB25585DF600FFBDEA /* NewDataView.swift */; };
+		B189CBF12558631500FFBDEA /* DateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B189CBF02558631500FFBDEA /* DateButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B12E395F254F65C100DBC2D3 /* PBXContainerItemProxy */ = {
+		B189CBA3255856B800FFBDEA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B12E3945254F65BF00DBC2D3 /* Project object */;
+			containerPortal = B189CB84255856B300FFBDEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B12E394C254F65BF00DBC2D3;
+			remoteGlobalIDString = B189CB8B255856B300FFBDEA;
 			remoteInfo = FitStart;
 		};
-		B12E396A254F65C100DBC2D3 /* PBXContainerItemProxy */ = {
+		B189CBAE255856B800FFBDEA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B12E3945254F65BF00DBC2D3 /* Project object */;
+			containerPortal = B189CB84255856B300FFBDEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B12E394C254F65BF00DBC2D3;
+			remoteGlobalIDString = B189CB8B255856B300FFBDEA;
 			remoteInfo = FitStart;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B12E394D254F65BF00DBC2D3 /* FitStart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitStart.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B12E3950254F65BF00DBC2D3 /* FitStartApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitStartApp.swift; sourceTree = "<group>"; };
-		B12E3952254F65BF00DBC2D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		B12E3954254F65C100DBC2D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B12E3957254F65C100DBC2D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B12E3959254F65C100DBC2D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B12E395E254F65C100DBC2D3 /* FitStartTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitStartTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B12E3962254F65C100DBC2D3 /* FitStartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitStartTests.swift; sourceTree = "<group>"; };
-		B12E3964254F65C100DBC2D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B12E3969254F65C100DBC2D3 /* FitStartUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitStartUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B12E396D254F65C100DBC2D3 /* FitStartUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitStartUITests.swift; sourceTree = "<group>"; };
-		B12E396F254F65C100DBC2D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B14F3EB625587D7F00D1B7BB /* FitStart.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FitStart.xcdatamodel; sourceTree = "<group>"; };
+		B14F3EBE2558823100D1B7BB /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		B14F3EC325588A9000D1B7BB /* ExAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExAnimation.swift; sourceTree = "<group>"; };
+		B189CB8C255856B300FFBDEA /* FitStart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitStart.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B189CB8F255856B300FFBDEA /* FitStartApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitStartApp.swift; sourceTree = "<group>"; };
+		B189CB91255856B300FFBDEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B189CB93255856B700FFBDEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B189CB96255856B700FFBDEA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B189CB98255856B700FFBDEA /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		B189CB9D255856B700FFBDEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B189CBA2255856B800FFBDEA /* FitStartTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitStartTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B189CBA6255856B800FFBDEA /* FitStartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitStartTests.swift; sourceTree = "<group>"; };
+		B189CBA8255856B800FFBDEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B189CBAD255856B800FFBDEA /* FitStartUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitStartUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B189CBB1255856B800FFBDEA /* FitStartUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitStartUITests.swift; sourceTree = "<group>"; };
+		B189CBB3255856B800FFBDEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B189CBCF25585B2700FFBDEA /* Pal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pal.swift; sourceTree = "<group>"; };
+		B189CBD425585B5F00FFBDEA /* Fitness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fitness.swift; sourceTree = "<group>"; };
+		B189CBD925585B7800FFBDEA /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		B189CBDE25585BAF00FFBDEA /* OnBoardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardScreen.swift; sourceTree = "<group>"; };
+		B189CBE625585D5B00FFBDEA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B189CBEB25585DF600FFBDEA /* NewDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDataView.swift; sourceTree = "<group>"; };
+		B189CBF02558631500FFBDEA /* DateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B12E394A254F65BF00DBC2D3 /* Frameworks */ = {
+		B189CB89255856B300FFBDEA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B12E395B254F65C100DBC2D3 /* Frameworks */ = {
+		B189CB9F255856B800FFBDEA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B12E3966254F65C100DBC2D3 /* Frameworks */ = {
+		B189CBAA255856B800FFBDEA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -72,74 +94,101 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B12E3944254F65BF00DBC2D3 = {
+		B189CB83255856B300FFBDEA = {
 			isa = PBXGroup;
 			children = (
-				B12E394F254F65BF00DBC2D3 /* FitStart */,
-				B12E3961254F65C100DBC2D3 /* FitStartTests */,
-				B12E396C254F65C100DBC2D3 /* FitStartUITests */,
-				B12E394E254F65BF00DBC2D3 /* Products */,
+				B189CB8E255856B300FFBDEA /* FitStart */,
+				B189CBA5255856B800FFBDEA /* FitStartTests */,
+				B189CBB0255856B800FFBDEA /* FitStartUITests */,
+				B189CB8D255856B300FFBDEA /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		B12E394E254F65BF00DBC2D3 /* Products */ = {
+		B189CB8D255856B300FFBDEA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B12E394D254F65BF00DBC2D3 /* FitStart.app */,
-				B12E395E254F65C100DBC2D3 /* FitStartTests.xctest */,
-				B12E3969254F65C100DBC2D3 /* FitStartUITests.xctest */,
+				B189CB8C255856B300FFBDEA /* FitStart.app */,
+				B189CBA2255856B800FFBDEA /* FitStartTests.xctest */,
+				B189CBAD255856B800FFBDEA /* FitStartUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B12E394F254F65BF00DBC2D3 /* FitStart */ = {
+		B189CB8E255856B300FFBDEA /* FitStart */ = {
 			isa = PBXGroup;
 			children = (
-				B12E3950254F65BF00DBC2D3 /* FitStartApp.swift */,
-				B12E3952254F65BF00DBC2D3 /* ContentView.swift */,
-				B12E3954254F65C100DBC2D3 /* Assets.xcassets */,
-				B12E3959254F65C100DBC2D3 /* Info.plist */,
-				B12E3956254F65C100DBC2D3 /* Preview Content */,
+				B189CBC625585A7300FFBDEA /* ViewModel */,
+				B189CBC525585A6300FFBDEA /* View */,
+				B189CB8F255856B300FFBDEA /* FitStartApp.swift */,
+				B189CB91255856B300FFBDEA /* ContentView.swift */,
+				B189CB93255856B700FFBDEA /* Assets.xcassets */,
+				B189CB98255856B700FFBDEA /* Persistence.swift */,
+				B189CB9D255856B700FFBDEA /* Info.plist */,
+				B14F3EB525587D7F00D1B7BB /* FitStart.xcdatamodeld */,
+				B189CB95255856B700FFBDEA /* Preview Content */,
 			);
 			path = FitStart;
 			sourceTree = "<group>";
 		};
-		B12E3956254F65C100DBC2D3 /* Preview Content */ = {
+		B189CB95255856B700FFBDEA /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				B12E3957254F65C100DBC2D3 /* Preview Assets.xcassets */,
+				B189CB96255856B700FFBDEA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		B12E3961254F65C100DBC2D3 /* FitStartTests */ = {
+		B189CBA5255856B800FFBDEA /* FitStartTests */ = {
 			isa = PBXGroup;
 			children = (
-				B12E3962254F65C100DBC2D3 /* FitStartTests.swift */,
-				B12E3964254F65C100DBC2D3 /* Info.plist */,
+				B189CBA6255856B800FFBDEA /* FitStartTests.swift */,
+				B189CBA8255856B800FFBDEA /* Info.plist */,
 			);
 			path = FitStartTests;
 			sourceTree = "<group>";
 		};
-		B12E396C254F65C100DBC2D3 /* FitStartUITests */ = {
+		B189CBB0255856B800FFBDEA /* FitStartUITests */ = {
 			isa = PBXGroup;
 			children = (
-				B12E396D254F65C100DBC2D3 /* FitStartUITests.swift */,
-				B12E396F254F65C100DBC2D3 /* Info.plist */,
+				B189CBB1255856B800FFBDEA /* FitStartUITests.swift */,
+				B189CBB3255856B800FFBDEA /* Info.plist */,
 			);
 			path = FitStartUITests;
+			sourceTree = "<group>";
+		};
+		B189CBC525585A6300FFBDEA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B189CBCF25585B2700FFBDEA /* Pal.swift */,
+				B189CBD425585B5F00FFBDEA /* Fitness.swift */,
+				B189CBD925585B7800FFBDEA /* Meal.swift */,
+				B189CBDE25585BAF00FFBDEA /* OnBoardScreen.swift */,
+				B189CBEB25585DF600FFBDEA /* NewDataView.swift */,
+				B189CBF02558631500FFBDEA /* DateButton.swift */,
+				B14F3EC325588A9000D1B7BB /* ExAnimation.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B189CBC625585A7300FFBDEA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B189CBE625585D5B00FFBDEA /* HomeViewModel.swift */,
+				B14F3EBE2558823100D1B7BB /* ModelData.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B12E394C254F65BF00DBC2D3 /* FitStart */ = {
+		B189CB8B255856B300FFBDEA /* FitStart */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B12E3972254F65C100DBC2D3 /* Build configuration list for PBXNativeTarget "FitStart" */;
+			buildConfigurationList = B189CBB6255856B800FFBDEA /* Build configuration list for PBXNativeTarget "FitStart" */;
 			buildPhases = (
-				B12E3949254F65BF00DBC2D3 /* Sources */,
-				B12E394A254F65BF00DBC2D3 /* Frameworks */,
-				B12E394B254F65BF00DBC2D3 /* Resources */,
+				B189CB88255856B300FFBDEA /* Sources */,
+				B189CB89255856B300FFBDEA /* Frameworks */,
+				B189CB8A255856B300FFBDEA /* Resources */,
 			);
 			buildRules = (
 			);
@@ -147,68 +196,68 @@
 			);
 			name = FitStart;
 			productName = FitStart;
-			productReference = B12E394D254F65BF00DBC2D3 /* FitStart.app */;
+			productReference = B189CB8C255856B300FFBDEA /* FitStart.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B12E395D254F65C100DBC2D3 /* FitStartTests */ = {
+		B189CBA1255856B800FFBDEA /* FitStartTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B12E3975254F65C100DBC2D3 /* Build configuration list for PBXNativeTarget "FitStartTests" */;
+			buildConfigurationList = B189CBB9255856B800FFBDEA /* Build configuration list for PBXNativeTarget "FitStartTests" */;
 			buildPhases = (
-				B12E395A254F65C100DBC2D3 /* Sources */,
-				B12E395B254F65C100DBC2D3 /* Frameworks */,
-				B12E395C254F65C100DBC2D3 /* Resources */,
+				B189CB9E255856B800FFBDEA /* Sources */,
+				B189CB9F255856B800FFBDEA /* Frameworks */,
+				B189CBA0255856B800FFBDEA /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B12E3960254F65C100DBC2D3 /* PBXTargetDependency */,
+				B189CBA4255856B800FFBDEA /* PBXTargetDependency */,
 			);
 			name = FitStartTests;
 			productName = FitStartTests;
-			productReference = B12E395E254F65C100DBC2D3 /* FitStartTests.xctest */;
+			productReference = B189CBA2255856B800FFBDEA /* FitStartTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B12E3968254F65C100DBC2D3 /* FitStartUITests */ = {
+		B189CBAC255856B800FFBDEA /* FitStartUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B12E3978254F65C100DBC2D3 /* Build configuration list for PBXNativeTarget "FitStartUITests" */;
+			buildConfigurationList = B189CBBC255856B800FFBDEA /* Build configuration list for PBXNativeTarget "FitStartUITests" */;
 			buildPhases = (
-				B12E3965254F65C100DBC2D3 /* Sources */,
-				B12E3966254F65C100DBC2D3 /* Frameworks */,
-				B12E3967254F65C100DBC2D3 /* Resources */,
+				B189CBA9255856B800FFBDEA /* Sources */,
+				B189CBAA255856B800FFBDEA /* Frameworks */,
+				B189CBAB255856B800FFBDEA /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B12E396B254F65C100DBC2D3 /* PBXTargetDependency */,
+				B189CBAF255856B800FFBDEA /* PBXTargetDependency */,
 			);
 			name = FitStartUITests;
 			productName = FitStartUITests;
-			productReference = B12E3969254F65C100DBC2D3 /* FitStartUITests.xctest */;
+			productReference = B189CBAD255856B800FFBDEA /* FitStartUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B12E3945254F65BF00DBC2D3 /* Project object */ = {
+		B189CB84255856B300FFBDEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1210;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
-					B12E394C254F65BF00DBC2D3 = {
+					B189CB8B255856B300FFBDEA = {
 						CreatedOnToolsVersion = 12.1;
 					};
-					B12E395D254F65C100DBC2D3 = {
+					B189CBA1255856B800FFBDEA = {
 						CreatedOnToolsVersion = 12.1;
-						TestTargetID = B12E394C254F65BF00DBC2D3;
+						TestTargetID = B189CB8B255856B300FFBDEA;
 					};
-					B12E3968254F65C100DBC2D3 = {
+					B189CBAC255856B800FFBDEA = {
 						CreatedOnToolsVersion = 12.1;
-						TestTargetID = B12E394C254F65BF00DBC2D3;
+						TestTargetID = B189CB8B255856B300FFBDEA;
 					};
 				};
 			};
-			buildConfigurationList = B12E3948254F65BF00DBC2D3 /* Build configuration list for PBXProject "FitStart" */;
+			buildConfigurationList = B189CB87255856B300FFBDEA /* Build configuration list for PBXProject "FitStart" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -216,36 +265,36 @@
 				en,
 				Base,
 			);
-			mainGroup = B12E3944254F65BF00DBC2D3;
-			productRefGroup = B12E394E254F65BF00DBC2D3 /* Products */;
+			mainGroup = B189CB83255856B300FFBDEA;
+			productRefGroup = B189CB8D255856B300FFBDEA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B12E394C254F65BF00DBC2D3 /* FitStart */,
-				B12E395D254F65C100DBC2D3 /* FitStartTests */,
-				B12E3968254F65C100DBC2D3 /* FitStartUITests */,
+				B189CB8B255856B300FFBDEA /* FitStart */,
+				B189CBA1255856B800FFBDEA /* FitStartTests */,
+				B189CBAC255856B800FFBDEA /* FitStartUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B12E394B254F65BF00DBC2D3 /* Resources */ = {
+		B189CB8A255856B300FFBDEA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B12E3958254F65C100DBC2D3 /* Preview Assets.xcassets in Resources */,
-				B12E3955254F65C100DBC2D3 /* Assets.xcassets in Resources */,
+				B189CB97255856B700FFBDEA /* Preview Assets.xcassets in Resources */,
+				B189CB94255856B700FFBDEA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B12E395C254F65C100DBC2D3 /* Resources */ = {
+		B189CBA0255856B800FFBDEA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B12E3967254F65C100DBC2D3 /* Resources */ = {
+		B189CBAB255856B800FFBDEA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -255,48 +304,59 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B12E3949254F65BF00DBC2D3 /* Sources */ = {
+		B189CB88255856B300FFBDEA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B12E3953254F65BF00DBC2D3 /* ContentView.swift in Sources */,
-				B12E3951254F65BF00DBC2D3 /* FitStartApp.swift in Sources */,
+				B189CBD525585B5F00FFBDEA /* Fitness.swift in Sources */,
+				B189CBE725585D5B00FFBDEA /* HomeViewModel.swift in Sources */,
+				B189CB99255856B700FFBDEA /* Persistence.swift in Sources */,
+				B189CBDF25585BAF00FFBDEA /* OnBoardScreen.swift in Sources */,
+				B189CB92255856B300FFBDEA /* ContentView.swift in Sources */,
+				B14F3EBF2558823100D1B7BB /* ModelData.swift in Sources */,
+				B14F3EC425588A9000D1B7BB /* ExAnimation.swift in Sources */,
+				B14F3EB725587D7F00D1B7BB /* FitStart.xcdatamodeld in Sources */,
+				B189CBEC25585DF600FFBDEA /* NewDataView.swift in Sources */,
+				B189CBDA25585B7800FFBDEA /* Meal.swift in Sources */,
+				B189CBD025585B2700FFBDEA /* Pal.swift in Sources */,
+				B189CBF12558631500FFBDEA /* DateButton.swift in Sources */,
+				B189CB90255856B300FFBDEA /* FitStartApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B12E395A254F65C100DBC2D3 /* Sources */ = {
+		B189CB9E255856B800FFBDEA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B12E3963254F65C100DBC2D3 /* FitStartTests.swift in Sources */,
+				B189CBA7255856B800FFBDEA /* FitStartTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B12E3965254F65C100DBC2D3 /* Sources */ = {
+		B189CBA9255856B800FFBDEA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B12E396E254F65C100DBC2D3 /* FitStartUITests.swift in Sources */,
+				B189CBB2255856B800FFBDEA /* FitStartUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B12E3960254F65C100DBC2D3 /* PBXTargetDependency */ = {
+		B189CBA4255856B800FFBDEA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B12E394C254F65BF00DBC2D3 /* FitStart */;
-			targetProxy = B12E395F254F65C100DBC2D3 /* PBXContainerItemProxy */;
+			target = B189CB8B255856B300FFBDEA /* FitStart */;
+			targetProxy = B189CBA3255856B800FFBDEA /* PBXContainerItemProxy */;
 		};
-		B12E396B254F65C100DBC2D3 /* PBXTargetDependency */ = {
+		B189CBAF255856B800FFBDEA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B12E394C254F65BF00DBC2D3 /* FitStart */;
-			targetProxy = B12E396A254F65C100DBC2D3 /* PBXContainerItemProxy */;
+			target = B189CB8B255856B300FFBDEA /* FitStart */;
+			targetProxy = B189CBAE255856B800FFBDEA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		B12E3970254F65C100DBC2D3 /* Debug */ = {
+		B189CBB4255856B800FFBDEA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -357,7 +417,7 @@
 			};
 			name = Debug;
 		};
-		B12E3971254F65C100DBC2D3 /* Release */ = {
+		B189CBB5255856B800FFBDEA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -412,7 +472,7 @@
 			};
 			name = Release;
 		};
-		B12E3973254F65C100DBC2D3 /* Debug */ = {
+		B189CBB7255856B800FFBDEA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -433,7 +493,7 @@
 			};
 			name = Debug;
 		};
-		B12E3974254F65C100DBC2D3 /* Release */ = {
+		B189CBB8255856B800FFBDEA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -454,7 +514,7 @@
 			};
 			name = Release;
 		};
-		B12E3976254F65C100DBC2D3 /* Debug */ = {
+		B189CBBA255856B800FFBDEA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -475,7 +535,7 @@
 			};
 			name = Debug;
 		};
-		B12E3977254F65C100DBC2D3 /* Release */ = {
+		B189CBBB255856B800FFBDEA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -496,7 +556,7 @@
 			};
 			name = Release;
 		};
-		B12E3979254F65C100DBC2D3 /* Debug */ = {
+		B189CBBD255856B800FFBDEA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -515,7 +575,7 @@
 			};
 			name = Debug;
 		};
-		B12E397A254F65C100DBC2D3 /* Release */ = {
+		B189CBBE255856B800FFBDEA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -537,43 +597,56 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B12E3948254F65BF00DBC2D3 /* Build configuration list for PBXProject "FitStart" */ = {
+		B189CB87255856B300FFBDEA /* Build configuration list for PBXProject "FitStart" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B12E3970254F65C100DBC2D3 /* Debug */,
-				B12E3971254F65C100DBC2D3 /* Release */,
+				B189CBB4255856B800FFBDEA /* Debug */,
+				B189CBB5255856B800FFBDEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B12E3972254F65C100DBC2D3 /* Build configuration list for PBXNativeTarget "FitStart" */ = {
+		B189CBB6255856B800FFBDEA /* Build configuration list for PBXNativeTarget "FitStart" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B12E3973254F65C100DBC2D3 /* Debug */,
-				B12E3974254F65C100DBC2D3 /* Release */,
+				B189CBB7255856B800FFBDEA /* Debug */,
+				B189CBB8255856B800FFBDEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B12E3975254F65C100DBC2D3 /* Build configuration list for PBXNativeTarget "FitStartTests" */ = {
+		B189CBB9255856B800FFBDEA /* Build configuration list for PBXNativeTarget "FitStartTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B12E3976254F65C100DBC2D3 /* Debug */,
-				B12E3977254F65C100DBC2D3 /* Release */,
+				B189CBBA255856B800FFBDEA /* Debug */,
+				B189CBBB255856B800FFBDEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B12E3978254F65C100DBC2D3 /* Build configuration list for PBXNativeTarget "FitStartUITests" */ = {
+		B189CBBC255856B800FFBDEA /* Build configuration list for PBXNativeTarget "FitStartUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B12E3979254F65C100DBC2D3 /* Debug */,
-				B12E397A254F65C100DBC2D3 /* Release */,
+				B189CBBD255856B800FFBDEA /* Debug */,
+				B189CBBE255856B800FFBDEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B14F3EB525587D7F00D1B7BB /* FitStart.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B14F3EB625587D7F00D1B7BB /* FitStart.xcdatamodel */,
+			);
+			currentVersion = B14F3EB625587D7F00D1B7BB /* FitStart.xcdatamodel */;
+			path = FitStart.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
-	rootObject = B12E3945254F65BF00DBC2D3 /* Project object */;
+	rootObject = B189CB84255856B300FFBDEA /* Project object */;
 }

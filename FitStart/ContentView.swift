@@ -141,45 +141,65 @@ struct Home: View {
     @StateObject var homeData = HomeViewModel()
     @State var txt = ""
     @State var edge = UIApplication.shared.windows.first?.safeAreaInsets
+    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "date",
+                                                                            ascending: true)], animation: .spring()) var results : FetchedResults<Goal>
     var body: some View {
-        VStack{
-            HStack{
-                VStack(alignment: .leading, spacing: 15) {
-                    Text("Hello James").font(.title).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                }.foregroundColor(.black)
-                Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
-                VStack {
-                    Button(action: {}) {
-                        Image("profile")
-                            .resizable()
-                            .renderingMode(.original)
-//                            .overlay(Circle().stroke(Color.blue, lineWidth: 3))
-                            .frame(width: 50, height: 45)
+        ZStack{
+            ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom), content: {
+                VStack{
+                    HStack{
+                        Text("Daily Goals")
+                            .font(.largeTitle)
+                            .fontWeight(.heavy)
+                            .foregroundColor(Color("lightblue"))
+                        Spacer(minLength: 0)
                     }
+                    .padding()
+                    .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
+                    ScrollView(.vertical, showsIndicators: true, content: {
+                        LazyVStack(alignment: .leading, spacing: 20) {
+                            ForEach(results){goal in
+                                VStack(alignment: .leading, spacing: 5, content: {
+                                    Text(goal.content ?? "")
+                                        .font(.title)
+                                        .fontWeight(.bold)
+                                    Text(goal.date ?? Date(), style: .date)
+                                        .fontWeight(.bold)
+                                })
+                                .foregroundColor(.black)
+                            }
+                        }
+                        .padding()
+                    })
                 }
-            }.padding()
+            })
+            .sheet(isPresented: $homeData.isNewData, content: {
+                NewDataView(homeData: homeData)
+            })
             
-            //for goals
-            HStack{
-                Button(action: {homeData.isNewData.toggle()}, label: {
-                    Image(systemName: "plus")
-                        .font(.largeTitle)
-                        .foregroundColor(.white)
-                        .padding(20)
-                        .background (
-                            AngularGradient(gradient: .init(colors: [Color("Color"), Color("lightblue")]), center: .center)
-                        )
-                        .clipShape(Circle())
-                        .padding(.trailing)
-                })
-                .padding()
-                .sheet(isPresented: $homeData.isNewData, content: {
-                    NewDataView(homeData: homeData)
-                })
-                .ignoresSafeArea(.all, edges: .top)
-            }
+            VStack{
+                //for goals
+                HStack{
+                    Button(action: {homeData.isNewData.toggle()}, label: {
+                        Image(systemName: "plus")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                            .padding(20)
+                            .background(Color("Color"))
+                            .clipShape(Capsule())
+                            .padding(.trailing)
+                    })
+                    .padding()
+                    .sheet(isPresented: $homeData.isNewData, content: {
+                        NewDataView(homeData: homeData)
+                    })
+                    .ignoresSafeArea(.all, edges: .top)
+                }
 
+            }
         }
+        
+        
     }
 }
 

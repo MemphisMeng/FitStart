@@ -35,5 +35,18 @@ class HomeViewModel: ObservableObject {
             
         }
     }
+    
+    func writeData(context : NSManagedObjectContext) {
+        let newTask = Goal(context: context)
+        newTask.date = date
+        newTask.content = content
+        newTask.xp = 10
+        do {
+            try context.save()
+            isNewData.toggle()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
    
 }

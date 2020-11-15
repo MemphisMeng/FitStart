@@ -8,21 +8,13 @@
 import SwiftUI
 
 struct Fitness: View {
-    
-    var body: some View {
-
-            DataView().padding(.vertical, 10)
-     
-    }
-}
-
-struct DataView : View {
     @Namespace var animation
     @State var show = false
     @State var selected : ExGoal!
-    var body : some View {
+    var body: some View {
         ZStack{
             VStack{
+                
                 HStack {
                     Button(action: {
                         
@@ -31,13 +23,8 @@ struct DataView : View {
                             .font(.system(size: 24, weight: .heavy))
                             .foregroundColor(.primary)
                     }
-                    Spacer()
-                    Button(action: {}) {
-                        Image(systemName: "fire")
-                            .font(.system(size: 24, weight: .heavy))
-                            .foregroundColor(.primary)
-                    }
                     
+                   
                 }
                 VStack {
                     Image("WeightLoss_04")
@@ -77,6 +64,7 @@ struct DataView : View {
         .ignoresSafeArea(.all, edges: .all)
     }
 }
+
 
 //Card view
 struct CardView : View {

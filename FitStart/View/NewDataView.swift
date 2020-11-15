@@ -44,7 +44,7 @@ struct NewDataView: View {
             }
             .padding()
             
-            Button(action: {}, label: {
+            Button(action: {homeData.writeData(context: context)}, label: {
                 Label(
                     title: { Text("Add Now")
                         .font(.title3)

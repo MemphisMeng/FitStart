@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E49740825609D2D007D89B5 /* LoseWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E49740725609D2D007D89B5 /* LoseWeight.swift */; };
 		B14F3EB725587D7F00D1B7BB /* FitStart.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B14F3EB525587D7F00D1B7BB /* FitStart.xcdatamodeld */; };
 		B14F3EBF2558823100D1B7BB /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14F3EBE2558823100D1B7BB /* ModelData.swift */; };
-		B14F3EC425588A9000D1B7BB /* ExAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14F3EC325588A9000D1B7BB /* ExAnimation.swift */; };
 		B189CB90255856B300FFBDEA /* FitStartApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B189CB8F255856B300FFBDEA /* FitStartApp.swift */; };
 		B189CB92255856B300FFBDEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B189CB91255856B300FFBDEA /* ContentView.swift */; };
 		B189CB94255856B700FFBDEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B189CB93255856B700FFBDEA /* Assets.xcassets */; };
@@ -44,9 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E49740725609D2D007D89B5 /* LoseWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseWeight.swift; sourceTree = "<group>"; };
 		B14F3EB625587D7F00D1B7BB /* FitStart.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FitStart.xcdatamodel; sourceTree = "<group>"; };
 		B14F3EBE2558823100D1B7BB /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
-		B14F3EC325588A9000D1B7BB /* ExAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExAnimation.swift; sourceTree = "<group>"; };
 		B189CB8C255856B300FFBDEA /* FitStart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitStart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B189CB8F255856B300FFBDEA /* FitStartApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitStartApp.swift; sourceTree = "<group>"; };
 		B189CB91255856B300FFBDEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -161,11 +161,11 @@
 			children = (
 				B189CBCF25585B2700FFBDEA /* Pal.swift */,
 				B189CBD425585B5F00FFBDEA /* Fitness.swift */,
+				5E49740725609D2D007D89B5 /* LoseWeight.swift */,
 				B189CBD925585B7800FFBDEA /* Meal.swift */,
 				B189CBDE25585BAF00FFBDEA /* OnBoardScreen.swift */,
 				B189CBEB25585DF600FFBDEA /* NewDataView.swift */,
 				B189CBF02558631500FFBDEA /* DateButton.swift */,
-				B14F3EC325588A9000D1B7BB /* ExAnimation.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -314,12 +314,12 @@
 				B189CBDF25585BAF00FFBDEA /* OnBoardScreen.swift in Sources */,
 				B189CB92255856B300FFBDEA /* ContentView.swift in Sources */,
 				B14F3EBF2558823100D1B7BB /* ModelData.swift in Sources */,
-				B14F3EC425588A9000D1B7BB /* ExAnimation.swift in Sources */,
 				B14F3EB725587D7F00D1B7BB /* FitStart.xcdatamodeld in Sources */,
 				B189CBEC25585DF600FFBDEA /* NewDataView.swift in Sources */,
 				B189CBDA25585B7800FFBDEA /* Meal.swift in Sources */,
 				B189CBD025585B2700FFBDEA /* Pal.swift in Sources */,
 				B189CBF12558631500FFBDEA /* DateButton.swift in Sources */,
+				5E49740825609D2D007D89B5 /* LoseWeight.swift in Sources */,
 				B189CB90255856B300FFBDEA /* FitStartApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

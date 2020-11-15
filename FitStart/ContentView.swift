@@ -71,7 +71,6 @@ struct ContentView: View {
 //        UITextView.appearance().backgroundColor = UIColor.blue.cgColor
     }
 
-    
     @State var centerX : CGFloat = 0
     @State var goToHome = false
 //    @Environement(.verticalSizeClass) var size
@@ -89,7 +88,6 @@ struct ContentView: View {
                             .tag("fitness")
                         Pal()
                             .tag("pal")
-                        
                     }
                 
                 //for menu bar

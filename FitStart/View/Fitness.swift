@@ -8,144 +8,142 @@
 import SwiftUI
 
 struct Fitness: View {
+    
     var body: some View {
-        VStack(spacing: 15) {
-            HStack {
-                VStack(alignment: .leading, spacing: 15) {
-                    Text("Fitness").font(.largeTitle)
-                }.foregroundColor(.blue)
-            }
-            Spacer()
-            SearchView().padding(.vertical, 15)
 
-        }
+            DataView().padding(.vertical, 10)
+     
     }
 }
 
-struct SearchView : View {
-    @State var txt = ""
-    @State var selected = scroll_Tabs[0]
+struct DataView : View {
     @Namespace var animation
     @State var show = false
-    @State var selectedExercise : ExerciseModel!
+    @State var selected : ExGoal!
     var body : some View {
-        ZStack {
-            VStack(spacing: 0) {
-                HStack(spacing : 15) {
-                    Image(systemName: "magnifyingglass").font(.body)
-                    TextField("Search Exercise", text: $txt)
-                }.padding()
-                .foregroundColor(.black)
-                .cornerRadius(25)
-            
-                ScrollView(.vertical, showsIndicators: false, content: {
-                    VStack {
-                        HStack {
-                            Text("Animations")
-                                .font(.title)
-                                .fontWeight(.heavy)
-                                .foregroundColor(.black)
-                            Spacer()
-                        }
-                        .padding(.horizontal)
-                        .padding(.top)
-                        .padding(.bottom, 10)
+        ZStack{
+            VStack{
+                HStack {
+                    Button(action: {
                         
-                        ScrollView(.horizontal, showsIndicators: false, content: {
-                            HStack(spacing: 20) {
-                                ForEach(scroll_Tabs, id: \.self) {tab in
-                                    tabButton(title:tab, selected: $selected, animation: animation)
+                    }) {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 24, weight: .heavy))
+                            .foregroundColor(.primary)
+                    }
+                    Spacer()
+                    Button(action: {}) {
+                        Image(systemName: "fire")
+                            .font(.system(size: 24, weight: .heavy))
+                            .foregroundColor(.primary)
+                    }
+                    
+                }
+                VStack {
+                    Image("WeightLoss_04")
+                        .resizable()
+                        .frame(width: 80, height: 65)
+                    Text("Fitness")
+                        .font(.title)
+                        .fontWeight(.heavy)
+                        .foregroundColor(Color("purple"))
+                    Text("What kind of exercise are you interested in")
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.gray)
+                }.padding()
+                Spacer(minLength: 10)
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(spacing: 15) {
+                        ForEach(exgoals) { item in
+                            CardView(card : item, animation: animation)
+                                .shadow(color: Color.black.opacity(0.16), radius: 5, x: 0, y: 5)
+                                .onTapGesture {
+                                    withAnimation(.easeIn) {
+                                        selected = item
+                                        show.toggle()
+                                    }
                                 }
                             }
-                            .padding(.horizontal)
-                            .padding(.top, 10)
-                        })
-                        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 15), count: 2), spacing: 15) {
-                            ForEach(animations) {i in
-                                AniView(aniData: i, animation: animation)
-                                    .onTapGesture{
-                                        withAnimation(.easeIn) {
-                                            selectedExercise = i
-                                            show.toggle()
-                                        }
-                                    }
-                            
-                            }
                         }
-                        .padding()
-                        .padding(.top, 10)
-                    }
-                })
+                        .padding(.horizontal, 22)
+                }
+                .padding(.top)
             }
-            .background(Color("lighblue").opacity(0.1).ignoresSafeArea(.all, edges: .all))
-            
-            if selected != "" && show {
-                ExAnimation(exercise: $selectedExercise, show: $show, animation: animation)
+            .ignoresSafeArea(.all, edges: .all)
+            if selected != nil && show {
+                LoseWeight(goal: $selected, show: $show, animation: animation)
             }
         }
-        .ignoresSafeArea(.all, edges: .top)
-        
+        .ignoresSafeArea(.all, edges: .all)
     }
 }
 
-struct tabButton : View {
-    var title : String
-    @Binding var selected : String
+//Card view
+struct CardView : View {
+    var card : ExGoal
     var animation : Namespace.ID
     var body : some View {
-        Button(action: {
-            withAnimation(.spring()){
-                selected = title
-            }
-            
-        }, label: {
-            VStack(alignment: .leading, spacing: 6, content: {
-                Text(title)
-                    .fontWeight(.heavy)
-                    .foregroundColor(selected == title ? .blue : .gray)
-                if selected == title {
-                    Capsule()
-                        .fill(Color.black)
-                        .frame(width: 50, height: 4)
-                        .matchedGeometryEffect(id: "Tab", in: animation)
-                }
-                
-            })
-        })
-    }
-}
-
-struct AniView : View {
-    var aniData : ExerciseModel
-    var animation : Namespace.ID
-    var body : some View {
-        VStack(alignment: .leading, spacing: 6){
-            ZStack{
-                
-                Color(aniData.image)
-                    .cornerRadius(15)
-                Image(aniData.image)
+        ZStack (alignment: Alignment(horizontal: .leading, vertical: .bottom)){
+            HStack(spacing: 15) {
+               Spacer()
+                Image(card.image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .padding(20)
-                    .matchedGeometryEffect(id: aniData.image, in: animation)
+                    .frame(height: 100, alignment: .center)
+                    .matchedGeometryEffect(id: card.image, in: animation)
+                    
+                Spacer(minLength: 0)
             }
-            Text(aniData.title)
-                .fontWeight(.heavy)
-                .foregroundColor(.gray)
-            Text(String(aniData.xp))
-                .fontWeight(.heavy)
-                .foregroundColor(.black)
+            .padding(.horizontal)
+            .padding(.bottom, 80)
+            .background(Color("Color").cornerRadius(25).padding(.top, 35))
+            .padding(.trailing, 8)
+            .background(Color("purple").cornerRadius(25).padding(.top, 35))
+            
+            Text(card.title)
+                .fontWeight(.semibold)
+                .foregroundColor(Color.white)
+                .padding(.vertical, 10)
+                .padding(.horizontal, 150)
+                .background(Color("purple").opacity(0.7))
+                .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight], size: 15))
+            
         }
-
-    }
- 
-}
-
-
-struct Fitness_Previews: PreviewProvider {
-    static var previews: some View {
-        Fitness()
     }
 }
+
+
+
+
+struct CustomCorner : Shape {
+      
+      var corners : UIRectCorner
+      var size : CGFloat
+      
+      func path(in rect: CGRect) -> Path {
+          
+          let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: size, height: size))
+          
+          return Path(path.cgPath)
+      }
+  }
+
+//Two cards: Weight Loss and gain muscle
+struct ExGoal : Identifiable {
+    var id = UUID().uuidString
+    var image : String
+    var title : String
+}
+
+var exgoals = [
+    ExGoal(image: "WeightLoss", title: "Weight Loss"),
+    ExGoal(image: "Strength_03", title: "Gain Muscle")
+]
+
+
+//struct Fitness_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Fitness()
+//    }
+//}
 

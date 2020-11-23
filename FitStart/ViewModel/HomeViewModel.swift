@@ -15,6 +15,8 @@ class HomeViewModel: ObservableObject {
     
     //For NewData
     @Published var isNewData = false
+    //For updating data
+    @Published var updateItem : Goal!
     //@Published var updateItem : Goal!
     let calender = Calendar.current
     func checkDate() -> String {
@@ -37,16 +39,31 @@ class HomeViewModel: ObservableObject {
     }
     
     func writeData(context : NSManagedObjectContext) {
-        let newTask = Goal(context: context)
-        newTask.date = date
-        newTask.content = content
-        newTask.xp = 10
-        do {
-            try context.save()
+        if updateItem != nil {
+            updateItem.date = date
+            updateItem.content = content
+            try! context.save()
+            updateItem = nil
             isNewData.toggle()
-        } catch {
-            print(error.localizedDescription)
+        } else {
+            let newTask = Goal(context: context)
+            newTask.date = date
+            newTask.content = content
+            newTask.xp = 10
+            do {
+                try context.save()
+                isNewData.toggle()
+            } catch {
+                print(error.localizedDescription)
+            }
         }
     }
    
+    func EditItem(item: Goal) {
+        updateItem = item
+        date = item.date!
+        content  = item.content!
+        isNewData.toggle()
+        
+    }
 }

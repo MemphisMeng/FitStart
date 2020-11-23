@@ -13,7 +13,7 @@ struct NewDataView: View {
     var body: some View {
         VStack {
             HStack {
-                Text("Add New Goal")
+                Text("\(homeData.updateItem == nil ? "Add New" : "Update") Goal")
                     .font(.system(size: 30))
                     .fontWeight(.heavy)
                     .foregroundColor(.black)
@@ -46,7 +46,7 @@ struct NewDataView: View {
             
             Button(action: {homeData.writeData(context: context)}, label: {
                 Label(
-                    title: { Text("Add Now")
+                    title: { Text(homeData.updateItem == nil ? "Add New" : "Update")
                         .font(.title3)
                         .foregroundColor(.white)
                         .fontWeight(.semibold)

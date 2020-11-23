@@ -146,6 +146,7 @@ struct Home: View {
     
 //    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var greeting : String = "Hello"
+    @Environment(\.managedObjectContext) var context
     var body: some View {
         ZStack{
             ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom), content: {
@@ -162,14 +163,33 @@ struct Home: View {
                     ScrollView(.vertical, showsIndicators: true, content: {
                         LazyVStack(alignment: .leading, spacing: 20) {
                             ForEach(results){goal in
-                                VStack(alignment: .leading, spacing: 5, content: {
-                                    Text(goal.content ?? "")
-                                        .font(.title)
-                                        .fontWeight(.bold)
-                                    Text(goal.date ?? Date(), style: .date)
-                                        .fontWeight(.bold)
-                                })
-                                .foregroundColor(.black)
+                                HStack {
+                                    Image(systemName: "circle")
+                                        .foregroundColor(Color("Color"))
+                                        .contextMenu{
+                                            Button(action: {
+                                                context.delete(goal)
+                                                try! context.save()
+                                            }, label: {
+                                                Text("Mark Complete")
+                                            })
+                                        }
+                                    VStack(alignment: .leading, spacing: 5, content: {
+                                        Text(goal.content ?? "")
+                                            .fontWeight(.bold)
+                                        Text(goal.date ?? Date(), style: .date)
+                                            .fontWeight(.semibold)
+                                    })
+                                    .foregroundColor(.black)
+                                    .contextMenu{
+                                        Button(action: {
+                                            homeData.EditItem(item: goal)
+                                        }, label: {
+                                            Text("Edit")
+                                        })
+                                    }
+                                }
+                                
                             }
                         }
                         .padding()

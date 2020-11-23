@@ -143,6 +143,9 @@ struct Home: View {
     @State var edge = UIApplication.shared.windows.first?.safeAreaInsets
     @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "date",
                                                                             ascending: true)], animation: .spring()) var results : FetchedResults<Goal>
+    
+//    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var greeting : String = "Hello"
     var body: some View {
         ZStack{
             ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom), content: {
@@ -179,6 +182,7 @@ struct Home: View {
             
             VStack{
                 //for goals
+                Spacer(minLength: 2)
                 HStack{
                     Button(action: {homeData.isNewData.toggle()}, label: {
                         Image(systemName: "plus")
@@ -188,6 +192,7 @@ struct Home: View {
                             .background(Color("Color"))
                             .clipShape(Capsule())
                             .padding(.trailing)
+                        
                     })
                     .padding()
                     .sheet(isPresented: $homeData.isNewData, content: {
@@ -195,11 +200,27 @@ struct Home: View {
                     })
                     .ignoresSafeArea(.all, edges: .top)
                 }
-
+                .onAppear(perform: convertDate)
+                
+                ZStack{
+                    Text(greeting)
+                }
+                
             }
         }
-        
-        
+    }
+    
+    func convertDate() {
+        let hour = Calendar.current.component(.hour, from: Date())
+
+        switch hour {
+        case 6..<12 :greeting = "Good Morning"
+        case 12 : greeting = "How do you do? It's already noon!"
+        case 13..<17 : greeting = "Good afternoon"
+        case 17..<22 : greeting = "You are almost done for the day. Sit back and relax!"
+        default:
+            greeting = "Hello"
+        }
     }
 }
 

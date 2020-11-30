@@ -8,157 +8,80 @@
 import SwiftUI
 import UIKit
 import Foundation
+struct menu : Decodable {
+    let api_url : String
+    let date : String
+    let meal_groups : Meal_Group
+}
+
+struct Meal_Group : Decodable {
+    let Breakfast : Meal
+    let Brunch : Meal
+    let Lunch : Meal
+    let Dinner : Meal
+    struct Meal : Decodable {
+        let name : String
+        let stations : [station]
+    }
+}
+
+struct station : Decodable {
+    let station_name : String
+    let menu_items : [food]
+    struct food : Decodable {
+        let id : String
+        let name : String
+        let is_vegetarian : Bool
+        let is_vegan : Bool
+        let ingredients : String
+        let is_glutenfree : Bool
+        let calories : String
+        let saturated_fat : String
+        let protein : String
+        let carbohydrates : String
+    }
+}
+
+
+
+
+
 struct Meal: View {
-    @State var results : String = ""
-    var body : some View {
+    @State private var day : String = "12"
+    @State private var urlString : String = "12"
+    var body: some View {
         VStack {
-            HStack (alignment: .top) {
-                HStack (alignment: .top, spacing: 15) {
-                    Text("Today")
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                    Text("Warren")
-                }
-                
-                Spacer()
-                Button(action: {
-                    
-                }) {
-                    Image(systemName: "arrow.clockwise")
-                        .font(.title)
-                        .foregroundColor(.white)
-                }
-            }
-            .padding(.top, (UIApplication.shared.windows.first?.safeAreaInsets.top)! + 18)
-            .padding()
-            .padding(.bottom, 80)
-            .background(Color("Color"))
             
-            Spacer()
+        }.onAppear(perform: getDate)
+    };func getDate(){
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        day = formatter.string(from: date)
+        urlString = "https://www.bu.edu/dining/api/locations/warren/menu/" + day
+        let url = URL(string: urlString)
+        URLSession.shared.dataTask(with: url!) { data, error, _ in
            
-            ZStack {
-                ScrollView() {
-                    Text(results)
+//            print(String(data: data!, encoding: .utf8)!)
+                do {
+                    let meal = try JSONDecoder().decode(menu.self, from: data!)
+                    print(meal)
+                } catch {
+                    print("Fetch failed: \(error.localizedDescription ?? "Unknown error")")
                 }
-                
-            }
-            .onAppear(perform: loadData)
-
-        }
-        .edgesIgnoringSafeArea(.top)
-        .background(Color.black.opacity(0.1).edgesIgnoringSafeArea(.all))
+                   
+        }.resume()
     }
-    func loadData() {
-        guard let url = URL(string: "https://www.bu.edu/dining/api/locations/warren/menu/2020-11-23/") else {
-            print("Invalid URL")
-            return
-        }
-        let request =  URLRequest(url: url)
-        
-        URLSession.shared.dataTask(with: request) {data, response, error in
-            results = String(data: data!, encoding: .utf8)!
-        }
-        .resume()
+    
+}
+
+
+
+struct Meal_Previews: PreviewProvider {
+    static var previews: some View {
+        Meal()
     }
 }
 
-//struct Meal_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Meal()
-//    }
-//}
-
-
-
-
-//struct foodView : View {
-//    var body : some View {
-//        VStack(alignment: .leading, spacing: 15) {
-//            Text(data.name)
-//                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-//
-//            HStack(spacing: 15) {
-//                VStack(alignment: .leading, spacing: 12) {
-//                    Text("points")
-//                        .font(.title)
-//                    Text("10")
-//                        .font(.title)
-//
-//                }
-//                VStack(alignment: .leading, spacing: 12) {
-//                    VStack(alignment: .leading, spacing: 10) {
-//                        Text("is_glutenfree")
-//                        Text(getValue(data: data.is_glutenfree))
-//                            .foregroundColor(.red)
-//                    }
-//                    Divider()
-//                    VStack(alignment: .leading, spacing: 10) {
-//                        Text("is_vegan")
-//                        Text(getValue(data: data.is_vegan))
-//                            .foregroundColor(.yellow)
-//                    }
-//                    Divider()
-//                    VStack(alignment: .leading, spacing: 10) {
-//                        Text("protein")
-//                        Text(getValue(data: data.protein))
-//                            .foregroundColor(.blue)
-//                    }
-//                    Divider()
-//                    VStack(alignment: .leading, spacing: 10) {
-//                        Text("calories")
-//                        Text(getValue(data: data.calories))
-//                            .foregroundColor(.red)
-//                    }
-//                }
-//            }
-//        }
-//        .padding()
-//        .frame(width: UIScreen.main.bounds.width - 30)
-//        .background(Color.white)
-//        .cornerRadius(20)
-//    }
-//}
-
-struct Response: Codable {
-    var results: [Food]
-}
-
-struct Food : Codable, Hashable {
-    var name: String
-    var is_vegan: Bool
-    var is_glutenfree: Bool
-    var calories: Int
-    var protein: Int
-}
-
-//class getData : ObservableObject {
-//    @Published var dishes = [Food]()
-//    init() {
-//        let url = "https://www.bu.edu/dining/api/locations/warren/menu/2020-11-23/"
-//
-//    }
-//    func updateData() {
-//        let url = "https://www.bu.edu/dining/api/locations/warren/menu/2020-11-23/"
-//        let session =  URLSession(configuration: .default)
-//
-//        session.dataTask(with: URL(string: url)!) { (data, _, error) in
-//            if error != nil {
-//                print((error?.localizedDescription))
-//                return
-//            }
-//            do {
-//                let decoder = JSONDecoder()
-//                let jsonData = try decoder.decode(Food.self, from: data!)
-//                DispatchQueue.main.async {
-//
-//                }
-//            } catch let error {
-//
-//            }
-//
-//        }
-//        .resume()
-//    }
-//}
 
 

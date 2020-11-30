@@ -8,7 +8,7 @@
 import SwiftUI
 import UIKit
 import Foundation
-struct menu : Decodable {
+struct Menu : Decodable {
     let api_url : String
     let date : String
     let meal_groups : Meal_Group
@@ -25,33 +25,44 @@ struct Meal_Group : Decodable {
     }
 }
 
-struct station : Decodable {
+struct station : Decodable, Hashable {
     let station_name : String
     let menu_items : [food]
-    struct food : Decodable {
-        let id : String
-        let name : String
-        let is_vegetarian : Bool
-        let is_vegan : Bool
-        let ingredients : String
-        let is_glutenfree : Bool
-        let calories : String
-        let saturated_fat : String
-        let protein : String
-        let carbohydrates : String
-    }
 }
 
-
-
+struct food : Decodable, Hashable {
+    let id : String
+    let name : String
+    let is_vegetarian : Bool
+    let is_vegan : Bool
+    let ingredients : String
+    let is_glutenfree : Bool
+    let calories : String
+    let saturated_fat : String
+    let protein : String
+    let carbohydrates : String
+}
 
 
 struct Meal: View {
     @State private var day : String = "12"
     @State private var urlString : String = "12"
+    @State var breakfast : [station] = []
+    @State var brunch : [station] = []
+    @State var lunch : [station] = []
+    @State var dinner : [station] = []
     var body: some View {
         VStack {
-            
+            if breakfast.isEmpty && brunch.isEmpty && lunch.isEmpty && dinner.isEmpty {
+                ProgressView()
+            } else {
+                Text("breakfast")
+                    .font(.title3)
+                List(breakfast, id: \.self) { f in
+                    //display the food fetched
+                    Station_View(station_: f)
+                }
+            }
         }.onAppear(perform: getDate)
     };func getDate(){
         let date = Date()
@@ -64,8 +75,11 @@ struct Meal: View {
            
 //            print(String(data: data!, encoding: .utf8)!)
                 do {
-                    let meal = try JSONDecoder().decode(menu.self, from: data!)
-                    print(meal)
+                    let menu = try JSONDecoder().decode(Menu.self, from: data!)
+                    breakfast = menu.meal_groups.Breakfast.stations
+                    brunch = menu.meal_groups.Brunch.stations
+                    lunch = menu.meal_groups.Lunch.stations
+                    dinner = menu.meal_groups.Dinner.stations
                 } catch {
                     print("Fetch failed: \(error.localizedDescription ?? "Unknown error")")
                 }

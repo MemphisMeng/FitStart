@@ -24,6 +24,7 @@
 		B189CBE725585D5B00FFBDEA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B189CBE625585D5B00FFBDEA /* HomeViewModel.swift */; };
 		B189CBEC25585DF600FFBDEA /* NewDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B189CBEB25585DF600FFBDEA /* NewDataView.swift */; };
 		B189CBF12558631500FFBDEA /* DateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B189CBF02558631500FFBDEA /* DateButton.swift */; };
+		C956836B25758073003881EB /* Station View.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956836A25758073003881EB /* Station View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		B189CBE625585D5B00FFBDEA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B189CBEB25585DF600FFBDEA /* NewDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDataView.swift; sourceTree = "<group>"; };
 		B189CBF02558631500FFBDEA /* DateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateButton.swift; sourceTree = "<group>"; };
+		C956836A25758073003881EB /* Station View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Station View.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 				B189CBDE25585BAF00FFBDEA /* OnBoardScreen.swift */,
 				B189CBEB25585DF600FFBDEA /* NewDataView.swift */,
 				B189CBF02558631500FFBDEA /* DateButton.swift */,
+				C956836A25758073003881EB /* Station View.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 			files = (
 				B189CBD525585B5F00FFBDEA /* Fitness.swift in Sources */,
 				B189CBE725585D5B00FFBDEA /* HomeViewModel.swift in Sources */,
+				C956836B25758073003881EB /* Station View.swift in Sources */,
 				B189CB99255856B700FFBDEA /* Persistence.swift in Sources */,
 				B189CBDF25585BAF00FFBDEA /* OnBoardScreen.swift in Sources */,
 				B189CB92255856B300FFBDEA /* ContentView.swift in Sources */,

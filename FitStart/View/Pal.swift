@@ -9,8 +9,10 @@ import SwiftUI
 
 struct Pal: View {
     var body: some View {
-        VStack {
-            Text("Pal")
+        NavigationView{
+            RegisterUser()
+                .preferredColorScheme(.dark)
+                .navigationBarHidden(true)
         }
     }
 }

@@ -18,7 +18,37 @@ class RegisterViewModel : ObservableObject {
     @Published var image_Data = Data(count: 0)
     @Published var picker = false
     
+    let ref = Firestore.firestore()
+    
+    @Published var isLoading = false
+    @AppStorage("current_status") var status = false
     func register() {
+        //sending user data to Firebase
+        let uid = Auth.auth().currentUser!.uid
         
+        isLoading = true
+        UploadImage(imageData: image_Data, path: "profile_Photos") { (url) in
+            self.ref.collection("Users").document(uid).setData([
+                            "uid": uid,
+                            "imageurl": url,
+                            "username": self.name,
+                            "bio": self.bio,
+                            "interest" : self.interest,
+                            "level" : self.level,
+                            "xp" : self.xp,
+                            "dateCreated": Date()
+                            
+                        ]) { (err) in
+                         
+                            if err != nil{
+                                self.isLoading = false
+                                return
+                            }
+                            self.isLoading = false
+                            // success means settings status as true...
+                            self.status = true
+                        }
+            
+        }
     }
 }

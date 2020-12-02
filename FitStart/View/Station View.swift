@@ -17,7 +17,8 @@ struct Station_View: View {
             VStack {
                 ForEach(station_.menu_items, id: \.self) { i in
                     Text("Name: " + i.name)
-                    Text("Calories" + i.calories)
+                    Text("Calories: " + i.calories)
+                    Text("Protein: " + i.protein)
                 }
             }
         } )

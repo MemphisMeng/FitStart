@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct Pal: View {
+    @AppStorage("current_status") var status = false
     var body: some View {
         NavigationView{
-            RegisterUser()
-                .preferredColorScheme(.dark)
-                .navigationBarHidden(true)
+            VStack{
+                            
+                if status{Profile()}
+                else{RegisterUser()}
+            }
+            .preferredColorScheme(.dark)
+            .navigationBarHidden(true)
         }
     }
 }

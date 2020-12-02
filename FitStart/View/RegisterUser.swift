@@ -74,12 +74,12 @@ struct RegisterUser: View {
             .padding()
             .padding(.horizontal)
        
-//            if registerData.isLoading {
-//                ProgressView()
-//                    .padding()
-//            } else {
+            if registerData.isLoading {
+                ProgressView()
+                    .padding()
+            } else {
                 Button(action: registerData.register, label: {
-                    Text("Register")
+                    Text("Save")
                         .foregroundColor(.white)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         .padding(.vertical)
@@ -87,9 +87,9 @@ struct RegisterUser: View {
                         .background(Color("lightblue"))
                         .clipShape(Capsule())
                 })
-                .disabled(registerData.image_Data.count == 0 || registerData.name == "" || registerData.bio == "" ? true : false)
-                .opacity(registerData.image_Data.count == 0 || registerData.name == "" || registerData.bio == "" ?  0.5 : 1)
-//            }
+                .disabled(registerData.image_Data.count == 0 || registerData.name == "" || registerData.interest == ""  || registerData.bio == "" ? true : false)
+                .opacity(registerData.image_Data.count == 0 || registerData.name == "" || registerData.interest == ""  || registerData.bio == "" ?  0.5 : 1)
+            }
   
             Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
         }

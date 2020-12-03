@@ -13,10 +13,9 @@ struct Pal: View {
         NavigationView{
             VStack{
                             
-                if status{Profile()}
-                else{RegisterUser()}
+                if status{RegisterUser()}
+                else{Profile()}
             }
-            .preferredColorScheme(.dark)
             .navigationBarHidden(true)
         }
     }

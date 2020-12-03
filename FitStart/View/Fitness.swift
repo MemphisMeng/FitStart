@@ -12,56 +12,66 @@ struct Fitness: View {
     @State var show = false
     @State var selected : ExGoal!
     var body: some View {
-        ZStack{
+        NavigationView{
             VStack{
-                
-                HStack {
-                    Button(action: {
-                        
-                    }) {
-                        Image(systemName: "chevron.left")
-                            .font(.system(size: 24, weight: .heavy))
-                            .foregroundColor(.primary)
+                if show{
+                    if (selected.image == "WeightLoss") {
+                        Cube_one()
+                    } else {
+                        Cube_two()
                     }
-                    
-                   
-                }
-                VStack {
-                    Image("WeightLoss_04")
-                        .resizable()
-                        .frame(width: 80, height: 65)
-                    Text("Fitness")
-                        .font(.title)
-                        .fontWeight(.heavy)
-                        .foregroundColor(Color("purple"))
-                    Text("What kind of exercise are you interested in")
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color.gray)
-                }.padding()
-                Spacer(minLength: 10)
-                ScrollView(.vertical, showsIndicators: false) {
-                    VStack(spacing: 15) {
-                        ForEach(exgoals) { item in
-                            CardView(card : item, animation: animation)
-                                .shadow(color: Color.black.opacity(0.16), radius: 5, x: 0, y: 5)
-                                .onTapGesture {
-                                    withAnimation(.easeIn) {
-                                        selected = item
-                                        show.toggle()
-                                    }
+                } else{
+                    ZStack{
+                        VStack{
+                            
+                            HStack {
+                                Button(action: {
+                                    
+                                }) {
+                                    Image(systemName: "chevron.left")
+                                        .font(.system(size: 24, weight: .heavy))
+                                        .foregroundColor(.primary)
                                 }
+                                
+                               
                             }
+                            VStack {
+                                Image("WeightLoss_04")
+                                    .resizable()
+                                    .frame(width: 80, height: 65)
+                                Text("Fitness")
+                                    .font(.title)
+                                    .fontWeight(.heavy)
+                                    .foregroundColor(Color("purple"))
+                                Text("What kind of exercise are you interested in")
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(Color.gray)
+                            }.padding()
+                            Spacer(minLength: 10)
+                            ScrollView(.vertical, showsIndicators: false) {
+                                VStack(spacing: 15) {
+                                    ForEach(exgoals) { item in
+                                        CardView(card : item, animation: animation)
+                                            .shadow(color: Color.black.opacity(0.16), radius: 5, x: 0, y: 5)
+                                            .onTapGesture {
+                                                selected = item
+                                                show = true
+                                            }
+                                        }
+                                    }
+                                    .padding(.horizontal, 22)
+                            }
+                            .padding(.top)
                         }
-                        .padding(.horizontal, 22)
+                        .ignoresSafeArea(.all, edges: .all)
+                        if selected != nil && show {
+                            LoseWeight(goal: $selected, show: $show, animation: animation)
+                        }
+                    }
+                    .ignoresSafeArea(.all, edges: .all)
                 }
-                .padding(.top)
-            }
-            .ignoresSafeArea(.all, edges: .all)
-            if selected != nil && show {
-                LoseWeight(goal: $selected, show: $show, animation: animation)
             }
         }
-        .ignoresSafeArea(.all, edges: .all)
     }
 }
 

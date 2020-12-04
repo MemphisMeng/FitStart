@@ -20,7 +20,7 @@ import CoreData
 //    let message, imageName: String
 //}
 
-var tabs = ["home", "meal", "fitness", "pal"]
+var tabs = ["Leaderboard", "home", "Profile"]
 
 
 //Button for the Bottom Menu Bar
@@ -42,7 +42,7 @@ struct TabButton : View {
                     .resizable()
                     .renderingMode(.template)
                     .frame(width: 40, height: 40)
-                    .foregroundColor(selectedTab == image ? Color.blue.opacity(0.5) : Color.black.opacity(0.4))
+                    .foregroundColor(selectedTab == image ? Color.yellow.opacity(0.8) : Color.white.opacity(0.9))
                     
                 Text(image)
                     .font(.caption)
@@ -52,7 +52,8 @@ struct TabButton : View {
             .padding(.top)
             .frame(width: 70, height: 50)
             //pop the icon selected
-            .offset(y: selectedTab == image ? -15 : 0)
+            .offset(y: selectedTab == image ? -5 : 0)
+            
             
         })
     
@@ -73,24 +74,29 @@ struct ContentView: View {
 
     @State var centerX : CGFloat = 0
     @State var goToHome = false
+    @State var edge = UIApplication.shared.windows.first?.safeAreaInsets
 //    @Environement(.verticalSizeClass) var size
     var body: some View {
         ZStack {
             if goToHome {
+                
                 //swich tabs
                 VStack(spacing: 0) {
-                    TabView(selection: $selectedTab) {
-                        Home()
-                            .tag("home")
-                        Meal()
-                            .tag("meal")
-                        Fitness()
-                            .tag("fitness")
-                        Pal()
-                            .tag("pal")
-                    }
-                
+                   
+                        TabView(selection: $selectedTab) {
+                            Home()
+                                .tag("home")
+                            Leaderboard()
+                                .tag("Leaderboard")
+                            Pal()
+                                .tag("Profile")
+                        }
+                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+           
+                    
+                    
                 //for menu bar
+                Spacer(minLength: 0)
                 HStack(spacing: 0) {
                     ForEach(tabs, id: \.self) {image in
                         GeometryReader {reader in
@@ -103,22 +109,22 @@ struct ContentView: View {
                                 })
                                 
                         }
-                        .frame(width: 70, height: 50)
+                        .frame(width: 50, height: 30)
                         if image != tabs.last {Spacer(minLength: 0)}
                     }
                 }
-                .padding(.horizontal, 25)
+                .padding(.horizontal, 30)
                 .padding(.top)
+//                .padding(.bottom)
                     //For Smaller size iphone padding will be 15
                 .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom == 0 ? 15:
                                 UIApplication.shared.windows.first?.safeAreaInsets.bottom)
-                .background(Color.white.clipShape(AnimatedShape(centerX: centerX)))
+                .background(Color("Color").clipShape(AnimatedShape(centerX: centerX)))
                 .shadow(color: Color.blue.opacity(0.1), radius: 5, x: 0, y: -5)
-                .padding(.top, -15)
-                .ignoresSafeArea(.all, edges: .horizontal)
+//                .padding(.top, -5)
+                .ignoresSafeArea(.all, edges: .all)
             }
-            .background(Color.blue.opacity(0.07).ignoresSafeArea(.all, edges: .bottom))
-            
+            .background(Color.white.ignoresSafeArea(.all, edges: .all))
             } //end if
             else {
                 OnBoardScreen()
@@ -138,133 +144,103 @@ struct ContentView: View {
 
 //The Home page
 struct Home: View {
-    @StateObject var homeData = HomeViewModel()
-    @State var txt = ""
-    @State var edge = UIApplication.shared.windows.first?.safeAreaInsets
-    @FetchRequest(entity: Goal.entity(), sortDescriptors: [NSSortDescriptor(key: "date",
-                                                                            ascending: true)], animation: .spring()) var results : FetchedResults<Goal>
-    
-//    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    @State private var greeting : String = "Hello"
-    @Environment(\.managedObjectContext) var context
     var body: some View {
-        ZStack{
-            ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom), content: {
-                VStack{
-                    HStack{
-                        Text("Daily Goals")
-                            .font(.largeTitle)
-                            .fontWeight(.heavy)
-                            .foregroundColor(Color("lightblue"))
-                        Spacer(minLength: 0)
-                    }
-                    .padding()
-                    .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
-                    ScrollView(.vertical, showsIndicators: true, content: {
-                        LazyVStack(alignment: .leading, spacing: 20) {
-                            ForEach(results){goal in
-                                HStack {
-                                    Image(systemName: "circle")
-                                        .foregroundColor(Color("Color"))
-                                        .contextMenu{
-                                            Button(action: {
-                                                context.delete(goal)
-                                                try! context.save()
-                                            }, label: {
-                                                Text("Mark Complete")
-                                            })
-                                        }
-                                    VStack(alignment: .leading, spacing: 5, content: {
-                                        Text(goal.content ?? "")
-                                            .fontWeight(.bold)
-                                        Text(goal.date ?? Date(), style: .date)
-                                            .fontWeight(.semibold)
-                                    })
-                                    .foregroundColor(.black)
-                                    .contextMenu{
-                                        Button(action: {
-                                            homeData.EditItem(item: goal)
-                                        }, label: {
-                                            Text("Edit")
-                                        })
-                                    }
-                                }
-                                
-                            }
-                        }
-                        .padding()
-                    })
-                }
-            })
-            .sheet(isPresented: $homeData.isNewData, content: {
-                NewDataView(homeData: homeData)
-            })
-            
-            VStack{
-                //for goals
-                Spacer(minLength: 2)
-                HStack{
-                    Button(action: {homeData.isNewData.toggle()}, label: {
-                        Image(systemName: "plus")
-                            .font(.largeTitle)
-                            .foregroundColor(.white)
-                            .padding(20)
-                            .background(Color("Color"))
-                            .clipShape(Capsule())
-                            .padding(.trailing)
-                        
-                    })
-                    .padding()
-                    .sheet(isPresented: $homeData.isNewData, content: {
-                        NewDataView(homeData: homeData)
-                    })
-                    .ignoresSafeArea(.all, edges: .top)
-                }
-                .onAppear(perform: convertDate)
+        VStack {
+            HStack {
+                Text("Level 1")
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.white)
+                    .background(Color.black)
+                    .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 3))
+                    .padding(.leading)
+                Image("Badge")
+                    .resizable()
+                    .frame(width: 20, height: 24, alignment: .leading)
                 
-                ZStack{
-                    Text(greeting)
-                }
-                
+                Spacer()
+                Text("xp: 1500")
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.white)
+                    .background(Color.black)
+                    .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 3))
+                    .padding(.trailing)
             }
-        }
-    }
+          
+        
+            Spacer()
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 40), count: 2), spacing: 10) {
+                ForEach(mainfs) { f in
+                   
+                        mainFeatureView(feature: f)
+                    
+                    
+                }
+                .padding(.top)
+            }
+            
+            Spacer()
     
-    func convertDate() {
-        let hour = Calendar.current.component(.hour, from: Date())
-
-        switch hour {
-        case 6..<12 :greeting = "Good Morning"
-        case 12 : greeting = "How do you do? It's already noon!"
-        case 13..<17 : greeting = "Good afternoon"
-        case 17..<22 : greeting = "You are almost done for the day. Sit back and relax!"
-        default:
-            greeting = "Hello"
         }
     }
 }
 
-
+struct mainFeatureView : View {
+    var feature : MainFeature
+    var body : some View {
+        VStack {
+            Image(feature.name)
+                .resizable()
+                .renderingMode(.original)
+                .aspectRatio(contentMode: .fit)
+                .padding(.top)
+                .padding(.leading, 15)
+            
+            Button(action: {
+               
+            }) {
+                Text(feature.name)
+                    .font(.title2)
+                    .bold()
+                    .padding(.leading)
+                    .padding(.trailing)
+                    .foregroundColor(.white)
+            }
+            .background(Color("Color"))
+            .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 5))
+            .padding(.top, 20)
+        }
+    }
+}
 
 //The Custom shape for poping up the Icon in the Menu Bar upon selection
 struct AnimatedShape: Shape {
     var centerX : CGFloat
     func path(in rect: CGRect) -> Path {
         return Path{path in
-            path.move(to: CGPoint(x:0, y:15))
+            path.move(to: CGPoint(x:0, y:10))
             path.addLine(to: CGPoint(x:0, y:rect.height))
             path.addLine(to: CGPoint(x:rect.width, y:rect.height))
-            path.addLine(to: CGPoint(x:rect.width, y:15))
+            path.addLine(to: CGPoint(x:rect.width, y:10))
             
             //curve
-            path.move(to: CGPoint(x: centerX - 35, y:15))
-            path.addQuadCurve(to: CGPoint(x: centerX + 35, y:15), control: CGPoint(x:centerX, y:-30))
+            path.move(to: CGPoint(x: centerX - 15, y:10))
+            path.addQuadCurve(to: CGPoint(x: centerX + 35, y:10), control: CGPoint(x:centerX, y:-20))
         }
     }
     
 }
 
+struct MainFeature : Identifiable {
+    var id = UUID().uuidString
+    var name : String
+//    var image: String
+}
 
+var mainfs = [
+    MainFeature(name: "Fitness"),
+    MainFeature(name: "Goals"),
+    MainFeature(name: "Diet")
+]
 
 
 

@@ -37,6 +37,8 @@
 		C95D619F2575EB990065C677 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95D619E2575EB990065C677 /* Profile.swift */; };
 		C9C4392625799DB30012C5E9 /* Cube_one.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C4392525799DB30012C5E9 /* Cube_one.swift */; };
 		C9C4392B2579A1710012C5E9 /* Cube_two.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C4392A2579A1710012C5E9 /* Cube_two.swift */; };
+		C9C439302579BEF50012C5E9 /* Goals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C4392F2579BEF50012C5E9 /* Goals.swift */; };
+		C9C439352579BF780012C5E9 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C439342579BF780012C5E9 /* Leaderboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +98,8 @@
 		C95D619E2575EB990065C677 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		C9C4392525799DB30012C5E9 /* Cube_one.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube_one.swift; sourceTree = "<group>"; };
 		C9C4392A2579A1710012C5E9 /* Cube_two.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube_two.swift; sourceTree = "<group>"; };
+		C9C4392F2579BEF50012C5E9 /* Goals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goals.swift; sourceTree = "<group>"; };
+		C9C439342579BF780012C5E9 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
 		E451E7A9383B7A5CDF28A792 /* Pods-FitStart-FitStartUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitStart-FitStartUITests.release.xcconfig"; path = "Target Support Files/Pods-FitStart-FitStartUITests/Pods-FitStart-FitStartUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EC42589BEB2D215201A597BE /* Pods-FitStart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitStart.release.xcconfig"; path = "Target Support Files/Pods-FitStart/Pods-FitStart.release.xcconfig"; sourceTree = "<group>"; };
 		EC74B86D493B2F8121E5F00A /* Pods-FitStart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitStart.debug.xcconfig"; path = "Target Support Files/Pods-FitStart/Pods-FitStart.debug.xcconfig"; sourceTree = "<group>"; };
@@ -234,6 +238,8 @@
 				C95D619E2575EB990065C677 /* Profile.swift */,
 				C9C4392525799DB30012C5E9 /* Cube_one.swift */,
 				C9C4392A2579A1710012C5E9 /* Cube_two.swift */,
+				C9C4392F2579BEF50012C5E9 /* Goals.swift */,
+				C9C439342579BF780012C5E9 /* Leaderboard.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -496,6 +502,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C95D619A2575E7230065C677 /* UploadImage.swift in Sources */,
+				C9C439352579BF780012C5E9 /* Leaderboard.swift in Sources */,
 				C95D619F2575EB990065C677 /* Profile.swift in Sources */,
 				B189CBD525585B5F00FFBDEA /* Fitness.swift in Sources */,
 				B189CBE725585D5B00FFBDEA /* HomeViewModel.swift in Sources */,
@@ -515,6 +522,7 @@
 				B189CBD025585B2700FFBDEA /* Pal.swift in Sources */,
 				B189CBF12558631500FFBDEA /* DateButton.swift in Sources */,
 				5E49740825609D2D007D89B5 /* LoseWeight.swift in Sources */,
+				C9C439302579BEF50012C5E9 /* Goals.swift in Sources */,
 				C95D61832575D49E0065C677 /* LoginView.swift in Sources */,
 				B189CB90255856B300FFBDEA /* FitStartApp.swift in Sources */,
 			);

@@ -29,7 +29,6 @@ struct TabButton : View {
     @Binding var centerX : CGFloat
     var rect : CGRect
     @Binding var selectedTab : String
-    
     var body : some View {
         
         Button(action: {withAnimation(.spring()){
@@ -46,10 +45,11 @@ struct TabButton : View {
                     
                 Text(image)
                     .font(.caption)
-                    .foregroundColor(.black)
+                    .bold()
+                    .foregroundColor(.white)
                     .opacity(selectedTab == image ? 1 : 0)
             }
-            .padding(.top)
+//            .padding(.top)
             .frame(width: 70, height: 50)
             //pop the icon selected
             .offset(y: selectedTab == image ? -5 : 0)
@@ -63,15 +63,9 @@ struct TabButton : View {
 }
 
 struct ContentView: View {
-    
-    
-    @State var selectedTab = "home"
-    
     init() {
         UITabBar.appearance().isHidden = true
-//        UITextView.appearance().backgroundColor = UIColor.blue.cgColor
     }
-
     @State var centerX : CGFloat = 0
     @State var goToHome = false
     @State var edge = UIApplication.shared.windows.first?.safeAreaInsets
@@ -79,53 +73,8 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             if goToHome {
-                
-                //swich tabs
-                VStack(spacing: 0) {
-                   
-                        TabView(selection: $selectedTab) {
-                            Home()
-                                .tag("home")
-                            Leaderboard()
-                                .tag("Leaderboard")
-                            Pal()
-                                .tag("Profile")
-                        }
-//                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-           
-                    
-                    
-                //for menu bar
-                Spacer(minLength: 0)
-                HStack(spacing: 0) {
-                    ForEach(tabs, id: \.self) {image in
-                        GeometryReader {reader in
-                            TabButton(image: image, centerX: $centerX, rect:reader.frame(in:.global), selectedTab: $selectedTab)
-                            //setting initial curve
-                                .onAppear(perform: {
-                                    if image == tabs.first{
-                                        centerX = reader.frame(in: .global).midX
-                                    }
-                                })
-                                
-                        }
-                        .frame(width: 50, height: 30)
-                        if image != tabs.last {Spacer(minLength: 0)}
-                    }
-                }
-                .padding(.horizontal, 30)
-                .padding(.top)
-//                .padding(.bottom)
-                    //For Smaller size iphone padding will be 15
-                .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom == 0 ? 15:
-                                UIApplication.shared.windows.first?.safeAreaInsets.bottom)
-                .background(Color("Color").clipShape(AnimatedShape(centerX: centerX)))
-                .shadow(color: Color.blue.opacity(0.1), radius: 5, x: 0, y: -5)
-//                .padding(.top, -5)
-                .ignoresSafeArea(.all, edges: .all)
+                CustomTabView(centerX: $centerX)
             }
-            .background(Color.white.ignoresSafeArea(.all, edges: .all))
-            } //end if
             else {
                 OnBoardScreen()
             }
@@ -138,7 +87,51 @@ struct ContentView: View {
         
 }
 
-
+struct CustomTabView : View {
+    //swich tabs
+    @State var selectedTab = "home"
+    @Binding var centerX : CGFloat
+    var body : some View {
+        
+        VStack{
+            TabView(selection: $selectedTab) {
+                Home()
+                    .tag("home")
+                Leaderboard()
+                    .tag("Leaderboard")
+                Pal()
+                    .tag("Profile")
+            }
+            
+            Spacer()
+            HStack(spacing: 0) {
+                ForEach(tabs, id: \.self) {image in
+                    GeometryReader {reader in
+                        TabButton(image: image, centerX: $centerX, rect:reader.frame(in:.global), selectedTab: $selectedTab)
+                        //setting initial curve
+                            .onAppear(perform: {
+                                if image == tabs.first{
+                                    centerX = reader.frame(in: .global).midX
+                                }
+                            })
+                    }
+                    .frame(width: 50, height: 30)
+                    if image != tabs.last {Spacer(minLength: 0)}
+                }
+            }
+            .padding(.horizontal, 30)
+//            .padding(.top)
+            .padding(.vertical, 17)
+            .padding(.bottom, 10)
+            .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom == 0 ? 15: 0)
+            .background(Color("Color").clipShape(AnimatedShape(centerX: centerX)))
+            .shadow(color: Color.blue.opacity(0.1), radius: 5, x: 0, y: -5)
+//            .ignoresSafeArea(.all, edges: .all)
+        }
+//        .ignoresSafeArea(.all, edges: .all)
+           
+    }
+}
 
 
 
@@ -149,8 +142,9 @@ struct Home: View {
             HStack {
                 Text("Level 1")
                     .fontWeight(.bold)
+                    .padding(.horizontal)
                     .foregroundColor(Color.white)
-                    .background(Color.black)
+                    .background(Color("Black"))
                     .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 3))
                     .padding(.leading)
                 Image("Badge")
@@ -160,8 +154,9 @@ struct Home: View {
                 Spacer()
                 Text("xp: 1500")
                     .fontWeight(.bold)
+//                    .padding(.horizontal)
                     .foregroundColor(Color.white)
-                    .background(Color.black)
+                    .background(Color("Black"))
                     .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 3))
                     .padding(.trailing)
             }
@@ -181,6 +176,7 @@ struct Home: View {
             Spacer()
     
         }
+        .background(Color.white)
     }
 }
 

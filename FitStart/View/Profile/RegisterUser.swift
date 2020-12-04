@@ -16,19 +16,18 @@ struct RegisterUser: View {
             VStack {
                 HStack {
                     Text("User Info")
-                        .font(.largeTitle)
+                        .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(Color("Color"))
-                    Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
                 }
-                .padding()
+                
                 
                 ZStack{
                     if registerData.image_Data.count == 0 {
                         Image(systemName: "person")
-                            .font(.system(size: 85))
+                            .font(.system(size: 80))
                             .foregroundColor(.black)
-                            .frame(width: 115, height: 115)
+                            .frame(width: 115, height: 100)
                             .background(Color.white)
                             .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                     } else {
@@ -90,8 +89,6 @@ struct RegisterUser: View {
                     .disabled(registerData.image_Data.count == 0 || registerData.name == "" || registerData.interest == ""  || registerData.bio == "" ? true : false)
                     .opacity(registerData.image_Data.count == 0 || registerData.name == "" || registerData.interest == ""  || registerData.bio == "" ?  0.5 : 1)
                 }
-      
-                Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
                 VStack{
                     Text("")
                         .fontWeight(.bold)

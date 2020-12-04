@@ -31,8 +31,10 @@ struct ContentView: View {
     @State var edge = UIApplication.shared.windows.first?.safeAreaInsets
 //    @Environement(.verticalSizeClass) var size
     var body: some View {
+        
         ZStack {
             if goToHome {
+                
                 NavigationView {
                     CustomTabView(centerX: $centerX)
                         .navigationBarTitleDisplayMode(.inline)
@@ -65,7 +67,7 @@ struct CustomTabView : View {
                 Pal()
                     .tag("Profile")
             }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+//            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .ignoresSafeArea(.all, edges: .all)
             
 //            Spacer()
@@ -162,15 +164,15 @@ struct Home: View {
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 2), spacing: 10) {
                 ForEach(mainfs) { f in
                     if (f.name == "Goals") {
-                        NavigationLink(destination: Goals()) {
+                        NavigationLink(destination: SideBar()) {
                             mainFeatureView(feature: f)
                         }
                     } else if (f.name == "Fitness") {
-                        NavigationLink(destination: Fitness()) {
+                        NavigationLink(destination: SideBar()) {
                             mainFeatureView(feature: f)
                         }
                     } else if (f.name == "Diet"){
-                        NavigationLink(destination: Meal()) {
+                        NavigationLink(destination: SideBar()) {
                             mainFeatureView(feature: f)
                         }
                         

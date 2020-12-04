@@ -23,18 +23,6 @@ struct Fitness: View {
                 } else{
                     ZStack{
                         VStack{
-                            
-                            HStack {
-                                Button(action: {
-                                    
-                                }) {
-                                    Image(systemName: "chevron.left")
-                                        .font(.system(size: 24, weight: .heavy))
-                                        .foregroundColor(.primary)
-                                }
-                                
-                               
-                            }
                             VStack {
                                 Image("WeightLoss_04")
                                     .resizable()
@@ -64,9 +52,9 @@ struct Fitness: View {
                             .padding(.top)
                         }
                         .ignoresSafeArea(.all, edges: .all)
-                        if selected != nil && show {
-                            LoseWeight(goal: $selected, show: $show, animation: animation)
-                        }
+//                        if selected != nil && show {
+//                            LoseWeight(goal: $selected, show: $show, animation: animation)
+//                        }
                     }
                     .ignoresSafeArea(.all, edges: .all)
                 }

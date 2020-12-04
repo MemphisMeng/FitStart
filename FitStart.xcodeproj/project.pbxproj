@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4109CDD58885FB41982FB6F1 /* Pods_FitStartTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31412F4E0BE459ACFF5D89A1 /* Pods_FitStartTests.framework */; };
-		5E49740825609D2D007D89B5 /* LoseWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E49740725609D2D007D89B5 /* LoseWeight.swift */; };
 		938E8D9200EFC89AABF4D00A /* Pods_FitStart_FitStartUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028037CF007FD86EB7CF8EDD /* Pods_FitStart_FitStartUITests.framework */; };
 		B14F3EB725587D7F00D1B7BB /* FitStart.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B14F3EB525587D7F00D1B7BB /* FitStart.xcdatamodeld */; };
 		B14F3EBF2558823100D1B7BB /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14F3EBE2558823100D1B7BB /* ModelData.swift */; };
@@ -28,6 +27,7 @@
 		B189CBF12558631500FFBDEA /* DateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B189CBF02558631500FFBDEA /* DateButton.swift */; };
 		C2D87C20F3FA316F573742E0 /* Pods_FitStart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D25A2A3E9845ED863DD1E28 /* Pods_FitStart.framework */; };
 		C90478EB2575D0E600BFE166 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C90478EA2575D0E600BFE166 /* GoogleService-Info.plist */; };
+		C93EEBED257A00C300103593 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93EEBEC257A00C300103593 /* SideBar.swift */; };
 		C956836B25758073003881EB /* Station View.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956836A25758073003881EB /* Station View.swift */; };
 		C95D61832575D49E0065C677 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95D61822575D49E0065C677 /* LoginView.swift */; };
 		C95D61882575DE040065C677 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95D61872575DE040065C677 /* RegisterUser.swift */; };
@@ -63,7 +63,6 @@
 		2EBED182DB7DC8FBDD6145A4 /* Pods-FitStart-FitStartUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitStart-FitStartUITests.debug.xcconfig"; path = "Target Support Files/Pods-FitStart-FitStartUITests/Pods-FitStart-FitStartUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		31412F4E0BE459ACFF5D89A1 /* Pods_FitStartTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitStartTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33936E23C09EEC0AAA1992B3 /* Pods-FitStartTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitStartTests.debug.xcconfig"; path = "Target Support Files/Pods-FitStartTests/Pods-FitStartTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5E49740725609D2D007D89B5 /* LoseWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseWeight.swift; sourceTree = "<group>"; };
 		6D25A2A3E9845ED863DD1E28 /* Pods_FitStart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitStart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C4EEFD7EF10E7BD7CEB6A6E /* Pods-FitStartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitStartTests.release.xcconfig"; path = "Target Support Files/Pods-FitStartTests/Pods-FitStartTests.release.xcconfig"; sourceTree = "<group>"; };
 		B14F3EB625587D7F00D1B7BB /* FitStart.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FitStart.xcdatamodel; sourceTree = "<group>"; };
@@ -89,6 +88,7 @@
 		B189CBEB25585DF600FFBDEA /* NewDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDataView.swift; sourceTree = "<group>"; };
 		B189CBF02558631500FFBDEA /* DateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateButton.swift; sourceTree = "<group>"; };
 		C90478EA2575D0E600BFE166 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C93EEBEC257A00C300103593 /* SideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
 		C956836A25758073003881EB /* Station View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Station View.swift"; sourceTree = "<group>"; };
 		C95D61822575D49E0065C677 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C95D61872575DE040065C677 /* RegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
@@ -225,21 +225,13 @@
 		B189CBC525585A6300FFBDEA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B189CBCF25585B2700FFBDEA /* Pal.swift */,
-				B189CBD425585B5F00FFBDEA /* Fitness.swift */,
-				5E49740725609D2D007D89B5 /* LoseWeight.swift */,
-				B189CBD925585B7800FFBDEA /* Meal.swift */,
 				B189CBDE25585BAF00FFBDEA /* OnBoardScreen.swift */,
-				B189CBEB25585DF600FFBDEA /* NewDataView.swift */,
-				B189CBF02558631500FFBDEA /* DateButton.swift */,
-				C956836A25758073003881EB /* Station View.swift */,
-				C95D61872575DE040065C677 /* RegisterUser.swift */,
-				C95D61942575E0410065C677 /* ImagePicker.swift */,
-				C95D619E2575EB990065C677 /* Profile.swift */,
-				C9C4392525799DB30012C5E9 /* Cube_one.swift */,
-				C9C4392A2579A1710012C5E9 /* Cube_two.swift */,
-				C9C4392F2579BEF50012C5E9 /* Goals.swift */,
 				C9C439342579BF780012C5E9 /* Leaderboard.swift */,
+				C93EEBEC257A00C300103593 /* SideBar.swift */,
+				C93EEBEB2579FADE00103593 /* Profile */,
+				C93EEBEA2579FAC300103593 /* Goal */,
+				C93EEBE92579FA9800103593 /* Fitness */,
+				C93EEBE72579FA6D00103593 /* Diet */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -253,6 +245,46 @@
 				C95D618F2575DE9B0065C677 /* RegisterViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C93EEBE72579FA6D00103593 /* Diet */ = {
+			isa = PBXGroup;
+			children = (
+				B189CBD925585B7800FFBDEA /* Meal.swift */,
+				C956836A25758073003881EB /* Station View.swift */,
+			);
+			path = Diet;
+			sourceTree = "<group>";
+		};
+		C93EEBE92579FA9800103593 /* Fitness */ = {
+			isa = PBXGroup;
+			children = (
+				B189CBD425585B5F00FFBDEA /* Fitness.swift */,
+				C9C4392525799DB30012C5E9 /* Cube_one.swift */,
+				C9C4392A2579A1710012C5E9 /* Cube_two.swift */,
+			);
+			path = Fitness;
+			sourceTree = "<group>";
+		};
+		C93EEBEA2579FAC300103593 /* Goal */ = {
+			isa = PBXGroup;
+			children = (
+				C9C4392F2579BEF50012C5E9 /* Goals.swift */,
+				B189CBF02558631500FFBDEA /* DateButton.swift */,
+				B189CBEB25585DF600FFBDEA /* NewDataView.swift */,
+			);
+			path = Goal;
+			sourceTree = "<group>";
+		};
+		C93EEBEB2579FADE00103593 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B189CBCF25585B2700FFBDEA /* Pal.swift */,
+				C95D61872575DE040065C677 /* RegisterUser.swift */,
+				C95D61942575E0410065C677 /* ImagePicker.swift */,
+				C95D619E2575EB990065C677 /* Profile.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		C95D61792575D34D0065C677 /* Model */ = {
@@ -511,6 +543,7 @@
 				C95D61952575E0410065C677 /* ImagePicker.swift in Sources */,
 				C956836B25758073003881EB /* Station View.swift in Sources */,
 				B189CB99255856B700FFBDEA /* Persistence.swift in Sources */,
+				C93EEBED257A00C300103593 /* SideBar.swift in Sources */,
 				B189CBDF25585BAF00FFBDEA /* OnBoardScreen.swift in Sources */,
 				B189CB92255856B300FFBDEA /* ContentView.swift in Sources */,
 				B14F3EBF2558823100D1B7BB /* ModelData.swift in Sources */,
@@ -521,7 +554,6 @@
 				B189CBDA25585B7800FFBDEA /* Meal.swift in Sources */,
 				B189CBD025585B2700FFBDEA /* Pal.swift in Sources */,
 				B189CBF12558631500FFBDEA /* DateButton.swift in Sources */,
-				5E49740825609D2D007D89B5 /* LoseWeight.swift in Sources */,
 				C9C439302579BEF50012C5E9 /* Goals.swift in Sources */,
 				C95D61832575D49E0065C677 /* LoginView.swift in Sources */,
 				B189CB90255856B300FFBDEA /* FitStartApp.swift in Sources */,

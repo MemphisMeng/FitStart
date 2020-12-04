@@ -23,7 +23,7 @@ struct Goals: View {
             ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom), content: {
                 VStack{
                     HStack{
-                        Text("Daily Goals")
+                        Text(greeting)
                             .font(.title)
                             .fontWeight(.heavy)
                             .padding(.leading)
@@ -47,14 +47,6 @@ struct Goals: View {
                     }
                     .padding(.top, 40)
                     .ignoresSafeArea(.all, edges: .all)
-                    
-                  
-                    Text(greeting)
-                        .bold()
-                        .font(.title3)
-                        .italic()
-                        .padding(.top, -30)
-                        .padding(.horizontal)
                         
         
                     ScrollView(.vertical, showsIndicators: true, content: {

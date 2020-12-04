@@ -72,6 +72,7 @@ struct Fitness: View {
                 }
             }
         }
+        .navigationBarHidden(true)
     }
 }
 
@@ -81,6 +82,7 @@ struct CardView : View {
     var card : ExGoal
     var animation : Namespace.ID
     var body : some View {
+        
         ZStack (alignment: Alignment(horizontal: .leading, vertical: .bottom)){
             HStack(spacing: 15) {
                Spacer()

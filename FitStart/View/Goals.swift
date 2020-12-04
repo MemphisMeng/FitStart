@@ -24,13 +24,39 @@ struct Goals: View {
                 VStack{
                     HStack{
                         Text("Daily Goals")
-                            .font(.largeTitle)
+                            .font(.title)
                             .fontWeight(.heavy)
+                            .padding(.leading)
                             .foregroundColor(Color("lightblue"))
-                        Spacer(minLength: 0)
+                            .onAppear(perform: convertDate)
+                        Spacer()
+                        Button(action: {homeData.isNewData.toggle()}, label: {
+                            Image(systemName: "plus")
+                                .foregroundColor(.white)
+                                .padding(20)
+                                .frame(width: 30, height: 30)
+                                .background(Color("Color"))
+                                .clipShape(Capsule())
+                                .padding(.trailing)
+                            
+                        })
+                        .padding()
+                        .sheet(isPresented: $homeData.isNewData, content: {
+                            NewDataView(homeData: homeData)
+                        })
                     }
-                    .padding()
-                    .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
+                    .padding(.top, 40)
+                    .ignoresSafeArea(.all, edges: .all)
+                    
+                  
+                    Text(greeting)
+                        .bold()
+                        .font(.title3)
+                        .italic()
+                        .padding(.top, -30)
+                        .padding(.horizontal)
+                        
+        
                     ScrollView(.vertical, showsIndicators: true, content: {
                         LazyVStack(alignment: .leading, spacing: 20) {
                             ForEach(results){goal in
@@ -70,45 +96,18 @@ struct Goals: View {
             .sheet(isPresented: $homeData.isNewData, content: {
                 NewDataView(homeData: homeData)
             })
-            
-            VStack{
-                //for goals
-                Spacer(minLength: 2)
-                HStack{
-                    Button(action: {homeData.isNewData.toggle()}, label: {
-                        Image(systemName: "plus")
-                            .font(.largeTitle)
-                            .foregroundColor(.white)
-                            .padding(20)
-                            .background(Color("Color"))
-                            .clipShape(Capsule())
-                            .padding(.trailing)
-                        
-                    })
-                    .padding()
-                    .sheet(isPresented: $homeData.isNewData, content: {
-                        NewDataView(homeData: homeData)
-                    })
-                    .ignoresSafeArea(.all, edges: .top)
-                }
-                .onAppear(perform: convertDate)
-                
-                ZStack{
-                    Text(greeting)
-                }
-                
-            }
         }
+        .navigationBarHidden(true)
     }
     
     func convertDate() {
         let hour = Calendar.current.component(.hour, from: Date())
 
         switch hour {
-        case 6..<12 :greeting = "Good Morning"
-        case 12 : greeting = "How do you do? It's already noon!"
-        case 13..<17 : greeting = "Good afternoon"
-        case 17..<22 : greeting = "You are almost done for the day. Sit back and relax!"
+        case 6..<12 :greeting = "Good Morning! Bonjour"
+        case 12 : greeting = "Hey it's already noon, take a break!"
+        case 13..<17 : greeting = "Good afternoon. Keep up with the hard work"
+        case 17..<24 : greeting = "You are almost done for the day. Sit back and relax!"
         default:
             greeting = "Hello"
         }

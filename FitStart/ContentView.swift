@@ -22,6 +22,81 @@ import CoreData
 
 var tabs = ["Leaderboard", "home", "Profile"]
 
+struct ContentView: View {
+    init() {
+        UITabBar.appearance().isHidden = true
+    }
+    @State var centerX : CGFloat = 0
+    @State var goToHome = false
+    @State var edge = UIApplication.shared.windows.first?.safeAreaInsets
+//    @Environement(.verticalSizeClass) var size
+    var body: some View {
+        ZStack {
+            if goToHome {
+                NavigationView {
+                    CustomTabView(centerX: $centerX)
+                        .navigationBarTitleDisplayMode(.inline)
+                        .navigationBarHidden(true)
+                }
+            }
+            else {
+                OnBoardScreen()
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for:Notification.Name("Success")), perform: {
+            _ in withAnimation{self.goToHome = true}
+        })
+    }
+        
+}
+
+struct CustomTabView : View {
+    //swich tabs
+    @State var selectedTab = "home"
+    @Binding var centerX : CGFloat
+    var body : some View {
+        
+        ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)){
+            TabView(selection: $selectedTab) {
+                Home()
+                    .tag("home")
+                Leaderboard()
+                    .tag("Leaderboard")
+                Pal()
+                    .tag("Profile")
+            }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .ignoresSafeArea(.all, edges: .all)
+            
+//            Spacer()
+            HStack(spacing: 0) {
+                ForEach(tabs, id: \.self) {image in
+                    GeometryReader {reader in
+                        TabButton(image: image, centerX: $centerX, rect:reader.frame(in:.global), selectedTab: $selectedTab)
+                        //setting initial curve
+                            .onAppear(perform: {
+                                if image == tabs.first{
+                                    centerX = reader.frame(in: .global).midX
+                                }
+                            })
+                    }
+                    .frame(width: 50, height: 30)
+                    if image != tabs.last {Spacer(minLength: 0)}
+                }
+            }
+            .padding(.horizontal, 30)
+//            .padding(.top)
+            .padding(.vertical, 17)
+            .padding(.bottom, 20)
+            .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom == 0 ? 15: 0)
+            .background(Color("Color").clipShape(AnimatedShape(centerX: centerX)))
+            .shadow(color: Color.blue.opacity(0.1), radius: 5, x: 0, y: -5)
+//            .ignoresSafeArea(.all, edges: .all)
+        }
+        .ignoresSafeArea(.all, edges: .all)
+           
+    }
+}
 
 //Button for the Bottom Menu Bar
 struct TabButton : View {
@@ -53,87 +128,9 @@ struct TabButton : View {
             .frame(width: 70, height: 50)
             //pop the icon selected
             .offset(y: selectedTab == image ? -5 : 0)
-            
-            
         })
-    
-    }
-        
-    
-}
-
-struct ContentView: View {
-    init() {
-        UITabBar.appearance().isHidden = true
-    }
-    @State var centerX : CGFloat = 0
-    @State var goToHome = false
-    @State var edge = UIApplication.shared.windows.first?.safeAreaInsets
-//    @Environement(.verticalSizeClass) var size
-    var body: some View {
-        ZStack {
-            if goToHome {
-                CustomTabView(centerX: $centerX)
-            }
-            else {
-                OnBoardScreen()
-            }
-        }
-        .onReceive(NotificationCenter.default.publisher(for:Notification.Name("Success")), perform: {
-            _ in withAnimation{self.goToHome = true}
-        })
-            
-    }
-        
-}
-
-struct CustomTabView : View {
-    //swich tabs
-    @State var selectedTab = "home"
-    @Binding var centerX : CGFloat
-    var body : some View {
-        
-        VStack{
-            TabView(selection: $selectedTab) {
-                Home()
-                    .tag("home")
-                Leaderboard()
-                    .tag("Leaderboard")
-                Pal()
-                    .tag("Profile")
-            }
-            
-            Spacer()
-            HStack(spacing: 0) {
-                ForEach(tabs, id: \.self) {image in
-                    GeometryReader {reader in
-                        TabButton(image: image, centerX: $centerX, rect:reader.frame(in:.global), selectedTab: $selectedTab)
-                        //setting initial curve
-                            .onAppear(perform: {
-                                if image == tabs.first{
-                                    centerX = reader.frame(in: .global).midX
-                                }
-                            })
-                    }
-                    .frame(width: 50, height: 30)
-                    if image != tabs.last {Spacer(minLength: 0)}
-                }
-            }
-            .padding(.horizontal, 30)
-//            .padding(.top)
-            .padding(.vertical, 17)
-            .padding(.bottom, 10)
-            .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom == 0 ? 15: 0)
-            .background(Color("Color").clipShape(AnimatedShape(centerX: centerX)))
-            .shadow(color: Color.blue.opacity(0.1), radius: 5, x: 0, y: -5)
-//            .ignoresSafeArea(.all, edges: .all)
-        }
-//        .ignoresSafeArea(.all, edges: .all)
-           
     }
 }
-
-
 
 //The Home page
 struct Home: View {
@@ -160,15 +157,24 @@ struct Home: View {
                     .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 3))
                     .padding(.trailing)
             }
-          
-        
-            Spacer()
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 40), count: 2), spacing: 10) {
+            .padding(.top)
+//            Spacer()
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 2), spacing: 10) {
                 ForEach(mainfs) { f in
-                   
-                        mainFeatureView(feature: f)
-                    
-                    
+                    if (f.name == "Goals") {
+                        NavigationLink(destination: Goals()) {
+                            mainFeatureView(feature: f)
+                        }
+                    } else if (f.name == "Fitness") {
+                        NavigationLink(destination: Fitness()) {
+                            mainFeatureView(feature: f)
+                        }
+                    } else if (f.name == "Diet"){
+                        NavigationLink(destination: Meal()) {
+                            mainFeatureView(feature: f)
+                        }
+                        
+                    }
                 }
                 .padding(.top)
             }
@@ -192,11 +198,15 @@ struct mainFeatureView : View {
                 .padding(.leading, 15)
             
             Button(action: {
-               
+                if (feature.name == "Goals") {
+                
+                }
+                
             }) {
                 Text(feature.name)
                     .font(.title2)
                     .bold()
+                    .padding(.vertical, 5)
                     .padding(.leading)
                     .padding(.trailing)
                     .foregroundColor(.white)
@@ -205,6 +215,7 @@ struct mainFeatureView : View {
             .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 5))
             .padding(.top, 20)
         }
+    
     }
 }
 
@@ -223,8 +234,9 @@ struct AnimatedShape: Shape {
             path.addQuadCurve(to: CGPoint(x: centerX + 35, y:10), control: CGPoint(x:centerX, y:-20))
         }
     }
-    
 }
+
+
 
 struct MainFeature : Identifiable {
     var id = UUID().uuidString

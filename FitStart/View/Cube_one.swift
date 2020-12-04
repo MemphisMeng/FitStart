@@ -89,6 +89,6 @@ var data = [
     Story(story: "p2", name: "Plank", time: 2, offset: 100, color: Color.yellow),
     Story(story: "p3", name: "Squat", time: 2, offset: 150, color: Color.black),
     Story(story: "p4", name: "Bicycle Crunch", time: 2, offset: 200, color: Color.gray),
-    Story(story: "p5", name: "Sit up", time: 2, offset: 250, color: Color.purple),
+    Story(story: "p5", name: "Congratulations!", time: 2, offset: 250, color: Color.purple),
     Story(story: "p6", name: "Locked", time: 0, offset: 300, color: Color.gray)
 ]

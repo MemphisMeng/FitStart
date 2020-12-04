@@ -101,10 +101,10 @@ struct CardView : View {
             Text(card.title)
                 .fontWeight(.semibold)
                 .foregroundColor(Color.white)
-                .padding(.vertical, 10)
-                .padding(.horizontal, 150)
-                .background(Color("purple").opacity(0.7))
-                .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight], size: 15))
+//                .padding(.vertical, 10)
+                .frame(width: 340, height: 30, alignment: .center)
+                .background(Color("purple"))
+                .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight], size: 10))
             
         }
     }

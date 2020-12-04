@@ -12,7 +12,6 @@ struct Pal: View {
     var body: some View {
         NavigationView{
             VStack{
-                            
                 if status{RegisterUser()}
                 else{Profile()}
             }

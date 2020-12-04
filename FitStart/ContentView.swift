@@ -91,7 +91,7 @@ struct ContentView: View {
                             Pal()
                                 .tag("Profile")
                         }
-                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+//                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
            
                     
                     

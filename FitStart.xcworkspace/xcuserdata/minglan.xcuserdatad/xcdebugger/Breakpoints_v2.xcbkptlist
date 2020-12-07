@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "393EC148-FB30-4A69-8586-A044C899FD65"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "68A0C0D4-F20C-46A4-9B97-DA333C79018E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitStart/View/Fitness/Fitness.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "Fitness"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "68A0C0D4-F20C-46A4-9B97-DA333C79018E - 993985e4f7c83645"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of FitStart.Fitness.active : Swift.Bool"
+                  moduleName = "FitStart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minglan/Documents/GitHub/FitStart/FitStart/View/Fitness/Fitness.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "68A0C0D4-F20C-46A4-9B97-DA333C79018E - d44d9c8ce2dc97af"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitStart.Fitness.active.getter : Swift.Bool"
+                  moduleName = "FitStart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minglan/Documents/GitHub/FitStart/FitStart/View/Fitness/Fitness.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "68A0C0D4-F20C-46A4-9B97-DA333C79018E - 633da758bcc9afb3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitStart.Fitness.active.setter : Swift.Bool"
+                  moduleName = "FitStart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minglan/Documents/GitHub/FitStart/FitStart/View/Fitness/Fitness.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "68A0C0D4-F20C-46A4-9B97-DA333C79018E - 1b63c0bf420c57d1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitStart.Fitness.active.modify : Swift.Bool"
+                  moduleName = "FitStart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minglan/Documents/GitHub/FitStart/FitStart/View/Fitness/Fitness.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "68A0C0D4-F20C-46A4-9B97-DA333C79018E - e883b440e5b295b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitStart.Fitness.active.modify : Swift.Bool with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "FitStart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minglan/Documents/GitHub/FitStart/FitStart/View/Fitness/Fitness.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "68A0C0D4-F20C-46A4-9B97-DA333C79018E - 278818ef494498eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitStart.Fitness.$active.getter : SwiftUI.Binding&lt;Swift.Bool&gt;"
+                  moduleName = "FitStart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minglan/Documents/GitHub/FitStart/FitStart/View/Fitness/Fitness.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "68A0C0D4-F20C-46A4-9B97-DA333C79018E - 2b86e91d878cf3da"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitStart.Fitness.init() -&gt; FitStart.Fitness"
+                  moduleName = "FitStart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minglan/Documents/GitHub/FitStart/FitStart/View/Fitness/Fitness.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

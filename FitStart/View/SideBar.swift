@@ -207,7 +207,7 @@ struct SideBar: View {
                               
                               Image(systemName: self.show ? "xmark" : "line.horizontal.3")
                                   .resizable()
-                                  .frame(width: self.show ? 18 : 22, height: 18)
+                                  .frame(width: self.show ? 22 : 24, height: 18)
                                   .foregroundColor(Color.black.opacity(0.4))
                           }
                           

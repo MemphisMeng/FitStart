@@ -118,7 +118,7 @@ struct TabButton : View {
                     .resizable()
                     .renderingMode(.template)
                     .frame(width: 40, height: 40)
-                    .foregroundColor(selectedTab == image ? Color.yellow.opacity(0.8) : Color.white.opacity(0.9))
+                    .foregroundColor(selectedTab == image ? Color.white.opacity(0.8) : Color("lightblue").opacity(0.8))
                     
                 Text(image)
                     .font(.caption)
@@ -164,15 +164,15 @@ struct Home: View {
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 2), spacing: 10) {
                 ForEach(mainfs) { f in
                     if (f.name == "Goals") {
-                        NavigationLink(destination: SideBar()) {
+                        NavigationLink(destination: Goals()) {
                             mainFeatureView(feature: f)
                         }
                     } else if (f.name == "Fitness") {
-                        NavigationLink(destination: SideBar()) {
+                        NavigationLink(destination: Fitness()) {
                             mainFeatureView(feature: f)
                         }
                     } else if (f.name == "Diet"){
-                        NavigationLink(destination: SideBar()) {
+                        NavigationLink(destination: Meal()) {
                             mainFeatureView(feature: f)
                         }
                         

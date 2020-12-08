@@ -9,63 +9,56 @@ import SwiftUI
 
 struct Fitness: View {
     @Namespace var animation
-    
-    @State var active = true
-    @State var index = 0
-    @State var selected : ExGoal!
-    @State var centerX : CGFloat = 0
     @State var show = false
+    @State var selected : ExGoal!
+    @State var homeActive = false
     var body: some View {
         NavigationView{
-            VStack{
-                if active {if show{
-                    
+//            navigationBarBackButtonHidden(false)
+            if show{
                     if (selected.image == "WeightLoss") {
                         Cube_one()
                     } else {
                         Cube_two()
                     }
                 } else{
-                    VStack{
-                        HStack {
-                            Button(action: {
-                                    active.toggle()}, label: {
-                                Image(systemName: "heart")
-                            })
-                        }
-                        VStack {
-                            Image("WeightLoss_04")
-                                .resizable()
-                                .frame(width: 80, height: 65)
-                            Text("Fitness")
-                                .font(.title)
-                                .fontWeight(.heavy)
-                                .foregroundColor(Color("purple"))
-                            Text("What kind of exercise are you interested in")
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color.gray)
-                        }.padding()
-                        Spacer(minLength: 10)
-                        ScrollView(.vertical, showsIndicators: false) {
-                            VStack(spacing: 15) {
-                                ForEach(exgoals) { item in
-                                    CardView(card : item, animation: animation)
-                                        .shadow(color: Color.black.opacity(0.16), radius: 5, x: 0, y: 5)
-                                        .onTapGesture {
-                                            selected = item
-                                            show = true
+                        VStack{
+                            VStack {
+                                
+                                Image("FitMain")
+                                    .resizable()
+                                    .frame(width: 160, height: 130)
+                                    .padding(.top, 80)
+                                Text("Fitness")
+                                    .font(.title)
+                                    .fontWeight(.heavy)
+                                    .foregroundColor(Color("purple"))
+                                Text("What kind of exercise are you interested in")
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(Color.gray)
+                            }.padding()
+                            Spacer(minLength: 10)
+                            ScrollView(.vertical, showsIndicators: false) {
+                                VStack(spacing: 15) {
+                                    ForEach(exgoals) { item in
+                                        CardView(card : item, animation: animation)
+                                            .shadow(color: Color.black.opacity(0.16), radius: 5, x: 0, y: 5)
+                                            .onTapGesture {
+                                                selected = item
+                                                show = true
+                                            }
                                         }
                                     }
-                                }
-                                .padding(.horizontal, 22)
+                                    .padding(.horizontal, 22)
+                            }
+                            .padding(.top)
                         }
-                        .padding(.top)
-                    }
-//                        .ignoresSafeArea(.all, edges: .all)
-                }} else {Home()}
-            }
+                        .ignoresSafeArea(.all, edges: .all)
+                   
+                }
+            
         }
-        .navigationBarHidden(true)
+        .navigationBarHidden(false)
     }
 }
 

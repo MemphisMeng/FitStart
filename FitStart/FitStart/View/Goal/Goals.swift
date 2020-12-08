@@ -29,6 +29,7 @@ struct Goals: View {
                             .padding(.leading)
                             .foregroundColor(Color("lightblue"))
                             .onAppear(perform: convertDate)
+                            .padding(.top, 20)
                         Spacer()
                         Button(action: {homeData.isNewData.toggle()}, label: {
                             Image(systemName: "plus")
@@ -40,13 +41,13 @@ struct Goals: View {
                                 .padding(.trailing)
                             
                         })
-                        .padding()
+//                        .padding(10)
                         .sheet(isPresented: $homeData.isNewData, content: {
                             NewDataView(homeData: homeData)
                         })
                     }
-                    .padding(.top, 40)
-                    .ignoresSafeArea(.all, edges: .all)
+//                    .padding(.top, 40)
+//                    .ignoresSafeArea(.all, edges: .all)
                         
         
                     ScrollView(.vertical, showsIndicators: true, content: {
@@ -89,7 +90,7 @@ struct Goals: View {
                 NewDataView(homeData: homeData)
             })
         }
-        .navigationBarHidden(true)
+        .navigationBarHidden(false)
     }
     
     func convertDate() {

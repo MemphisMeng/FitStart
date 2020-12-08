@@ -56,11 +56,46 @@ struct Meal: View {
             if breakfast.isEmpty && brunch.isEmpty && lunch.isEmpty && dinner.isEmpty {
                 ProgressView()
             } else {
-                Text("breakfast")
-                    .font(.title3)
-                List(breakfast, id: \.self) { f in
-                    //display the food fetched
-                    Station_View(station_: f)
+//                Text("breakfast")
+//                    .font(.title3)
+//                List(breakfast, id: \.self) { f in
+//                    //display the food fetched
+//                    Station_View(station_: f)
+//                }
+                //Meal Page
+                VStack {
+                    HStack {
+                        Text("Breakfast \n 9:00-\n10:00AM")
+                            .font(.body)
+                            .padding(.horizontal)
+                            .foregroundColor(Color.white)
+                            .background(Color("Color"))
+                            .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 3))
+                            .padding(.leading)
+                        Text("Lunch \n 11:00-\n3:00 PM")
+                            .font(.body)
+                            .padding(.horizontal)
+                            .foregroundColor(Color.white)
+                            .background(Color("Black"))
+                            .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 3))
+                            .padding(.leading)
+                        Text("Dinner \n 5:00-\n9:00PM")
+                            .font(.body)
+                            .padding(.horizontal)
+                            .foregroundColor(Color.white)
+                            .background(Color("Black"))
+                            .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 3))
+                            .padding(.leading)
+                    }
+                    .padding(.top, 10)
+                    Divider()
+                    .frame(width: 400, height: 1)
+                    .background(Color("Black"))
+                    .padding(.vertical,0)
+                    List(breakfast, id: \.self) { f in
+                                        //display the food fetched
+                        Station_View(station_: f)
+                    }
                 }
             }
         }.onAppear(perform: getDate)

@@ -20,7 +20,7 @@ import CoreData
 //    let message, imageName: String
 //}
 
-var tabs = ["Leaderboard", "home", "Profile"]
+var tabs = ["Leaderboard", "home", "profile"]
 
 struct ContentView: View {
     init() {
@@ -65,7 +65,7 @@ struct CustomTabView : View {
                 Leaderboard()
                     .tag("Leaderboard")
                 Pal()
-                    .tag("Profile")
+                    .tag("profile")
             }
 //            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .ignoresSafeArea(.all, edges: .all)
@@ -118,7 +118,7 @@ struct TabButton : View {
                     .resizable()
                     .renderingMode(.template)
                     .frame(width: 40, height: 40)
-                    .foregroundColor(selectedTab == image ? Color.white.opacity(0.8) : Color("lightblue").opacity(0.8))
+                    .foregroundColor(selectedTab == image ? Color.yellow.opacity(0.8) : Color.white.opacity(0.9))
                     
                 Text(image)
                     .font(.caption)

@@ -103,6 +103,8 @@ struct Login : View {
                     VStack{
                         
                         Image("fitstartLogo")
+                            .resizable()
+                            .frame(width: 150, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         
                         Text("Log in to your account")
                             .font(.title)

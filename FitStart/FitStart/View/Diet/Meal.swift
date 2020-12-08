@@ -51,6 +51,7 @@ struct Meal: View {
     @State var brunch : [station] = []
     @State var lunch : [station] = []
     @State var dinner : [station] = []
+    @State var top = 0
     var body: some View {
         VStack {
             if breakfast.isEmpty && brunch.isEmpty && lunch.isEmpty && dinner.isEmpty {
@@ -64,28 +65,44 @@ struct Meal: View {
 //                }
                 //Meal Page
                 VStack {
-                    HStack {
-                        Text("Breakfast \n 9:00-\n10:00AM")
-                            .font(.body)
-                            .padding(.horizontal)
-                            .foregroundColor(Color.white)
-                            .background(Color("Color"))
-                            .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 3))
-                            .padding(.leading)
-                        Text("Lunch \n 11:00-\n3:00 PM")
-                            .font(.body)
-                            .padding(.horizontal)
-                            .foregroundColor(Color.white)
-                            .background(Color("Black"))
-                            .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 3))
-                            .padding(.leading)
-                        Text("Dinner \n 5:00-\n9:00PM")
-                            .font(.body)
-                            .padding(.horizontal)
-                            .foregroundColor(Color.white)
-                            .background(Color("Black"))
-                            .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 3))
-                            .padding(.leading)
+                    HStack (spacing: 15) {
+                        
+                        Button(action: {
+                            self.top = 0
+                        }) {
+                            Text("Breakfast \n 9:00-\n10:00AM")
+                                .fontWeight(self.top == 0 ? .bold : .none)
+                                .foregroundColor(Color.white)
+                                .background(self.top == 0 ? Color("Color") :Color("Black"))
+                                .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 3))
+                                .padding(.vertical)
+                                
+                        }
+                        
+                        Button(action: {
+                            self.top = 1
+                        }) {
+                            Text("Lunch \n 11:00-\n3:00 PM")
+                                .fontWeight(self.top == 1 ? .bold : .none)
+                                .foregroundColor(Color.white)
+                                .background(self.top == 1 ? Color("Color") :Color("Black"))
+                                .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 3))
+                                .padding(.vertical)
+                                
+                        }
+                        
+                        Button(action: {
+                            self.top = 2
+                        }) {
+                            Text("Dinner \n 5:00-\n9:00PM")
+                                .fontWeight(self.top == 2 ? .bold : .none)
+                                .foregroundColor(Color.white)
+                                .background(self.top == 2 ? Color("Color") :Color("Black"))
+                                .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 3))
+                                .padding(.vertical)
+                                
+                        }
+
                     }
                     .padding(.top, 10)
                     Divider()

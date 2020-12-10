@@ -92,22 +92,21 @@ struct Meal: View {
                         Button(action: {
                             self.top = 2
                         }) {
-                            
-                                Text("Dinner \n 5:00-\n9:00PM")
-                                    .fontWeight(self.top == 2 ? .bold : .none)
-                                    .foregroundColor(Color.white)
-                                    .background(self.top == 2 ? Color("5324FF").cornerRadius(10) :Color("Black").cornerRadius(10))
-                                    .frame(width: 140, height: 100, alignment: .center)
-                                    .padding(.vertical)
+                            Text("Lunch \n 11:00-\n3:00 PM")
+                                .fontWeight(self.top == 2 ? .bold : .none)
+                                .padding(.horizontal, 8)
+                                .foregroundColor(Color.white)
+                                .background(self.top == 2 ? Color("5324FF").cornerRadius(5) :Color("Black").cornerRadius(5))
+                                .padding(.vertical)
                             
                         }
 
                     }
                     .padding(.top, 10)
-                    Divider()
-                    .frame(width: 400, height: 1)
-                    .background(Color("Black"))
-                    .padding(.vertical,0)
+//                    Divider()
+//                    .frame(width: 400, height: 1)
+//                    .background(Color("Black"))
+//                    .padding(.vertical,0)
                     if self.top == 0 {
                         ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
                             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 1), spacing: 20) {

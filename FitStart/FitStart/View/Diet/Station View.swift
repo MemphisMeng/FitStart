@@ -14,9 +14,13 @@ struct Station_View: View {
         VStack(alignment: .leading, spacing: 10, content: {
             VStack {
                 ForEach(station_.menu_items, id: \.self) { i in
+                    Divider()
+                    .frame(width: 400, height: 1)
+                    .background(Color("Black"))
+                    .padding(.vertical,0)
                     HStack {
                         VStack (alignment: .leading) {
-                            Text(i.name + "," + i.calories + "cal, P:" + i.protein)
+                            Text(i.name + "," + i.calories + " cal, " + i.protein + "g")
                             .font(.headline)
                             .foregroundColor(Color("Black"))
                                 
@@ -46,10 +50,7 @@ struct Station_View: View {
                     .padding(.init(top: 12, leading: 0, bottom: 12, trailing: 0))
                     
                     
-                    Divider()
-                    .frame(width: 400, height: 1)
-                    .background(Color("Black"))
-                    .padding(.vertical,0)
+                    
                 }
             }
         } )

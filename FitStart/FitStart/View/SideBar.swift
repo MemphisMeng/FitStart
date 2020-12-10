@@ -6,17 +6,15 @@
 //
 
 import SwiftUI
-
+//Not used in this version (Can be used to provide
+//customizing features and faster way back to the homepage
 struct SideBar: View {
     @State var index = 0
     @State var show = false
     @State var centerX : CGFloat = 0
           var body: some View{
-              
               ZStack{
-                  
                   // Menu...
-                  
                   HStack{
                       
                       VStack(alignment: .leading, spacing: 12) {

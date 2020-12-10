@@ -24,18 +24,17 @@ struct Fitness: View {
                 } else{
                         VStack{
                             VStack {
-                                
                                 Image("FitMain")
                                     .resizable()
-                                    .frame(width: 160, height: 130)
+                                    .frame(width: 220, height: 150)
                                     .padding(.top, 80)
                                 Text("Fitness")
                                     .font(.title)
                                     .fontWeight(.heavy)
-                                    .foregroundColor(Color("purple"))
-                                Text("What kind of exercise are you interested in")
+                                    .foregroundColor(Color("5324FF"))
+                                Text("What kind of exercise \n are you interested in?")
                                     .fontWeight(.semibold)
-                                    .foregroundColor(Color.gray)
+                                    .foregroundColor(Color("C2C2C2"))
                             }.padding()
                             Spacer(minLength: 10)
                             ScrollView(.vertical, showsIndicators: false) {
@@ -75,24 +74,28 @@ struct CardView : View {
                 Image(card.image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(height: 100, alignment: .center)
+                    .frame(width: 100, height: 100, alignment: .center)
                     .matchedGeometryEffect(id: card.image, in: animation)
                     
                 Spacer(minLength: 0)
             }
-            .padding(.horizontal)
+            .frame(width: 250, alignment: .center)
             .padding(.bottom, 80)
-            .background(Color("Color").cornerRadius(25).padding(.top, 35))
+            .background(Color("5324FF").opacity(0.8).cornerRadius(25).padding(.top, 35))
             .padding(.trailing, 8)
-            .background(Color("purple").cornerRadius(25).padding(.top, 35))
+            .offset(x: 8)
+//            .background(Color("purple").cornerRadius(25).padding(.top, 35))
             
             Text(card.title)
-                .fontWeight(.semibold)
-                .foregroundColor(Color.white)
+                .fontWeight(.bold)
+                .font(.title2)
+                .foregroundColor(Color.white.opacity(0.9))
 //                .padding(.vertical, 10)
-                .frame(width: 340, height: 30, alignment: .center)
-                .background(Color("purple"))
-                .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight], size: 10))
+                .frame(width: 258, height: 50, alignment: .center)
+                .background(Color("8F66FF").opacity(0.8).cornerRadius(20))
+                .offset(x:10)
+                .offset(y:-2)
+                .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight], size: 30))
             
         }
     }

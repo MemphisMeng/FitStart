@@ -91,7 +91,7 @@ struct CustomTabView : View {
             .padding(.vertical, 17)
             .padding(.bottom, 20)
             .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom == 0 ? 15: 0)
-            .background(Color("Color").clipShape(AnimatedShape(centerX: centerX)))
+            .background(Color("5324FF").clipShape(AnimatedShape(centerX: centerX)))
             .shadow(color: Color.blue.opacity(0.1), radius: 5, x: 0, y: -5)
 //            .ignoresSafeArea(.all, edges: .all)
         }
@@ -118,13 +118,13 @@ struct TabButton : View {
                     .resizable()
                     .renderingMode(.template)
                     .frame(width: 40, height: 40)
-                    .foregroundColor(selectedTab == image ? Color.yellow.opacity(0.8) : Color.white.opacity(0.9))
+                    .foregroundColor(selectedTab == image ?  Color.white.opacity(0.9) : Color("8F66FF").opacity(0.6) )
                     
                 Text(image)
                     .font(.caption)
                     .bold()
                     .foregroundColor(.white)
-                    .opacity(selectedTab == image ? 1 : 0)
+                    .opacity(selectedTab == image ? 1 : 1)
             }
 //            .padding(.top)
             .frame(width: 70, height: 50)
@@ -153,7 +153,7 @@ struct Home: View {
                 Spacer()
                 Text("xp: 1500")
                     .fontWeight(.bold)
-//                    .padding(.horizontal)
+                    .padding(.horizontal)
                     .foregroundColor(Color.white)
                     .background(Color("Black"))
                     .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 3))
@@ -213,7 +213,7 @@ struct mainFeatureView : View {
                     .padding(.trailing)
                     .foregroundColor(.white)
             }
-            .background(Color("Color"))
+            .background(LinearGradient(gradient: .init(colors: [Color("5182FF"), Color("8F66FF")]), startPoint: .topLeading, endPoint: .bottomTrailing))
             .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 5))
             .padding(.top, 20)
         }

@@ -12,19 +12,27 @@ struct OnBoardScreen: View {
     @State var offset : CGFloat = 0
     var body: some View {
         ZStack {
-            Color("Color")
+//            Color("5182FF")
+//                .ignoresSafeArea(.all, edges: .all)
+            LinearGradient(gradient: .init(colors: [Color("5182FF"), Color("8F66FF")]), startPoint: .top, endPoint: .bottomTrailing)
+                .cornerRadius(10)
                 .ignoresSafeArea(.all, edges: .all)
             VStack {
                 Spacer(minLength: 0)
-                Text("Motivational Quote")
-                    .font(.largeTitle)
-                    .fontWeight(.heavy)
+               
+                Text("What hurt today makes you stronger tomorrow.")
+                    .font(.title)
+                    .fontWeight(.bold)
                     .foregroundColor(.white)
-                Text("A positive attitude gives you power over your circumstances instead of your circumstances having power over you.")
+                
+                Text("-- Jay Cutler")
+                    .font(.body)
+                    .fontWeight(.semibold)
+                    .italic()
                     .foregroundColor(.white)
                     .padding()
                     .padding(.bottom)
-                //                Image("Quote")
+                    .frame(alignment: .trailing)
                 Spacer(minLength: 0)
                 ZStack {
                     Capsule()
@@ -36,7 +44,7 @@ struct OnBoardScreen: View {
                     //background progress
                     HStack {
                         Capsule()
-                            .fill(Color("red"))
+                            .fill(LinearGradient(gradient: .init(colors: [Color("5182FF"), Color("8F66FF")]), startPoint: .topLeading, endPoint: .bottomTrailing))
                             .frame(width: calculateWidth() + 65)
                         Spacer(minLength: 0)
                     }
@@ -45,12 +53,13 @@ struct OnBoardScreen: View {
                         ZStack {
                             Image(systemName: "chevron.right")
                             Image(systemName: "chevron.right")
-                                .offset(x: -10)
+                                .offset(x: -12)
+                            
                         }
                         .foregroundColor(.white)
-                        .offset(x:10)
+                        .offset(x:8)
                         .frame(width: 65, height: 65)
-                        .background(Color("red"))
+                        .background(LinearGradient(gradient: .init(colors: [Color("5182FF"), Color("8F66FF")]), startPoint: .topLeading, endPoint: .bottomTrailing))
                         .clipShape(Circle())
                         .offset(x: offset)
                         .gesture(DragGesture().onChanged(onChange(value:))

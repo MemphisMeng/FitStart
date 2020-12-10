@@ -22,21 +22,27 @@ struct Goals: View {
         ZStack{
             ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom), content: {
                 VStack{
+                    Image("goalui")
+                    .resizable()
+                    .frame(width: 200, height: 150, alignment: .center)
+                    .padding(.top, 20)
+                        
+                    
                     HStack{
                         Text(greeting)
                             .font(.title)
                             .fontWeight(.heavy)
                             .padding(.leading)
-                            .foregroundColor(Color("lightblue"))
+                            .foregroundColor(Color("5324FF"))
                             .onAppear(perform: convertDate)
-                            .padding(.top, 20)
+                            
                         Spacer()
                         Button(action: {homeData.isNewData.toggle()}, label: {
                             Image(systemName: "plus")
                                 .foregroundColor(.white)
                                 .padding(20)
                                 .frame(width: 30, height: 30)
-                                .background(Color("Color"))
+                                .background(Color("5324FF"))
                                 .clipShape(Capsule())
                                 .padding(.trailing)
                             
@@ -54,23 +60,52 @@ struct Goals: View {
                         LazyVStack(alignment: .leading, spacing: 20) {
                             ForEach(results){goal in
                                 HStack {
-                                    Image(systemName: "circle")
-                                        .foregroundColor(Color("Color"))
-                                        .contextMenu{
-                                            Button(action: {
-                                                context.delete(goal)
-                                                try! context.save()
-                                            }, label: {
-                                                Text("Mark Complete")
-                                            })
-                                        }
-                                    VStack(alignment: .leading, spacing: 5, content: {
+                                        //Mark as Complete
+                                        Button(action: {
+                                            context.delete(goal)
+                                            try! context.save()
+                                            
+                                        }, label: {
+                                            
+                                            HStack {
+                                                LinearGradient(gradient: .init(colors: [Color("5182FF"), Color("8F66FF")]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                                                    .clipShape(Capsule())
+                                                    .frame(width: 30, height: 30)
+                                                    .padding(.leading)
+                                            }
+                                            
+                                            ZStack{
+                                                Image(systemName: "checkmark")
+                                                    .foregroundColor(.white)
+                                                    .frame(width: 30, height: 30)
+                                                    .clipShape(Capsule())
+                                            }
+                                            .offset(x:-37)
+                                            
+                                        })
+                                        
+                                    VStack(alignment: .leading, spacing: 5) {
+                                        
                                         Text(goal.content ?? "")
                                             .fontWeight(.bold)
-                                        Text(goal.date ?? Date(), style: .date)
-                                            .fontWeight(.semibold)
-                                    })
-                                    .foregroundColor(.black)
+                                            .padding(.horizontal)
+                                            .foregroundColor(Color.white)
+//                                            .padding(.vertical)
+                                            
+
+                                            Text(goal.date ?? Date(), style: .date)
+                                                .fontWeight(.semibold)
+                                                .padding(.horizontal)
+                                                .foregroundColor(Color.white)
+                                                
+                                    }
+                                    .padding(.horizontal)
+                                    .padding(.vertical)
+                                    .background(LinearGradient(gradient: .init(colors: [Color("5182FF"), Color("8F66FF")]), startPoint: .topLeading, endPoint: .bottomTrailing).clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 5)))
+//                                    .padding(.vertical)
+                                    .padding(.horizontal)
+//                                    .padding(.leading)
+//                                    .foregroundColor(.black)
                                     .contextMenu{
                                         Button(action: {
                                             homeData.EditItem(item: goal)

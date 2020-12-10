@@ -16,7 +16,7 @@ struct NewDataView: View {
                 Text("\(homeData.updateItem == nil ? "Add New" : "Update") Goal")
                     .font(.system(size: 30))
                     .fontWeight(.heavy)
-                    .foregroundColor(.black)
+                    .foregroundColor(Color("5324FF"))
                 
                 Spacer(minLength: 0)
             }
@@ -31,7 +31,7 @@ struct NewDataView: View {
                 Text("When")
                     .font(.title)
                     .fontWeight(.semibold)
-                    .foregroundColor(.black)
+                    .foregroundColor(Color("5324FF"))
                 Spacer(minLength: 0)
             }
             .padding()
@@ -58,17 +58,17 @@ struct NewDataView: View {
                     .padding(.vertical)
                     .frame(width: UIScreen.main.bounds.width - 30)
                     .background(
-                        Color("Color")
+                        Color("5182FF")
                     )
                     .cornerRadius(8)
                 
             })
             .padding()
             .disabled(homeData.content == "" ? true : false)
-            .opacity(homeData.content == "" ? 0.5 : 1)
+            .opacity(homeData.content == "" ? 0.8 : 1)
             
         }
-        .background(Color("Color").opacity(0.08).ignoresSafeArea(.all, edges: .bottom))
+        .background(Color("C2C2C2").opacity(0.08).ignoresSafeArea(.all, edges: .bottom))
     }
 }
 

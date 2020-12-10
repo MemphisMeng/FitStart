@@ -73,8 +73,7 @@ struct Meal: View {
                             Text("Breakfast \n 9:00-\n10:00AM")
                                 .fontWeight(self.top == 0 ? .bold : .none)
                                 .foregroundColor(Color.white)
-                                .background(self.top == 0 ? Color("Color") :Color("Black"))
-                                .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 3))
+                                .background(self.top == 0 ? Color("5324FF").cornerRadius(10) :Color("Black").cornerRadius(10))
                                 .padding(.vertical)
                                 
                         }
@@ -85,8 +84,7 @@ struct Meal: View {
                             Text("Lunch \n 11:00-\n3:00 PM")
                                 .fontWeight(self.top == 1 ? .bold : .none)
                                 .foregroundColor(Color.white)
-                                .background(self.top == 1 ? Color("Color") :Color("Black"))
-                                .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 3))
+                                .background(self.top == 1 ? Color("5324FF").cornerRadius(10) :Color("Black").cornerRadius(10))
                                 .padding(.vertical)
                                 
                         }
@@ -94,13 +92,14 @@ struct Meal: View {
                         Button(action: {
                             self.top = 2
                         }) {
-                            Text("Dinner \n 5:00-\n9:00PM")
-                                .fontWeight(self.top == 2 ? .bold : .none)
-                                .foregroundColor(Color.white)
-                                .background(self.top == 2 ? Color("Color") :Color("Black"))
-                                .clipShape(CustomCorner(corners: [.bottomLeft, .bottomRight, .topRight, .topLeft], size: 3))
-                                .padding(.vertical)
-                                
+                            
+                                Text("Dinner \n 5:00-\n9:00PM")
+                                    .fontWeight(self.top == 2 ? .bold : .none)
+                                    .foregroundColor(Color.white)
+                                    .background(self.top == 2 ? Color("5324FF").cornerRadius(10) :Color("Black").cornerRadius(10))
+                                    .frame(width: 140, height: 100, alignment: .center)
+                                    .padding(.vertical)
+                            
                         }
 
                     }
@@ -109,9 +108,30 @@ struct Meal: View {
                     .frame(width: 400, height: 1)
                     .background(Color("Black"))
                     .padding(.vertical,0)
-                    List(breakfast, id: \.self) { f in
-                                        //display the food fetched
-                        Station_View(station_: f)
+                    if self.top == 0 {
+                        ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
+                            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 1), spacing: 20) {
+                                    ForEach (breakfast, id: \.self) { f in
+                                        Station_View(station_: f)
+                                    }
+                                }
+                        }
+                    } else if self.top == 1 {
+                        ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
+                            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 1), spacing: 20) {
+                                    ForEach (lunch, id: \.self) { f in
+                                        Station_View(station_: f)
+                                    }
+                                }
+                        }
+                    } else if self.top == 2 {
+                        ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
+                            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 1), spacing: 20) {
+                                    ForEach (dinner, id: \.self) { f in
+                                        Station_View(station_: f)
+                                    }
+                                }
+                        }
                     }
                 }
             }

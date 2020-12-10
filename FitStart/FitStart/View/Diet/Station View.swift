@@ -20,7 +20,7 @@ struct Station_View: View {
                     .padding(.vertical,0)
                     HStack {
                         VStack (alignment: .leading) {
-                            Text(i.name + "," + i.calories + " cal, " + i.protein + "g")
+                            Text(i.name + ", " + i.calories + "cal, protein: " + i.protein)
                             .font(.headline)
                             .foregroundColor(Color("Black"))
                                 

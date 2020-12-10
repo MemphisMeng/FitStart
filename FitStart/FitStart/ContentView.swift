@@ -175,7 +175,10 @@ struct Home: View {
                         NavigationLink(destination: Meal()) {
                             mainFeatureView(feature: f)
                         }
-                        
+                    } else if (f.name == "Fitpal") {
+                        NavigationLink(destination: FitPal()) {
+                            mainFeatureView(feature: f)
+                        }
                     }
                 }
                 .padding(.top)
@@ -249,7 +252,8 @@ struct MainFeature : Identifiable {
 var mainfs = [
     MainFeature(name: "Fitness"),
     MainFeature(name: "Goals"),
-    MainFeature(name: "Diet")
+    MainFeature(name: "Diet"),
+    MainFeature(name: "Fitpal")
 ]
 
 

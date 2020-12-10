@@ -9,8 +9,11 @@ import SwiftUI
 
 struct Leaderboard: View {
     var body: some View {
-        Text("Leaderboard")
-//        Image(systemName: "crown")
+        Image("leaderboardUI")
+            .resizable()
+            .scaledToFill()
+//        .ignoresSafeArea(.all, edges: .all)
+            
     }
 }
 

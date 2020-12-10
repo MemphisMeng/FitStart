@@ -35,6 +35,7 @@
 		C95D61952575E0410065C677 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95D61942575E0410065C677 /* ImagePicker.swift */; };
 		C95D619A2575E7230065C677 /* UploadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95D61992575E7230065C677 /* UploadImage.swift */; };
 		C95D619F2575EB990065C677 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95D619E2575EB990065C677 /* Profile.swift */; };
+		C99894A8258290230097A66A /* FitPal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99894A7258290230097A66A /* FitPal.swift */; };
 		C9B6A304257FCC1B00A8E89A /* Jump Jacks.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C9B6A300257FCC1A00A8E89A /* Jump Jacks.mp4 */; };
 		C9B6A305257FCC1B00A8E89A /* Squat.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C9B6A301257FCC1B00A8E89A /* Squat.mp4 */; };
 		C9B6A306257FCC1B00A8E89A /* Congratulations.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C9B6A302257FCC1B00A8E89A /* Congratulations.mp4 */; };
@@ -101,6 +102,7 @@
 		C95D61942575E0410065C677 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		C95D61992575E7230065C677 /* UploadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImage.swift; sourceTree = "<group>"; };
 		C95D619E2575EB990065C677 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		C99894A7258290230097A66A /* FitPal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitPal.swift; sourceTree = "<group>"; };
 		C9B6A300257FCC1A00A8E89A /* Jump Jacks.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jump Jacks.mp4"; sourceTree = "<group>"; };
 		C9B6A301257FCC1B00A8E89A /* Squat.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Squat.mp4; sourceTree = "<group>"; };
 		C9B6A302257FCC1B00A8E89A /* Congratulations.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Congratulations.mp4; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				B189CBDE25585BAF00FFBDEA /* OnBoardScreen.swift */,
+				C99894A7258290230097A66A /* FitPal.swift */,
 				C9C439342579BF780012C5E9 /* Leaderboard.swift */,
 				C93EEBEC257A00C300103593 /* SideBar.swift */,
 				C93EEBEB2579FADE00103593 /* Profile */,
@@ -567,6 +570,7 @@
 				B189CBDF25585BAF00FFBDEA /* OnBoardScreen.swift in Sources */,
 				B189CB92255856B300FFBDEA /* ContentView.swift in Sources */,
 				B14F3EBF2558823100D1B7BB /* ModelData.swift in Sources */,
+				C99894A8258290230097A66A /* FitPal.swift in Sources */,
 				B14F3EB725587D7F00D1B7BB /* FitStart.xcdatamodeld in Sources */,
 				C9C4392B2579A1710012C5E9 /* Cube_two.swift in Sources */,
 				C95D61902575DE9B0065C677 /* RegisterViewModel.swift in Sources */,

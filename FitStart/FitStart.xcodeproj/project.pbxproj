@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C2DE73D25833036002B3EAE /* profilepageUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2DE73C25833036002B3EAE /* profilepageUI.swift */; };
 		4109CDD58885FB41982FB6F1 /* Pods_FitStartTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31412F4E0BE459ACFF5D89A1 /* Pods_FitStartTests.framework */; };
 		938E8D9200EFC89AABF4D00A /* Pods_FitStart_FitStartUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028037CF007FD86EB7CF8EDD /* Pods_FitStart_FitStartUITests.framework */; };
 		B14F3EB725587D7F00D1B7BB /* FitStart.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B14F3EB525587D7F00D1B7BB /* FitStart.xcdatamodeld */; };
@@ -66,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		028037CF007FD86EB7CF8EDD /* Pods_FitStart_FitStartUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitStart_FitStartUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C2DE73C25833036002B3EAE /* profilepageUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profilepageUI.swift; sourceTree = "<group>"; };
 		2EBED182DB7DC8FBDD6145A4 /* Pods-FitStart-FitStartUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitStart-FitStartUITests.debug.xcconfig"; path = "Target Support Files/Pods-FitStart-FitStartUITests/Pods-FitStart-FitStartUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		31412F4E0BE459ACFF5D89A1 /* Pods_FitStartTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitStartTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33936E23C09EEC0AAA1992B3 /* Pods-FitStartTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitStartTests.debug.xcconfig"; path = "Target Support Files/Pods-FitStartTests/Pods-FitStartTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				C99894A7258290230097A66A /* FitPal.swift */,
 				C9C439342579BF780012C5E9 /* Leaderboard.swift */,
 				C93EEBEC257A00C300103593 /* SideBar.swift */,
+				1C2DE73C25833036002B3EAE /* profilepageUI.swift */,
 				C93EEBEB2579FADE00103593 /* Profile */,
 				C93EEBEA2579FAC300103593 /* Goal */,
 				C93EEBE92579FA9800103593 /* Fitness */,
@@ -581,6 +584,7 @@
 				C9C439302579BEF50012C5E9 /* Goals.swift in Sources */,
 				C95D61832575D49E0065C677 /* LoginView.swift in Sources */,
 				B189CB90255856B300FFBDEA /* FitStartApp.swift in Sources */,
+				1C2DE73D25833036002B3EAE /* profilepageUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

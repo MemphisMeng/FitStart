@@ -21,7 +21,7 @@ struct Profile : View {
                 
                 if self.status{
                     
-                    RegisterUser()
+                    ProfilePage()
                 }
                 else{
                     
@@ -48,6 +48,7 @@ struct Profile : View {
                 }
             }
         }
+        
     }
 }
 
@@ -103,8 +104,7 @@ struct Login : View {
                     VStack{
                         
                         Image("fitstartLogo")
-                            .resizable()
-                            .frame(width: 150, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                           
                         
                         Text("Log in to your account")
                             .font(.title)
@@ -278,18 +278,19 @@ struct SignUp : View {
                     VStack{
                         
                         Image("fitstartLogo")
+                        .padding(.top, 1)
                         
-                        Text("Log in to your account")
+                        Text("Create new account")
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundColor(self.color)
-                            .padding(.top, 35)
+                            .padding(.top, 1)
                         
                         TextField("Email", text: self.$email)
                         .autocapitalization(.none)
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Color") : self.color,lineWidth: 2))
-                        .padding(.top, 25)
+                        .padding(.top, 1)
                         
                         HStack(spacing: 15){
                             
@@ -320,9 +321,9 @@ struct SignUp : View {
                         }
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Color") : self.color,lineWidth: 2))
-                        .padding(.top, 25)
+                        .padding(.top, 1)
                         
-                        HStack(spacing: 15){
+                        HStack(spacing:15){
                             
                             VStack{
                                 
@@ -351,7 +352,7 @@ struct SignUp : View {
                         }
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 4).stroke(self.repass != "" ? Color("Color") : self.color,lineWidth: 2))
-                        .padding(.top, 25)
+                        .padding(.top, 1)
                         
                         Button(action: {
                             
@@ -365,10 +366,12 @@ struct SignUp : View {
                         }
                         .background(Color("Color"))
                         .cornerRadius(10)
-                        .padding(.top, 25)
+                        .padding(.top, 1)
                         
                     }
+                    .frame(maxWidth: .infinity,maxHeight: .infinity)
                     .padding(.horizontal, 25)
+                    
                 }
                 
                 Button(action: {

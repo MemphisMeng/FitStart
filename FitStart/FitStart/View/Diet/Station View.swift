@@ -27,22 +27,32 @@ struct Station_View: View {
                         }.padding(.leading, 8)
                         Spacer()
                         if (Int(i.protein)! > 10) {
-                            Image(systemName: "dollarsign.circle")
-                                .foregroundColor(.white)
-                                .padding(20)
-                                .frame(width: 30, height: 30)
-                                .background(Color("5324FF"))
-                                .clipShape(Capsule())
-                                .padding(.trailing)
+                            Button(action: {
+                                print("Button action")
+                            }) {
+                                HStack {
+                                    Image(systemName: "p.circle")
+                                    Text("+50xp")
+                                }.padding(10.0)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 6.0)
+                                        .stroke(lineWidth: 2.0)
+                                )
+                            }
                         }
                         if (i.is_vegan) {
-                            Image(systemName: "leaf")
-                                .foregroundColor(.white)
-                                .padding(20)
-                                .frame(width: 30, height: 30)
-                                .background(Color("5324FF"))
-                                .clipShape(Capsule())
-                                .padding(.trailing)
+                            Button(action: {
+                                print("Button action")
+                            }) {
+                                HStack {
+                                    Image(systemName: "leaf")
+                                    Text("+50xp")
+                                }.padding(10.0)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 6.0)
+                                        .stroke(lineWidth: 2.0)
+                                )
+                            }
                         }
                             
                        

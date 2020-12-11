@@ -70,14 +70,15 @@ struct Goals: View {
                                             HStack {
                                                 LinearGradient(gradient: .init(colors: [Color("5182FF"), Color("8F66FF")]), startPoint: .topLeading, endPoint: .bottomTrailing)
                                                     .clipShape(Capsule())
-                                                    .frame(width: 30, height: 30)
+                                                    .frame(width: 40, height: 40)
                                                     .padding(.leading)
                                             }
                                             
                                             ZStack{
-                                                Image(systemName: "checkmark")
+                                                //Image(systemName: "checkmark")
+                                                Text("50      ")
                                                     .foregroundColor(.white)
-                                                    .frame(width: 30, height: 30)
+                                                    .frame(width: 35, height: 35)
                                                     .clipShape(Capsule())
                                             }
                                             .offset(x:-37)

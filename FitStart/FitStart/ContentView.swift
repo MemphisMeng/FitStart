@@ -151,7 +151,7 @@ struct Home: View {
                     .frame(width: 20, height: 24, alignment: .leading)
                 
                 Spacer()
-                Text("xp: 1500")
+                Text("xp: 450")
                     .fontWeight(.bold)
                     .padding(.horizontal)
                     .foregroundColor(Color.white)

@@ -72,8 +72,9 @@ struct Meal: View {
                         }) {
                             Text("Breakfast \n 9:00-\n10:00AM")
                                 .fontWeight(self.top == 0 ? .bold : .none)
+                                .padding(.horizontal, 8)
                                 .foregroundColor(Color.white)
-                                .background(self.top == 0 ? Color("5324FF").cornerRadius(10) :Color("Black").cornerRadius(10))
+                                .background(self.top == 0 ? Color("5324FF").cornerRadius(5) :Color("Black").cornerRadius(10))
                                 .padding(.vertical)
                                 
                         }
@@ -83,8 +84,9 @@ struct Meal: View {
                         }) {
                             Text("Lunch \n 11:00-\n3:00 PM")
                                 .fontWeight(self.top == 1 ? .bold : .none)
+                                .padding(.horizontal, 8)
                                 .foregroundColor(Color.white)
-                                .background(self.top == 1 ? Color("5324FF").cornerRadius(10) :Color("Black").cornerRadius(10))
+                                .background(self.top == 1 ? Color("5324FF").cornerRadius(5) :Color("Black").cornerRadius(5))
                                 .padding(.vertical)
                                 
                         }
@@ -92,7 +94,7 @@ struct Meal: View {
                         Button(action: {
                             self.top = 2
                         }) {
-                            Text("Lunch \n 11:00-\n3:00 PM")
+                            Text("Dinner \n 5:00-\n9:00 PM")
                                 .fontWeight(self.top == 2 ? .bold : .none)
                                 .padding(.horizontal, 8)
                                 .foregroundColor(Color.white)

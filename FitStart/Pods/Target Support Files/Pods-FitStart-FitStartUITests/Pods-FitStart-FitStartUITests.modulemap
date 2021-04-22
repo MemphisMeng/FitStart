@@ -1,6 +1,0 @@
-framework module Pods_FitStart_FitStartUITests {
-  umbrella header "Pods-FitStart-FitStartUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}

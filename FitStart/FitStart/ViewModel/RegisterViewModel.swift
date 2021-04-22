@@ -9,6 +9,17 @@ import SwiftUI
 import Firebase
 
 class RegisterViewModel : ObservableObject {
+//    struct FBUser: Identifiable {
+//        let id = UUID()
+//        let uid: String
+//        let name: String
+//        let email: String
+//        let bio: String
+//        let interest: String
+//        let level: Int
+//        let xp: Int
+//    }
+    
     @Published var name = ""
     @Published var bio = ""
     @Published var interest = ""

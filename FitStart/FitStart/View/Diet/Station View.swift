@@ -6,8 +6,14 @@
 //
 
 import SwiftUI
+import FirebaseStorage
+import FirebaseCore
+import FirebaseFirestore
 
 struct Station_View: View {
+    @State private var showingAlert = false
+    var ref: Firestore!
+    
     var station_ : station
     var food : [food] = []
     var body: some View {
@@ -28,7 +34,18 @@ struct Station_View: View {
                         Spacer()
                         if (Int(i.protein)! > 10) {
                             Button(action: {
-                                print("Button action")
+//                                print("Button action")
+                                
+                                let docRef = ref?.collection("users").document("7lqIqxc7SGPrbRhhQWZ0rdNuKnb2")
+                                docRef?.getDocument { (document, error) in
+                                    if let document = document, document.exists {
+                                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                                        print("Document data: \(dataDescription)")
+                                    } else {
+                                        print("Document does not exist")
+                                    }
+                                }
+                                self.showingAlert = true
                             }) {
                                 HStack {
                                     Image(systemName: "p.circle")
@@ -39,10 +56,24 @@ struct Station_View: View {
                                         .stroke(lineWidth: 2.0)
                                 )
                             }
+                            .alert(isPresented: $showingAlert) {
+                            () -> Alert in
+                            Alert(title: Text("Congratulations!"), message: Text("You had a protein meal, XP+50!"), dismissButton: .default(Text("OK")))
+                                }
                         }
                         if (i.is_vegan) {
                             Button(action: {
-                                print("Button action")
+//                                print("Button action")
+                                let docRef = ref?.collection("users").document("7lqIqxc7SGPrbRhhQWZ0rdNuKnb2")
+                                docRef?.getDocument { (document, error) in
+                                    if let document = document, document.exists {
+                                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                                        print("Document data: \(dataDescription)")
+                                    } else {
+                                        print("Document does not exist")
+                                    }
+                                }
+                                self.showingAlert = true
                             }) {
                                 HStack {
                                     Image(systemName: "leaf")
@@ -53,6 +84,10 @@ struct Station_View: View {
                                         .stroke(lineWidth: 2.0)
                                 )
                             }
+                            .alert(isPresented: $showingAlert) {
+                                () -> Alert in
+                                Alert(title: Text("Congratulations!"), message: Text("You had a vegan meal, XP+50!"), dismissButton: .default(Text("OK")))
+                                    }
                         }
                             
                        

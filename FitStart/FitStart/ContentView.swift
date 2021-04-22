@@ -139,6 +139,7 @@ struct Home: View {
     var body: some View {
         VStack {
             HStack {
+                // TODO
                 Text("Level 1")
                     .fontWeight(.bold)
                     .padding(.horizontal)
@@ -151,6 +152,7 @@ struct Home: View {
                     .frame(width: 20, height: 24, alignment: .leading)
                 
                 Spacer()
+                // TODO: change according to the records in the database
                 Text("xp: 450")
                     .fontWeight(.bold)
                     .padding(.horizontal)
@@ -204,7 +206,7 @@ struct mainFeatureView : View {
             
             Button(action: {
                 if (feature.name == "Goals") {
-                
+                    
                 }
                 
             }) {

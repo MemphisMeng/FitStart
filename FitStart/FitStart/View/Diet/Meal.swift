@@ -154,7 +154,7 @@ struct Meal: View {
                     lunch = menu.meal_groups.Lunch.stations
                     dinner = menu.meal_groups.Dinner.stations
                 } catch {
-                    print("Fetch failed: \(error.localizedDescription ?? "Unknown error")")
+                    print("Fetch failed: \(error.localizedDescription )")
                 }
                    
         }.resume()

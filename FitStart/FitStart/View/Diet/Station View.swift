@@ -9,10 +9,12 @@ import SwiftUI
 import FirebaseStorage
 import FirebaseCore
 import FirebaseFirestore
+import Firebase
 
 struct Station_View: View {
+    let current_user_id = Auth.auth().currentUser!.uid
     @State private var showingAlert = false
-    var ref: Firestore!
+    var ref = Firestore.firestore()
     
     var station_ : station
     var food : [food] = []
@@ -34,13 +36,12 @@ struct Station_View: View {
                         Spacer()
                         if (Int(i.protein)! > 10) {
                             Button(action: {
-//                                print("Button action")
-                                
-                                let docRef = ref?.collection("users").document("7lqIqxc7SGPrbRhhQWZ0rdNuKnb2")
-                                docRef?.getDocument { (document, error) in
+                                // TODO: PUT THE CURRENT USER ID
+                                let docRef = ref.collection("users").document("7lqIqxc7SGPrbRhhQWZ0rdNuKnb2")
+                                docRef.getDocument { (document, error) in
                                     if let document = document, document.exists {
-                                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                                        print("Document data: \(dataDescription)")
+                                        let xp = document.data()!["xp"] as! Int
+                                        docRef.updateData(["xp": xp + 50])
                                     } else {
                                         print("Document does not exist")
                                     }
@@ -63,12 +64,12 @@ struct Station_View: View {
                         }
                         if (i.is_vegan) {
                             Button(action: {
-//                                print("Button action")
-                                let docRef = ref?.collection("users").document("7lqIqxc7SGPrbRhhQWZ0rdNuKnb2")
-                                docRef?.getDocument { (document, error) in
+                                // TODO: PUT THE CURRENT USER ID
+                                let docRef = ref.collection("users").document("7lqIqxc7SGPrbRhhQWZ0rdNuKnb2")
+                                docRef.getDocument { (document, error) in
                                     if let document = document, document.exists {
-                                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                                        print("Document data: \(dataDescription)")
+                                        let xp = document.data()!["xp"] as! Int
+                                        docRef.updateData(["xp": xp + 50])
                                     } else {
                                         print("Document does not exist")
                                     }
@@ -89,13 +90,8 @@ struct Station_View: View {
                                 Alert(title: Text("Congratulations!"), message: Text("You had a vegan meal, XP+50!"), dismissButton: .default(Text("OK")))
                                     }
                         }
-                            
-                       
                     }
                     .padding(.init(top: 12, leading: 0, bottom: 12, trailing: 0))
-                    
-                    
-                    
                 }
             }
         } )

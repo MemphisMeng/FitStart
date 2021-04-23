@@ -7,8 +7,14 @@
 
 import SwiftUI
 import CoreData
+import Firebase
+import FirebaseFirestore
 
 struct Goals: View {
+    let current_user_id = Auth.auth().currentUser!.uid
+    @State private var showingAlert = false
+    var ref = Firestore.firestore()
+    
     @StateObject var homeData = HomeViewModel()
     @State var txt = ""
     @State var edge = UIApplication.shared.windows.first?.safeAreaInsets
@@ -64,7 +70,16 @@ struct Goals: View {
                                         Button(action: {
                                             context.delete(goal)
                                             try! context.save()
-                                            
+                                            let docRef = ref.collection("users").document("7lqIqxc7SGPrbRhhQWZ0rdNuKnb2")
+                                            docRef.getDocument { (document, error) in
+                                                if let document = document, document.exists {
+                                                    let xp = document.data()!["xp"] as! Int
+                                                    docRef.updateData(["xp": xp + 50])
+                                                } else {
+                                                    print("Document does not exist")
+                                                }
+                                            }
+                                            self.showingAlert = true
                                         }, label: {
                                             
                                             HStack {
@@ -84,6 +99,10 @@ struct Goals: View {
                                             .offset(x:-37)
                                             
                                         })
+                                        .alert(isPresented: $showingAlert) {
+                                        () -> Alert in
+                                        Alert(title: Text("Congratulations!"), message: Text("You completed a goal today, XP+50!"), dismissButton: .default(Text("OK")))
+                                            }
                                         
                                     VStack(alignment: .leading, spacing: 5) {
                                         

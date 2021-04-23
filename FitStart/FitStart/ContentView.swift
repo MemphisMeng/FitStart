@@ -137,7 +137,7 @@ struct TabButton : View {
 
 //The Home page
 struct Home: View {
-    let current_user_id = Auth.auth().currentUser!.uid
+    @ObservedObject private var users = UserViewModel()
     var body: some View {
         VStack {
             HStack {
@@ -154,18 +154,8 @@ struct Home: View {
                     .frame(width: 20, height: 24, alignment: .leading)
                 
                 Spacer()
-                // TODO: PUT THE CURRENT USER ID
-//                let docRef = ref.collection("users").document("7lqIqxc7SGPrbRhhQWZ0rdNuKnb2")
-//                var xp: Int = 0
-//                docRef.getDocument { (document, error) in
-//                    if let document = document, document.exists {
-//                        xp = document.data()!["xp"] as! Int
-//                    } else {
-//                        print("Document does not exist")
-//                    }
-//                }
-//                Text("xp: \(xp)")
-                    Text("xp: 1500")
+                Text("xp: \(users.xp ?? 0)")
+//                    Text("xp: 1500")
                     .fontWeight(.bold)
                     .padding(.horizontal)
                     .foregroundColor(Color.white)

@@ -164,10 +164,6 @@ struct Home: View {
                     .padding(.trailing)
             }
             .padding(.top)
-//            .onAppear() {
-//                print("view drawn")
-//                self.users.fetchData()
-//                }
 //            Spacer()
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 2), spacing: 10) {
                 ForEach(mainfs) { f in

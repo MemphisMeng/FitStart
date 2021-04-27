@@ -11,7 +11,7 @@ import Firebase
 import FirebaseFirestore
 
 struct Goals: View {
-    let current_user_id = Auth.auth().currentUser!.uid
+    let current_user_id = Auth.auth().currentUser?.uid
     @State private var showingAlert = false
     var ref = Firestore.firestore()
     

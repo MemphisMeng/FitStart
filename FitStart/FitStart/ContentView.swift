@@ -141,8 +141,7 @@ struct Home: View {
     var body: some View {
         VStack {
             HStack {
-                // TODO
-                Text("Level 1")
+                Text("Level \(users.currentUser.level)")
                     .fontWeight(.bold)
                     .padding(.horizontal)
                     .foregroundColor(Color.white)
@@ -154,7 +153,7 @@ struct Home: View {
                     .frame(width: 20, height: 24, alignment: .leading)
                 
                 Spacer()
-                Text("xp: \(users.xp ?? 0)")
+                Text("xp: \(users.currentUser.xp)")
 //                    Text("xp: 1500")
                     .fontWeight(.bold)
                     .padding(.horizontal)

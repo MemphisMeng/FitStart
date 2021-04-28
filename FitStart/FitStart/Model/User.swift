@@ -54,7 +54,7 @@ class User : ObservableObject, Identifiable {
                             "xp" : self.xp,
                             "dateCreated": Date()
                             
-                        ]) { (err) in
+                        ], merge: true) { (err) in
                          
                             if err != nil{
                                 self.isLoading = false

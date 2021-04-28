@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 struct RegisterUser: View {
     
-    @StateObject var registerData = RegisterViewModel()
+    @StateObject var registerData = User()
     
     var body: some View {
         ZStack {

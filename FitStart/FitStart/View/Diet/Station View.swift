@@ -37,7 +37,7 @@ struct Station_View: View {
                         if (Int(i.protein)! > 10) {
                             Button(action: {
                                 // TODO: PUT THE CURRENT USER ID
-                                let docRef = ref.collection("users").document("7lqIqxc7SGPrbRhhQWZ0rdNuKnb2")
+                                let docRef = ref.collection("Users").document(current_user_id ?? "")
                                 docRef.getDocument { (document, error) in
                                     if let document = document, document.exists {
                                         let xp = document.data()!["xp"] as! Int

@@ -9,18 +9,6 @@ import SwiftUI
 import CoreData
 import Firebase
 
-//
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//    }
-//}
-
-//struct Task: Identifiable {
-//    var id: Int
-//    let message, imageName: String
-//}
-
 var tabs = ["Leaderboard", "home", "profile"]
 
 struct ContentView: View {

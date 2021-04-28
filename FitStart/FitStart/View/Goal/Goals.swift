@@ -70,7 +70,7 @@ struct Goals: View {
                                         Button(action: {
                                             context.delete(goal)
                                             try! context.save()
-                                            let docRef = ref.collection("users").document("7lqIqxc7SGPrbRhhQWZ0rdNuKnb2")
+                                            let docRef = ref.collection("Users").document(current_user_id ?? "")
                                             docRef.getDocument { (document, error) in
                                                 if let document = document, document.exists {
                                                     let xp = document.data()!["xp"] as! Int

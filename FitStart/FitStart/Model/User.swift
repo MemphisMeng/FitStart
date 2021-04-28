@@ -8,24 +8,27 @@
 import SwiftUI
 import Firebase
 
-class RegisterViewModel : ObservableObject, Identifiable {
+class User : ObservableObject, Identifiable {
     @Published var name = ""
     @Published var bio = ""
     @Published var interest = ""
     @Published var level = 1
     @Published var xp = 0
-    
+    @Published var email = ""
     @Published var image_Data = Data(count: 0)
     @Published var picker = false
     
     let ref = Firestore.firestore()
     
     @Published var isLoading = false
-    @AppStorage("current_status") var status = false
+    @AppStorage("status") var status = false
     
     // common init
     init() {
-        
+        self.xp = 0
+        self.level = xp2Level(xp: self.xp)
+        self.image_Data = Data(count: 0)
+        self.picker = false
     }
     
     //initializer for leaderboard collection
@@ -66,7 +69,7 @@ class RegisterViewModel : ObservableObject, Identifiable {
     }
     
     func xp2Level(xp:Int) -> Int {
-        if xp == 0 {
+        if xp < 500 {
             return 1
         }
         else if xp < 9500 {

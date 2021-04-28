@@ -10,18 +10,18 @@ import Firebase
 import FirebaseFirestore
 
 class UserViewModel: ObservableObject {
-    @Published var currentUser = RegisterViewModel()
-    @Published var topFiveUsers = [RegisterViewModel]()
-    private var db = Firestore.firestore().collection("users")
+    @Published var currentUser = User()
+    @Published var topFiveUsers = [User]()
+    private var db = Firestore.firestore().collection("Users")
         
-    init() {
+    public init() {
         // TODO
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
         
         // catch the information of the current user
-        let docRef = db.document("7lqIqxc7SGPrbRhhQWZ0rdNuKnb2")
+        let docRef = db.document(uid)
         docRef.getDocument { (snapshot, error) in
             if let doc = snapshot,
                let xp = doc.get("xp") as? Int,
@@ -40,30 +40,12 @@ class UserViewModel: ObservableObject {
                 return
             }
             self.topFiveUsers = documents.map {
-                (QueryDocumentSnapshot) -> RegisterViewModel in
+                (QueryDocumentSnapshot) -> User in
                 let data = QueryDocumentSnapshot.data()
                 let xp = data["xp"]
-                let name = data["name"]
-                print(RegisterViewModel(name:name as? String ?? "", xp:xp as? Int ?? 0))
-                return RegisterViewModel(name:name as? String ?? "", xp:xp as? Int ?? 0)
+                let name = data["username"]
+                return User(name:name as? String ?? "", xp:xp as? Int ?? 0)
             }
-        }
-    }
-    
-    // catch the information of the top 5 users with most credits
-    func fetchData() {
-        let top5 = db.order(by: "xp", descending: true).limit(to: 5)
-        top5.addSnapshotListener { (QuerySnapshot, error) in
-            guard let documents = QuerySnapshot?.documents else {
-                print("Document is empty")
-                return
-            }
-        self.topFiveUsers = documents.map { (QueryDocumentSnapshot) -> RegisterViewModel in
-                                let data = QueryDocumentSnapshot.data()
-                                let xp = data["xp"]
-                                let name = data["name"]
-                                return RegisterViewModel(name:name as? String ?? "", xp:xp as? Int ?? 0)
-                            }
         }
     }
 }

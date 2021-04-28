@@ -32,7 +32,6 @@ struct Leaderboard: View {
                 Image("Badge")
                     .resizable()
                     .frame(width: 20, height: 24, alignment: .leading)
-
                 Spacer()
                 Text("xp: \(users.currentUser.xp)")
                     .fontWeight(.bold)

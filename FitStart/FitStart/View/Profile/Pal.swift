@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Pal: View {
-    @AppStorage("current_status") var status = false
+    @AppStorage("status") var status = false
     var body: some View {
         NavigationView{
             VStack{

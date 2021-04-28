@@ -38,7 +38,7 @@ class User : ObservableObject, Identifiable {
         self.level = xp2Level(xp: xp)
     }
     
-    func register() {
+    func update() {
         //sending user data to Firebase
         let uid = Auth.auth().currentUser!.uid
         
@@ -49,10 +49,10 @@ class User : ObservableObject, Identifiable {
                             "imageurl": url,
                             "username": self.name,
                             "bio": self.bio,
-                            "interest" : self.interest,
-                            "level" : self.level,
-                            "xp" : self.xp,
-                            "dateCreated": Date()
+                            "interest" : self.interest
+//                            "level" : self.level,
+//                            "xp" : self.xp,
+//                            "dateCreated": Date()
                             
                         ], merge: true) { (err) in
                          
@@ -69,17 +69,14 @@ class User : ObservableObject, Identifiable {
     }
     
     func xp2Level(xp:Int) -> Int {
-        if xp < 500 {
-            return 1
-        }
-        else if xp < 9500 {
-            return xp / 500
+        if xp < 9500 {
+            return xp / 500 + 1
         }
         else if xp < 29500 {
-            return (xp - 9500) / 1000
+            return (xp - 9500) / 1000 + 1
         }
         else {
-            return (xp - 29500) / 2000
+            return (xp - 29500) / 2000 + 1
         }
     }
 }

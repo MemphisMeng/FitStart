@@ -78,7 +78,7 @@ struct RegisterUser: View {
                     ProgressView()
                         .padding()
                 } else {
-                    Button(action: registerData.register, label: {
+                    Button(action: registerData.update, label: {
                         Text("Save")
                             .foregroundColor(Color("Color"))
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)

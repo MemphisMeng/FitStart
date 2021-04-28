@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 import FirebaseStorage
 
-func UploadImage(imageData: Data,path: String,completion: @escaping (String) -> ()){
+func UploadImage(imageData: Data, path: String, completion: @escaping (String) -> ()){
     
     let storage = Storage.storage().reference()
     let uid = Auth.auth().currentUser!.uid

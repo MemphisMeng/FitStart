@@ -265,6 +265,7 @@ struct SignUp : View {
     @Binding var show : Bool
     @State var alert = false
     @State var error = ""
+    let ref = Firestore.firestore()
     
     var body: some View{
         
@@ -408,9 +409,16 @@ struct SignUp : View {
                         self.alert.toggle()
                         return
                     }
-                    
-                    print("success")
-                    
+                    let uid = Auth.auth().currentUser?.uid
+                    print("Current USER ID: \(String(describing: uid))")
+                    // TODO: send information to DB here
+                    self.ref.collection("Users").document(uid as? String ?? "").setData([
+                        "uid": uid as? String ?? "",
+                        "level": 1,
+                        "xp": 0,
+                        "dateCreated": Date(),
+                        "email": self.email
+                    ])
                     UserDefaults.standard.set(true, forKey: "status")
                     NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
                 }

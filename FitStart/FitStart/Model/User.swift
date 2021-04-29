@@ -25,17 +25,14 @@ class User : ObservableObject, Identifiable {
     
     // common init
     init() {
-        self.xp = 0
-        self.level = xp2Level(xp: self.xp)
-        self.image_Data = Data(count: 0)
-        self.picker = false
+        
     }
     
     //initializer for leaderboard collection
     init(name: String, xp: Int) {
         self.name = name
         self.xp = xp
-        self.level = xp2Level(xp: xp)
+        self.level = User.xp2Level(xp: xp)
     }
     
     func update() {
@@ -50,10 +47,6 @@ class User : ObservableObject, Identifiable {
                             "username": self.name,
                             "bio": self.bio,
                             "interest" : self.interest
-//                            "level" : self.level,
-//                            "xp" : self.xp,
-//                            "dateCreated": Date()
-                            
                         ], merge: true) { (err) in
                          
                             if err != nil{
@@ -68,7 +61,7 @@ class User : ObservableObject, Identifiable {
         }
     }
     
-    func xp2Level(xp:Int) -> Int {
+    static func xp2Level(xp:Int) -> Int {
         if xp < 9500 {
             return xp / 500 + 1
         }

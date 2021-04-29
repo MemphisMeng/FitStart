@@ -10,6 +10,7 @@ import Firebase
 struct RegisterUser: View {
     
     @StateObject var registerData = User()
+    @State private var showingAlert = false
     
     var body: some View {
         ZStack {
@@ -78,7 +79,10 @@ struct RegisterUser: View {
                     ProgressView()
                         .padding()
                 } else {
-                    Button(action: registerData.update, label: {
+                    Button(action: {
+                        registerData.update()
+                        self.showingAlert = true
+                    }, label: {
                         Text("Save")
                             .foregroundColor(Color("Color"))
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
@@ -88,6 +92,10 @@ struct RegisterUser: View {
                     })
                     .disabled(registerData.image_Data.count == 0 || registerData.name == "" || registerData.interest == ""  || registerData.bio == "" ? true : false)
                     .opacity(registerData.image_Data.count == 0 || registerData.name == "" || registerData.interest == ""  || registerData.bio == "" ?  0.5 : 1)
+                    .alert(isPresented: $showingAlert) {
+                        () -> Alert in
+                        Alert(title: Text("Congratulations!"), message: Text("Saved successfully!"), dismissButton: .default(Text("OK")))
+                            }
                 }
                 VStack{
                     Text("")

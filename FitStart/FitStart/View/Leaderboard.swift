@@ -22,7 +22,7 @@ struct Leaderboard: View {
     var body: some View {
         VStack {
             HStack {
-                Text("Level \(users.currentUser.level)")
+                Text("Level \(users.currentLevel ?? 1)")
                     .fontWeight(.bold)
                     .padding(.horizontal)
                     .foregroundColor(Color.white)
@@ -33,7 +33,7 @@ struct Leaderboard: View {
                     .resizable()
                     .frame(width: 20, height: 24, alignment: .leading)
                 Spacer()
-                Text("xp: \(users.currentUser.xp)")
+                Text("xp: \(users.currentXP ?? 0)")
                     .fontWeight(.bold)
                     .padding(.horizontal)
                     .foregroundColor(Color.white)

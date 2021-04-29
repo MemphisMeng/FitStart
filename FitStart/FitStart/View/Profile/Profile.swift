@@ -412,8 +412,8 @@ struct SignUp : View {
                     let uid = Auth.auth().currentUser?.uid
                     print("Current USER ID: \(String(describing: uid))")
                     // TODO: send information to DB here
-                    self.ref.collection("Users").document(uid as? String ?? "").setData([
-                        "uid": uid as? String ?? "",
+                    self.ref.collection("Users").document(uid! ?? "").setData([
+                        "uid": uid! ?? "",
                         "level": 1,
                         "xp": 0,
                         "dateCreated": Date(),

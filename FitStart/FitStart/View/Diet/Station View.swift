@@ -39,8 +39,10 @@ struct Station_View: View {
                                 let docRef = ref.collection("Users").document(current_user_id ?? "")
                                 docRef.getDocument { (document, error) in
                                     if let document = document, document.exists {
-                                        let xp = document.data()!["xp"] as! Int
-                                        docRef.updateData(["xp": xp + 50])
+                                        let xp = document.data()!["xp"] as! Int + 50
+                                        docRef.updateData(["xp": xp])
+                                        // update level
+                                        docRef.updateData(["level": User.xp2Level(xp: xp)])
                                     } else {
                                         print("Document does not exist")
                                     }
@@ -66,8 +68,10 @@ struct Station_View: View {
                                 let docRef = ref.collection("Users").document(current_user_id ?? "")
                                 docRef.getDocument { (document, error) in
                                     if let document = document, document.exists {
-                                        let xp = document.data()!["xp"] as! Int
-                                        docRef.updateData(["xp": xp + 50])
+                                        let xp = document.data()!["xp"] as! Int + 50
+                                        docRef.updateData(["xp": xp])
+                                        // update level
+                                        docRef.updateData(["level": User.xp2Level(xp: xp)])
                                     } else {
                                         print("Document does not exist")
                                     }

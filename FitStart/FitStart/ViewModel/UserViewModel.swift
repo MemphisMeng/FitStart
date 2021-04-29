@@ -10,7 +10,8 @@ import Firebase
 import FirebaseFirestore
 
 class UserViewModel: ObservableObject {
-    @Published var currentUser = User()
+    @Published var currentXP: Int?
+    @Published var currentLevel: Int?
     @Published var topFiveUsers = [User]()
     private var db = Firestore.firestore().collection("Users")
         
@@ -25,9 +26,9 @@ class UserViewModel: ObservableObject {
         docRef.getDocument { (snapshot, error) in
             if let doc = snapshot,
                let xp = doc.get("xp") as? Int,
-               let name = doc.get("name") as? String {
-                self.currentUser.name = name
-                self.currentUser.xp = xp
+               let level = doc.get("level") as? Int {
+                self.currentXP = xp
+                self.currentLevel = level
             } else if let error = error {
                 print(error)
             }

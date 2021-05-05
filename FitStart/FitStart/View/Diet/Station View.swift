@@ -15,7 +15,7 @@ struct Station_View: View {
     let current_user_id = Auth.auth().currentUser?.uid
     @State private var showingAlert = false
     var ref = Firestore.firestore()
-    
+    @State var dbUploader: DBUploaderViewModel = DBUploaderViewModel()
     var station_ : station
     var food : [food] = []
     var body: some View {
@@ -36,18 +36,10 @@ struct Station_View: View {
                         Spacer()
                         if (Int(i.protein)! > 10) {
                             Button(action: {
-                                let docRef = ref.collection("Users").document(current_user_id ?? "")
-                                docRef.getDocument { (document, error) in
-                                    if let document = document, document.exists {
-                                        let xp = document.data()!["xp"] as! Int + 50
-                                        docRef.updateData(["xp": xp])
-                                        // update level
-                                        docRef.updateData(["level": User.xp2Level(xp: xp)])
-                                    } else {
-                                        print("Document does not exist")
-                                    }
+                                if current_user_id != nil {
+                                    dbUploader.updateXPnLV()
+                                    self.showingAlert = true
                                 }
-                                self.showingAlert = true
                             }) {
                                 HStack {
                                     Image(systemName: "p.circle")
@@ -65,18 +57,10 @@ struct Station_View: View {
                         }
                         if (i.is_vegan) {
                             Button(action: {
-                                let docRef = ref.collection("Users").document(current_user_id ?? "")
-                                docRef.getDocument { (document, error) in
-                                    if let document = document, document.exists {
-                                        let xp = document.data()!["xp"] as! Int + 50
-                                        docRef.updateData(["xp": xp])
-                                        // update level
-                                        docRef.updateData(["level": User.xp2Level(xp: xp)])
-                                    } else {
-                                        print("Document does not exist")
-                                    }
+                                if current_user_id != nil {
+                                    dbUploader.updateXPnLV()
+                                    self.showingAlert = true
                                 }
-                                self.showingAlert = true
                             }) {
                                 HStack {
                                     Image(systemName: "leaf")

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "3B75E5AD-755B-4D03-BB34-CA676835BE2E"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7F64B8FC-45A3-4833-9580-BDFD59C8208A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitStart/Model/User.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "DBUploaderViewModel"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "7F64B8FC-45A3-4833-9580-BDFD59C8208A - a45679ba73cc2012"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of FitStart.User.image_Data : Foundation.Data"
+                  moduleName = "FitStart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/memphismeng/Documents/Swift%20Programming/FitStart/FitStart/FitStart/Model/User.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "7F64B8FC-45A3-4833-9580-BDFD59C8208A - 57540e279ec0a238"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitStart.User.image_Data.getter : Foundation.Data"
+                  moduleName = "FitStart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/memphismeng/Documents/Swift%20Programming/FitStart/FitStart/FitStart/Model/User.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "7F64B8FC-45A3-4833-9580-BDFD59C8208A - 7c809500a6b65e24"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitStart.User.image_Data.setter : Foundation.Data"
+                  moduleName = "FitStart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/memphismeng/Documents/Swift%20Programming/FitStart/FitStart/FitStart/Model/User.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "168">
+               </Location>
+               <Location
+                  uuid = "7F64B8FC-45A3-4833-9580-BDFD59C8208A - 8bb5670fa13e98c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitStart.User.image_Data.modify : Foundation.Data"
+                  moduleName = "FitStart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/memphismeng/Documents/Swift%20Programming/FitStart/FitStart/FitStart/Model/User.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "7F64B8FC-45A3-4833-9580-BDFD59C8208A - cf0c9c9e381ef324"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitStart.User.image_Data.modify : Foundation.Data with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "FitStart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/memphismeng/Documents/Swift%20Programming/FitStart/FitStart/FitStart/Model/User.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "7F64B8FC-45A3-4833-9580-BDFD59C8208A - 2127ed3bd0f5195d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitStart.User.$image_Data.getter : Combine.Published&lt;Foundation.Data&gt;.Publisher"
+                  moduleName = "FitStart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/memphismeng/Documents/Swift%20Programming/FitStart/FitStart/FitStart/Model/User.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "7F64B8FC-45A3-4833-9580-BDFD59C8208A - 732cd9ed2e25e949"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitStart.User.$image_Data.setter : Combine.Published&lt;Foundation.Data&gt;.Publisher"
+                  moduleName = "FitStart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/memphismeng/Documents/Swift%20Programming/FitStart/FitStart/FitStart/Model/User.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "244">
+               </Location>
+               <Location
+                  uuid = "7F64B8FC-45A3-4833-9580-BDFD59C8208A - ef561ddefa74e7fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitStart.User.$image_Data.modify : Combine.Published&lt;Foundation.Data&gt;.Publisher"
+                  moduleName = "FitStart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/memphismeng/Documents/Swift%20Programming/FitStart/FitStart/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "7F64B8FC-45A3-4833-9580-BDFD59C8208A - 35605fe564555e65"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitStart.User.$image_Data.modify : Combine.Published&lt;Foundation.Data&gt;.Publisher with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "FitStart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/memphismeng/Documents/Swift%20Programming/FitStart/FitStart/FitStart/Model/User.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

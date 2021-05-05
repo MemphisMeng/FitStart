@@ -9,14 +9,13 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 
-class UserViewModel: ObservableObject {
+class DBDownloaderViewModel: ObservableObject {
     @Published var currentXP: Int?
     @Published var currentLevel: Int?
-    @Published var topFiveUsers = [User]()
+    @Published var topFiveUsers = [DBUploaderViewModel]()
     private var db = Firestore.firestore().collection("Users")
         
     public init() {
-        // TODO
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
@@ -41,11 +40,11 @@ class UserViewModel: ObservableObject {
                 return
             }
             self.topFiveUsers = documents.map {
-                (QueryDocumentSnapshot) -> User in
+                (QueryDocumentSnapshot) -> DBUploaderViewModel in
                 let data = QueryDocumentSnapshot.data()
                 let xp = data["xp"]
                 let name = data["username"]
-                return User(name:name as? String ?? "", xp:xp as? Int ?? 0)
+                return DBUploaderViewModel(name:name as? String ?? "", xp:xp as? Int ?? 0)
             }
         }
     }

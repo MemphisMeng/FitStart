@@ -125,11 +125,11 @@ struct TabButton : View {
 
 //The Home page
 struct Home: View {
-    @ObservedObject private var users = UserViewModel()
+    @ObservedObject private var dbUser = DBDownloaderViewModel()
     var body: some View {
         VStack {
             HStack {
-                Text("Level \(users.currentLevel ?? 1)")
+                Text("Level \(dbUser.currentLevel ?? 1)")
                     .fontWeight(.bold)
                     .padding(.horizontal)
                     .foregroundColor(Color.white)
@@ -141,7 +141,7 @@ struct Home: View {
                     .frame(width: 20, height: 24, alignment: .leading)
                 
                 Spacer()
-                Text("xp: \(users.currentXP ?? 0)")
+                Text("xp: \(dbUser.currentXP ?? 0)")
                     .fontWeight(.bold)
                     .padding(.horizontal)
                     .foregroundColor(Color.white)

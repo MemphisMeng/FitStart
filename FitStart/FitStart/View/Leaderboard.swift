@@ -18,11 +18,11 @@ import SwiftUI
 //}
 
 struct Leaderboard: View {
-    @ObservedObject private var users = UserViewModel()
+    @ObservedObject private var leadUsers = DBDownloaderViewModel()
     var body: some View {
         VStack {
             HStack {
-                Text("Level \(users.currentLevel ?? 1)")
+                Text("Level \(leadUsers.currentLevel ?? 1)")
                     .fontWeight(.bold)
                     .padding(.horizontal)
                     .foregroundColor(Color.white)
@@ -33,7 +33,7 @@ struct Leaderboard: View {
                     .resizable()
                     .frame(width: 20, height: 24, alignment: .leading)
                 Spacer()
-                Text("xp: \(users.currentXP ?? 0)")
+                Text("xp: \(leadUsers.currentXP ?? 0)")
                     .fontWeight(.bold)
                     .padding(.horizontal)
                     .foregroundColor(Color.white)
@@ -49,7 +49,7 @@ struct Leaderboard: View {
                     Text("XP")
                 }
             }
-            List(users.topFiveUsers) {
+            List(leadUsers.topFiveUsers) {
                 user in
                 VStack {
                     HStack {

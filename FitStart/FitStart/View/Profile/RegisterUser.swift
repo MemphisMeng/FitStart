@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 struct RegisterUser: View {
     
-    @StateObject var registerData = User()
+    @StateObject var registerData = DBUploaderViewModel()
     @State private var showingAlert = false
     
     var body: some View {
@@ -80,7 +80,7 @@ struct RegisterUser: View {
                         .padding()
                 } else {
                     Button(action: {
-                        registerData.update()
+                        registerData.updatePersonalInfo()
                         self.showingAlert = true
                     }, label: {
                         Text("Save")

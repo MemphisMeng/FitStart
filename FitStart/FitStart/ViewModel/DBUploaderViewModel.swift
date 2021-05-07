@@ -96,7 +96,7 @@ class DBUploaderViewModel : ObservableObject, Identifiable {
         let uid = Auth.auth().currentUser?.uid
         
         storage.child(path).child(uid ?? "").putData(imageData, metadata: nil) { (_, err) in
-            
+            print("imageData: \(imageData)")
             if err != nil{
                 completion("")
                 return

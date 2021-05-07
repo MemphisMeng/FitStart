@@ -51,6 +51,12 @@ struct Profile : View {
     }
 }
 
+struct Profile_Preview: PreviewProvider {
+    static var previews: some View {
+        RegisterUser()
+    }
+}
+
 struct Homescreen : View {
     
     var body: some View{
@@ -411,9 +417,8 @@ struct SignUp : View {
                     }
                     let uid = Auth.auth().currentUser?.uid
                     print("Current USER ID: \(String(describing: uid))")
-                    // TODO: send information to DB here
-                    self.ref.collection("Users").document(uid! ?? "").setData([
-                        "uid": uid! ?? "",
+                    self.ref.collection("Users").document(uid ?? "").setData([
+                        "uid": uid ?? "",
                         "level": 1,
                         "xp": 0,
                         "dateCreated": Date(),

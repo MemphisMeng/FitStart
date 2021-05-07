@@ -125,7 +125,7 @@ struct TabButton : View {
 
 //The Home page
 struct Home: View {
-    @ObservedObject private var dbUser = DBDownloaderViewModel()
+    @StateObject private var dbUser = DBDownloaderViewModel()
     var body: some View {
         VStack {
             HStack {

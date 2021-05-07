@@ -14,7 +14,7 @@ struct Goals: View {
     let current_user_id = Auth.auth().currentUser?.uid
     @State private var showingAlert = false
     var ref = Firestore.firestore()
-    @State var dbUploader:DBUploaderViewModel = DBUploaderViewModel()
+    @StateObject var dbUploader:DBUploaderViewModel = DBUploaderViewModel()
     @StateObject var homeData = HomeViewModel()
     @State var txt = ""
     @State var edge = UIApplication.shared.windows.first?.safeAreaInsets

@@ -13,7 +13,8 @@ struct Pal: View {
         NavigationView{
             VStack{
                 if status{
-                    RegisterUser()
+//                    RegisterUser()
+                    ProfileView()
                 }
                 else{
                     Profile()

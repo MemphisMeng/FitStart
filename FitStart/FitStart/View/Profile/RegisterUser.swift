@@ -10,12 +10,13 @@ import Firebase
 struct RegisterUser: View {
     
     @StateObject var registerData = DBUploaderViewModel()
+    @StateObject var originalData = DBDownloaderViewModel()
     @State private var showingAlert = false
     
     var body: some View {
         ZStack {
             VStack {
-                HStack {
+                HStack(spacing: 15) {
                     Text("User Info")
                         .font(.title)
                         .fontWeight(.bold)
@@ -45,9 +46,10 @@ struct RegisterUser: View {
                 })
                 
                 
-                
                 HStack (spacing: 15){
+//                    Text(originalData.currentName ?? "Nobody")
                     TextField("Name", text: $registerData.name)
+//                    TextFieldWithDefaultValue(value: originalData.currentName ?? "Nobdy")
                         .padding()
                         .keyboardType(.numberPad)
                         .background(Color.white.opacity(0.06))
@@ -97,26 +99,26 @@ struct RegisterUser: View {
                         Alert(title: Text("Congratulations!"), message: Text("Saved successfully!"), dismissButton: .default(Text("OK")))
                             }
                 }
-                VStack{
-                    Text("")
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.black.opacity(0.7))
-                    
-                    Button(action: {
-                        try! Auth.auth().signOut()
-                        UserDefaults.standard.set(false, forKey: "status")
-                        NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
-                        
-                    }) {
-                        Text("Log out")
-                            .foregroundColor(.white)
-                            .padding(.vertical)
-                            .frame(width: UIScreen.main.bounds.width - 50)
-                    }
-                    .background(Color("Color"))
-                    .cornerRadius(10)
-                    .padding(.top, 10)
-                }
+//                VStack{
+//                    Text("")
+//                        .fontWeight(.bold)
+//                        .foregroundColor(Color.black.opacity(0.7))
+//                    
+//                    Button(action: {
+//                        try! Auth.auth().signOut()
+//                        UserDefaults.standard.set(false, forKey: "status")
+//                        NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+//                        
+//                    }) {
+//                        Text("Log out")
+//                            .foregroundColor(.white)
+//                            .padding(.vertical)
+//                            .frame(width: UIScreen.main.bounds.width - 50)
+//                    }
+//                    .background(Color("Color"))
+//                    .cornerRadius(10)
+//                    .padding(.top, 10)
+//                }
             }
             .sheet(isPresented: $registerData.picker, content: {
                 ImagePicker(picker: $registerData.picker, img_Data: $registerData.image_Data)
@@ -128,4 +130,8 @@ struct RegisterUser: View {
     }
 }
 
-
+struct RegisterUser_Previews: PreviewProvider {
+    static var previews: some View {
+        RegisterUser()
+    }
+}

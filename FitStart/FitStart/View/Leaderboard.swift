@@ -18,7 +18,7 @@ import SwiftUI
 //}
 
 struct Leaderboard: View {
-    @ObservedObject private var leadUsers = DBDownloaderViewModel()
+    @StateObject private var leadUsers = DBDownloaderViewModel()
     var body: some View {
         VStack {
             HStack {
@@ -43,18 +43,24 @@ struct Leaderboard: View {
             }
             .padding(.top)
             Text("User Leaderboard")
-            VStack {
-                HStack {
-                    Text("User Name")
-                    Text("XP")
-                }
-            }
-            List(leadUsers.topFiveUsers) {
-                user in
+            Form {
                 VStack {
                     HStack {
-                        Text(verbatim: user.name)
-                        Text(verbatim: String(user.xp))
+                        Text("User Name")
+                            .font(.headline)
+                        Divider()
+                        Text("XP")
+                            .font(.headline)
+                    }
+                }
+                List(leadUsers.topFiveUsers) {
+                    user in
+                    VStack {
+                        HStack {
+                            Text(verbatim: user.name)
+                            Divider()
+                            Text(verbatim: String(user.xp))
+                        }
                     }
                 }
             }

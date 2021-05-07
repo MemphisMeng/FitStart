@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		021AE5812642EB8300157BB8 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021AE5802642EB8300157BB8 /* ProfileView.swift */; };
+		021AE5842642ECF400157BB8 /* ProfileSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021AE5832642ECF400157BB8 /* ProfileSummary.swift */; };
+		0286DA502644A9B10008C79E /* TextFieldWithDefaultValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286DA4F2644A9B10008C79E /* TextFieldWithDefaultValue.swift */; };
 		02957975262E61F3008881A6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 02957974262E61F3008881A6 /* FirebaseAnalytics */; };
 		02957977262E61F3008881A6 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 02957976262E61F3008881A6 /* FirebaseStorage */; };
 		02957979262E61F3008881A6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 02957978262E61F3008881A6 /* FirebaseAuth */; };
@@ -68,6 +71,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		021AE5802642EB8300157BB8 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		021AE5832642ECF400157BB8 /* ProfileSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummary.swift; sourceTree = "<group>"; };
+		0286DA4F2644A9B10008C79E /* TextFieldWithDefaultValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithDefaultValue.swift; sourceTree = "<group>"; };
 		02B259B42642048900BC0FF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		02EDCDE72633548400071D5D /* DBDownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBDownloaderViewModel.swift; sourceTree = "<group>"; };
 		1C2DE73C25833036002B3EAE /* profilepageUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profilepageUI.swift; sourceTree = "<group>"; };
@@ -280,9 +286,12 @@
 			isa = PBXGroup;
 			children = (
 				B189CBCF25585B2700FFBDEA /* Pal.swift */,
+				021AE5832642ECF400157BB8 /* ProfileSummary.swift */,
+				021AE5802642EB8300157BB8 /* ProfileView.swift */,
 				C95D61872575DE040065C677 /* RegisterUser.swift */,
 				C95D61942575E0410065C677 /* ImagePicker.swift */,
 				C95D619E2575EB990065C677 /* Profile.swift */,
+				0286DA4F2644A9B10008C79E /* TextFieldWithDefaultValue.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -455,15 +464,18 @@
 				C99894A8258290230097A66A /* FitPal.swift in Sources */,
 				B14F3EB725587D7F00D1B7BB /* FitStart.xcdatamodeld in Sources */,
 				C9C4392B2579A1710012C5E9 /* Cube_two.swift in Sources */,
+				0286DA502644A9B10008C79E /* TextFieldWithDefaultValue.swift in Sources */,
 				C95D61902575DE9B0065C677 /* DBUploaderViewModel.swift in Sources */,
 				B189CBEC25585DF600FFBDEA /* NewDataView.swift in Sources */,
 				B189CBDA25585B7800FFBDEA /* Meal.swift in Sources */,
 				B189CBD025585B2700FFBDEA /* Pal.swift in Sources */,
+				021AE5812642EB8300157BB8 /* ProfileView.swift in Sources */,
 				B189CBF12558631500FFBDEA /* DateButton.swift in Sources */,
 				C9C439302579BEF50012C5E9 /* Goals.swift in Sources */,
 				C95D61832575D49E0065C677 /* LoginView.swift in Sources */,
 				B189CB90255856B300FFBDEA /* FitStartApp.swift in Sources */,
 				02EDCDE82633548400071D5D /* DBDownloaderViewModel.swift in Sources */,
+				021AE5842642ECF400157BB8 /* ProfileSummary.swift in Sources */,
 				1C2DE73D25833036002B3EAE /* profilepageUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

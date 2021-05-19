@@ -12,6 +12,7 @@ struct SideBar: View {
     @State var index = 0
     @State var show = false
     @State var centerX : CGFloat = 0
+    @StateObject var currentUser = userViewModel()
           var body: some View{
               ZStack{
                   // Menu...
@@ -229,7 +230,7 @@ struct SideBar: View {
                               if self.index == 0{
                                   
                                 NavigationView {
-                                    CustomTabView(centerX: $centerX)
+                                    CustomTabView(currentUser: currentUser, centerX: $centerX)
                                         .navigationBarTitleDisplayMode(.inline)
                                         .navigationBarHidden(true)
                                 }
@@ -240,11 +241,11 @@ struct SideBar: View {
                               }
                               else if self.index == 2{
                                   
-                                  Meal()
+                                  Meal(currentUser: currentUser)
                               }
                               else{
                                   
-                                  Goals()
+                                  Goals(currentUser: currentUser)
                               }
                           }
                       }

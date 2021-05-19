@@ -14,7 +14,7 @@ struct Goals: View {
     let current_user_id = Auth.auth().currentUser?.uid
     @State private var showingAlert = false
     var ref = Firestore.firestore()
-    @StateObject var dbUploader:DBUploaderViewModel = DBUploaderViewModel()
+    @StateObject var currentUser: userViewModel
     @StateObject var homeData = HomeViewModel()
     @State var txt = ""
     @State var edge = UIApplication.shared.windows.first?.safeAreaInsets
@@ -71,9 +71,9 @@ struct Goals: View {
                                             context.delete(goal)
                                             try! context.save()
                                             if current_user_id != nil {
-                                                dbUploader.updateXPnLV()
-                                                self.showingAlert = true
+                                                currentUser.increaseXPnLV()
                                             }
+                                            self.showingAlert = true
                                         }, label: {
                                             
                                             HStack {

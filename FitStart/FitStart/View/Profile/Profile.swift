@@ -51,12 +51,6 @@ struct Profile : View {
     }
 }
 
-struct Profile_Preview: PreviewProvider {
-    static var previews: some View {
-        RegisterUser()
-    }
-}
-
 struct Homescreen : View {
     
     var body: some View{

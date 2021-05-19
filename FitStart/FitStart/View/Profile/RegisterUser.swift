@@ -7,11 +7,15 @@
 
 import SwiftUI
 import Firebase
+import Combine
+
 struct RegisterUser: View {
-    
-    @StateObject var registerData = DBUploaderViewModel()
-    @StateObject var originalData = DBDownloaderViewModel()
+    @StateObject var currentUser: userViewModel
     @State private var showingAlert = false
+    
+    init(currentUser: userViewModel) {
+        self._currentUser = StateObject(wrappedValue: currentUser)
+    }
     
     var body: some View {
         ZStack {
@@ -23,9 +27,8 @@ struct RegisterUser: View {
                         .foregroundColor(Color("Color"))
                 }
                 
-                
                 ZStack{
-                    if registerData.image_Data.count == 0 {
+                    if currentUser.getPhoto().count == 0 {
                         Image(systemName: "person")
                             .font(.system(size: 80))
                             .foregroundColor(.black)
@@ -33,7 +36,7 @@ struct RegisterUser: View {
                             .background(Color.white)
                             .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                     } else {
-                        Image(uiImage: UIImage(data: registerData.image_Data)!)
+                        Image(uiImage: UIImage(data: currentUser.user.image)!)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 115, height: 115)
@@ -42,14 +45,13 @@ struct RegisterUser: View {
                 }
                 .padding(.top)
                 .onTapGesture(perform: {
-                    registerData.picker.toggle()
+                    currentUser.picker.toggle()
                 })
                 
                 
                 HStack (spacing: 15){
-//                    Text(originalData.currentName ?? "Nobody")
-                    TextField("Name", text: $registerData.name)
-//                    TextFieldWithDefaultValue(value: originalData.currentName ?? "Nobdy")
+//                    TextFieldWithDefaultValue(model: currentUser, text: "Name")
+                    TextField("Name", text: $currentUser.user.name)
                         .padding()
                         .keyboardType(.numberPad)
                         .background(Color.white.opacity(0.06))
@@ -59,7 +61,8 @@ struct RegisterUser: View {
                 
                 
                 HStack (spacing: 15){
-                    TextField("Bio", text: $registerData.bio)
+//                    TextFieldWithDefaultValue(model: currentUser, text: "Bio")
+                    TextField("Bio", text: $currentUser.user.bio)
                         .padding()
                         .keyboardType(.numberPad)
                         .background(Color.white.opacity(0.06))
@@ -68,7 +71,8 @@ struct RegisterUser: View {
                 .padding()
                 
                 HStack (spacing: 15){
-                    TextField("Interest", text: $registerData.interest)
+                    TextField("Interest", text: $currentUser.user.interest)
+//                        TextFieldWithDefaultValue(model: currentUser, text: "Interest")
                         .padding()
                         .keyboardType(.numberPad)
                         .background(Color.white.opacity(0.06))
@@ -77,12 +81,12 @@ struct RegisterUser: View {
                 .padding()
                 .padding(.horizontal)
            
-                if registerData.isLoading {
+                if currentUser.isLoading {
                     ProgressView()
                         .padding()
                 } else {
                     Button(action: {
-                        registerData.updatePersonalInfo()
+                        currentUser.updatePersonalInfo()
                         self.showingAlert = true
                     }, label: {
                         Text("Save")
@@ -92,46 +96,18 @@ struct RegisterUser: View {
                             .frame(width: UIScreen.main.bounds.width - 100)
                             .clipShape(Capsule())
                     })
-                    .disabled(registerData.image_Data.count == 0 || registerData.name == "" || registerData.interest == ""  || registerData.bio == "" ? true : false)
-                    .opacity(registerData.image_Data.count == 0 || registerData.name == "" || registerData.interest == ""  || registerData.bio == "" ?  0.5 : 1)
+                    .disabled(currentUser.getName() != "" || currentUser.getInterest() != ""  || currentUser.getBio() != "" ? false : true)
+                    .opacity(currentUser.getName() != "" || currentUser.getInterest() != ""  || currentUser.getBio() != "" ?  1 : 0.5)
                     .alert(isPresented: $showingAlert) {
                         () -> Alert in
                         Alert(title: Text("Congratulations!"), message: Text("Saved successfully!"), dismissButton: .default(Text("OK")))
                             }
                 }
-//                VStack{
-//                    Text("")
-//                        .fontWeight(.bold)
-//                        .foregroundColor(Color.black.opacity(0.7))
-//                    
-//                    Button(action: {
-//                        try! Auth.auth().signOut()
-//                        UserDefaults.standard.set(false, forKey: "status")
-//                        NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
-//                        
-//                    }) {
-//                        Text("Log out")
-//                            .foregroundColor(.white)
-//                            .padding(.vertical)
-//                            .frame(width: UIScreen.main.bounds.width - 50)
-//                    }
-//                    .background(Color("Color"))
-//                    .cornerRadius(10)
-//                    .padding(.top, 10)
-//                }
             }
-            .sheet(isPresented: $registerData.picker, content: {
-                ImagePicker(picker: $registerData.picker, img_Data: $registerData.image_Data)
+            .sheet(isPresented: $currentUser.picker, content: {
+                ImagePicker(picker: $currentUser.picker, img_Data: $currentUser.user.image)
             })
-            
-            
         }
         
-    }
-}
-
-struct RegisterUser_Previews: PreviewProvider {
-    static var previews: some View {
-        RegisterUser()
     }
 }

@@ -18,6 +18,7 @@ struct ContentView: View {
     @State var centerX : CGFloat = 0
     @State var goToHome = false
     @State var edge = UIApplication.shared.windows.first?.safeAreaInsets
+    @StateObject var currentUser = userViewModel()
 //    @Environement(.verticalSizeClass) var size
     var body: some View {
         
@@ -25,7 +26,7 @@ struct ContentView: View {
             if goToHome {
                 
                 NavigationView {
-                    CustomTabView(centerX: $centerX)
+                    CustomTabView(currentUser: currentUser, centerX: $centerX)
                         .navigationBarTitleDisplayMode(.inline)
                         .navigationBarHidden(true)
                 }
@@ -44,16 +45,17 @@ struct ContentView: View {
 struct CustomTabView : View {
     //swich tabs
     @State var selectedTab = "home"
+    @StateObject var currentUser: userViewModel
     @Binding var centerX : CGFloat
     var body : some View {
         
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)){
             TabView(selection: $selectedTab) {
-                Home()
+                Home(currentUser: currentUser)
                     .tag("home")
-                Leaderboard()
+                Leaderboard(currentUser: currentUser)
                     .tag("Leaderboard")
-                Pal()
+                Pal(currentUser: currentUser)
                     .tag("profile")
             }
 //            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -125,11 +127,11 @@ struct TabButton : View {
 
 //The Home page
 struct Home: View {
-    @StateObject private var dbUser = DBDownloaderViewModel()
+    @StateObject var currentUser: userViewModel
     var body: some View {
         VStack {
             HStack {
-                Text("Level \(dbUser.currentLevel ?? 1)")
+                Text("Level \(currentUser.getLevel())")
                     .fontWeight(.bold)
                     .padding(.horizontal)
                     .foregroundColor(Color.white)
@@ -141,7 +143,7 @@ struct Home: View {
                     .frame(width: 20, height: 24, alignment: .leading)
                 
                 Spacer()
-                Text("xp: \(dbUser.currentXP ?? 0)")
+                Text("xp: \(currentUser.getXP())")
                     .fontWeight(.bold)
                     .padding(.horizontal)
                     .foregroundColor(Color.white)
@@ -154,7 +156,7 @@ struct Home: View {
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 2), spacing: 10) {
                 ForEach(mainfs) { f in
                     if (f.name == "Goals") {
-                        NavigationLink(destination: Goals()) {
+                        NavigationLink(destination: Goals(currentUser: currentUser)) {
                             mainFeatureView(feature: f)
                         }
                     } else if (f.name == "Fitness") {
@@ -162,7 +164,7 @@ struct Home: View {
                             mainFeatureView(feature: f)
                         }
                     } else if (f.name == "Diet"){
-                        NavigationLink(destination: Meal()) {
+                        NavigationLink(destination: Meal(currentUser: currentUser)) {
                             mainFeatureView(feature: f)
                         }
                     } else if (f.name == "Fitpal") {

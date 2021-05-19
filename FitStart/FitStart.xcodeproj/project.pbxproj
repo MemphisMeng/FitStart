@@ -15,8 +15,11 @@
 		02957979262E61F3008881A6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 02957978262E61F3008881A6 /* FirebaseAuth */; };
 		0295797B262E61F3008881A6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0295797A262E61F3008881A6 /* FirebaseFirestore */; };
 		0295797D262E61F3008881A6 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0295797C262E61F3008881A6 /* FirebaseDatabase */; };
+		02A3A0282645EBDE0057030F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A3A0272645EBDE0057030F /* UserModel.swift */; };
+		02A3A02D2645F2AF0057030F /* topUsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A3A02C2645F2AF0057030F /* topUsersViewModel.swift */; };
 		02B259B52642048900BC0FF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02B259B42642048900BC0FF1 /* GoogleService-Info.plist */; };
-		02EDCDE82633548400071D5D /* DBDownloaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EDCDE72633548400071D5D /* DBDownloaderViewModel.swift */; };
+		02C1572826535DDE0083F98E /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1572726535DDE0083F98E /* UserViewModel.swift */; };
+		02C1572C26540B780083F98E /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1572B26540B780083F98E /* Test.swift */; };
 		1C2DE73D25833036002B3EAE /* profilepageUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2DE73C25833036002B3EAE /* profilepageUI.swift */; };
 		B14F3EB725587D7F00D1B7BB /* FitStart.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B14F3EB525587D7F00D1B7BB /* FitStart.xcdatamodeld */; };
 		B14F3EBF2558823100D1B7BB /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14F3EBE2558823100D1B7BB /* ModelData.swift */; };
@@ -38,7 +41,6 @@
 		C956836B25758073003881EB /* Station View.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956836A25758073003881EB /* Station View.swift */; };
 		C95D61832575D49E0065C677 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95D61822575D49E0065C677 /* LoginView.swift */; };
 		C95D61882575DE040065C677 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95D61872575DE040065C677 /* RegisterUser.swift */; };
-		C95D61902575DE9B0065C677 /* DBUploaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95D618F2575DE9B0065C677 /* DBUploaderViewModel.swift */; };
 		C95D61952575E0410065C677 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95D61942575E0410065C677 /* ImagePicker.swift */; };
 		C95D619F2575EB990065C677 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95D619E2575EB990065C677 /* Profile.swift */; };
 		C99894A8258290230097A66A /* FitPal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99894A7258290230097A66A /* FitPal.swift */; };
@@ -74,8 +76,11 @@
 		021AE5802642EB8300157BB8 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		021AE5832642ECF400157BB8 /* ProfileSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummary.swift; sourceTree = "<group>"; };
 		0286DA4F2644A9B10008C79E /* TextFieldWithDefaultValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithDefaultValue.swift; sourceTree = "<group>"; };
+		02A3A0272645EBDE0057030F /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		02A3A02C2645F2AF0057030F /* topUsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = topUsersViewModel.swift; sourceTree = "<group>"; };
 		02B259B42642048900BC0FF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		02EDCDE72633548400071D5D /* DBDownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBDownloaderViewModel.swift; sourceTree = "<group>"; };
+		02C1572726535DDE0083F98E /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		02C1572B26540B780083F98E /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		1C2DE73C25833036002B3EAE /* profilepageUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profilepageUI.swift; sourceTree = "<group>"; };
 		B14F3EB625587D7F00D1B7BB /* FitStart.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FitStart.xcdatamodel; sourceTree = "<group>"; };
 		B14F3EBE2558823100D1B7BB /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
@@ -103,7 +108,6 @@
 		C956836A25758073003881EB /* Station View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Station View.swift"; sourceTree = "<group>"; };
 		C95D61822575D49E0065C677 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C95D61872575DE040065C677 /* RegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
-		C95D618F2575DE9B0065C677 /* DBUploaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBUploaderViewModel.swift; sourceTree = "<group>"; };
 		C95D61942575E0410065C677 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		C95D619E2575EB990065C677 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		C99894A7258290230097A66A /* FitPal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitPal.swift; sourceTree = "<group>"; };
@@ -236,6 +240,7 @@
 				C93EEBEA2579FAC300103593 /* Goal */,
 				C93EEBE92579FA9800103593 /* Fitness */,
 				C93EEBE72579FA6D00103593 /* Diet */,
+				02C1572B26540B780083F98E /* Test.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -247,8 +252,8 @@
 				B14F3EBE2558823100D1B7BB /* ModelData.swift */,
 				C95D61822575D49E0065C677 /* LoginView.swift */,
 				C9B6A30B257FCFA900A8E89A /* Host.swift */,
-				C95D618F2575DE9B0065C677 /* DBUploaderViewModel.swift */,
-				02EDCDE72633548400071D5D /* DBDownloaderViewModel.swift */,
+				02A3A02C2645F2AF0057030F /* topUsersViewModel.swift */,
+				02C1572726535DDE0083F98E /* UserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 		C95D61792575D34D0065C677 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				02A3A0272645EBDE0057030F /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -452,11 +458,13 @@
 				B189CBD525585B5F00FFBDEA /* Fitness.swift in Sources */,
 				B189CBE725585D5B00FFBDEA /* HomeViewModel.swift in Sources */,
 				C9C4392625799DB30012C5E9 /* Cube_one.swift in Sources */,
+				02C1572C26540B780083F98E /* Test.swift in Sources */,
 				C9B6A30C257FCFA900A8E89A /* Host.swift in Sources */,
 				C95D61882575DE040065C677 /* RegisterUser.swift in Sources */,
 				C95D61952575E0410065C677 /* ImagePicker.swift in Sources */,
 				C956836B25758073003881EB /* Station View.swift in Sources */,
 				B189CB99255856B700FFBDEA /* Persistence.swift in Sources */,
+				02A3A02D2645F2AF0057030F /* topUsersViewModel.swift in Sources */,
 				C93EEBED257A00C300103593 /* SideBar.swift in Sources */,
 				B189CBDF25585BAF00FFBDEA /* OnBoardScreen.swift in Sources */,
 				B189CB92255856B300FFBDEA /* ContentView.swift in Sources */,
@@ -465,16 +473,16 @@
 				B14F3EB725587D7F00D1B7BB /* FitStart.xcdatamodeld in Sources */,
 				C9C4392B2579A1710012C5E9 /* Cube_two.swift in Sources */,
 				0286DA502644A9B10008C79E /* TextFieldWithDefaultValue.swift in Sources */,
-				C95D61902575DE9B0065C677 /* DBUploaderViewModel.swift in Sources */,
 				B189CBEC25585DF600FFBDEA /* NewDataView.swift in Sources */,
 				B189CBDA25585B7800FFBDEA /* Meal.swift in Sources */,
+				02A3A0282645EBDE0057030F /* UserModel.swift in Sources */,
 				B189CBD025585B2700FFBDEA /* Pal.swift in Sources */,
 				021AE5812642EB8300157BB8 /* ProfileView.swift in Sources */,
 				B189CBF12558631500FFBDEA /* DateButton.swift in Sources */,
 				C9C439302579BEF50012C5E9 /* Goals.swift in Sources */,
+				02C1572826535DDE0083F98E /* UserViewModel.swift in Sources */,
 				C95D61832575D49E0065C677 /* LoginView.swift in Sources */,
 				B189CB90255856B300FFBDEA /* FitStartApp.swift in Sources */,
-				02EDCDE82633548400071D5D /* DBDownloaderViewModel.swift in Sources */,
 				021AE5842642ECF400157BB8 /* ProfileSummary.swift in Sources */,
 				1C2DE73D25833036002B3EAE /* profilepageUI.swift in Sources */,
 			);

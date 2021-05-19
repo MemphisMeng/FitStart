@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @Environment(\.editMode) var editMode
+    @StateObject var user: userViewModel
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20, content: {
@@ -18,18 +19,17 @@ struct ProfileView: View {
                 EditButton()
             }
             if editMode?.wrappedValue == .inactive {
-                ProfileSummary()
+                ProfileSummary(user: user)
             } else {
-                RegisterUser()
+                RegisterUser(currentUser: user)
             }
-            
         })
         .padding()
     }
 }
 
-struct CustomProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
-    }
-}
+//struct CustomProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProfileView(, user: <#currentUserViewModel#>)
+//    }
+//}

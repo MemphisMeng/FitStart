@@ -11,29 +11,30 @@ import Firebase
 
 struct ProfileSummary: View {
 //    var profile: CustomProfile
-    @StateObject var user = DBDownloaderViewModel()
+    @StateObject var user: userViewModel
     
     var body: some View {
         ScrollView {
             HStack {
-//                if self.user.currentPhoto != nil {
-//                    Image(self.user.currentPhoto!)
-//                } else {
-//                    self.user.currentPhoto
-//                        .font(.system(size: 80))
-//                        .foregroundColor(Color("Color"))
-//                        .frame(width: 115, height: 100)
-//                        .background(Color.white)
-//                        .clipShape(Circle())
-//                }
-                self.user.currentPhoto
-                    .font(.system(size: 80))
-                    .foregroundColor(Color("Color"))
-                    .frame(width: 115, height: 100)
-                    .background(Color.white)
-                    .clipShape(Circle())
+//                self.user.getPhoto()
+                if self.user.getPhoto().count != 0 {
+                    Image(uiImage: UIImage(data: self.user.getPhoto())!).resizable()
+                        .font(.system(size: 80))
+                        .foregroundColor(Color("Color"))
+                        .frame(width: 115, height: 100)
+                        .background(Color.white)
+                        .clipShape(Circle())
+                } else {
+                    Image(systemName: "person")
+                        .font(.system(size: 80))
+                        .foregroundColor(.black)
+                        .frame(width: 115, height: 100)
+                        .background(Color.white)
+                        .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                }
+                
                 VStack(alignment: .leading, spacing: 10) {
-                        Text(self.user.currentName ?? "NaN")
+                    Text(self.user.getName())
                             .bold()
                             .font(.title)
                             .foregroundColor(Color("Color"))
@@ -41,13 +42,13 @@ struct ProfileSummary: View {
                     HStack {
                         Text("Bio:")
                             .foregroundColor(Color("Color"))
-                        Text(self.user.currentBio ?? "NaN")
+                        Text(self.user.getBio())
                             .foregroundColor(Color("Color"))
                     }
                     HStack {
                         Text("Interests:")
                             .foregroundColor(Color("Color"))
-                        Text(self.user.currentInterest ?? "NaN")
+                        Text(self.user.getInterest())
                             .foregroundColor(Color("Color"))
                     }
                     Divider()
@@ -122,8 +123,9 @@ struct ProfileSummary: View {
     }
 }
 
-struct CustomProfileSummary_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileSummary()
-    }
-}
+//struct CustomProfileSummary_Previews: PreviewProvider {
+//    @State var user = DBDownloaderViewModel()
+//    static var previews: some View {
+//        ProfileSummary(user: user)
+//    }
+//}

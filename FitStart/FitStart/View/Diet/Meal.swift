@@ -52,6 +52,7 @@ struct Meal: View {
     @State var lunch : [station] = []
     @State var dinner : [station] = []
     @State var top = 0
+    @StateObject var currentUser: userViewModel
     var body: some View {
         VStack {
             if breakfast.isEmpty && brunch.isEmpty && lunch.isEmpty && dinner.isEmpty {
@@ -113,7 +114,7 @@ struct Meal: View {
                         ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
                             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 1), spacing: 20) {
                                     ForEach (breakfast, id: \.self) { f in
-                                        Station_View(station_: f)
+                                        Station_View(currentUser: currentUser, station_: f)
                                     }
                                 }
                         }
@@ -121,7 +122,7 @@ struct Meal: View {
                         ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
                             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 1), spacing: 20) {
                                     ForEach (lunch, id: \.self) { f in
-                                        Station_View(station_: f)
+                                        Station_View(currentUser: currentUser, station_: f)
                                     }
                                 }
                         }
@@ -129,7 +130,7 @@ struct Meal: View {
                         ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
                             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 1), spacing: 20) {
                                     ForEach (dinner, id: \.self) { f in
-                                        Station_View(station_: f)
+                                        Station_View(currentUser: currentUser, station_: f)
                                     }
                                 }
                         }
@@ -164,11 +165,11 @@ struct Meal: View {
 
 
 
-struct Meal_Previews: PreviewProvider {
-    static var previews: some View {
-        Meal()
-    }
-}
+//struct Meal_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Meal()
+//    }
+//}
 
 
 

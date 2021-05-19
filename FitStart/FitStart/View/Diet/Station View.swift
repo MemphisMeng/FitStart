@@ -15,7 +15,7 @@ struct Station_View: View {
     let current_user_id = Auth.auth().currentUser?.uid
     @State private var showingAlert = false
     var ref = Firestore.firestore()
-    @StateObject var dbUploader: DBUploaderViewModel = DBUploaderViewModel()
+    @StateObject var currentUser: userViewModel
     var station_ : station
     var food : [food] = []
     var body: some View {
@@ -37,7 +37,7 @@ struct Station_View: View {
                         if (Int(i.protein)! > 10) {
                             Button(action: {
                                 if current_user_id != nil {
-                                    dbUploader.updateXPnLV()
+                                    currentUser.increaseXPnLV()
                                     self.showingAlert = true
                                 }
                             }) {
@@ -58,7 +58,7 @@ struct Station_View: View {
                         if (i.is_vegan) {
                             Button(action: {
                                 if current_user_id != nil {
-                                    dbUploader.updateXPnLV()
+                                    currentUser.increaseXPnLV()
                                     self.showingAlert = true
                                 }
                             }) {

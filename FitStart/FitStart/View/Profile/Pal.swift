@@ -9,12 +9,13 @@ import SwiftUI
 
 struct Pal: View {
     @AppStorage("status") var status = false
+    @StateObject var currentUser: userViewModel
     var body: some View {
         NavigationView{
             VStack{
                 if status{
 //                    RegisterUser()
-                    ProfileView()
+                    ProfileView(user: currentUser)
                 }
                 else{
                     Profile()
@@ -26,8 +27,8 @@ struct Pal: View {
     }
 }
 
-struct Pal_Previews: PreviewProvider {
-    static var previews: some View {
-        Pal()
-    }
-}
+//struct Pal_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Pal(currentUser: currentUserViewModel)
+//    }
+//}

@@ -2,7 +2,7 @@
 
 
 ### Problem 
-97% of BU students say they can live healthier. However they believe its difficult to build positive habits and behaviors for practicing healthy behavior. Health information is available but isn’t necessarily helpful as students eat at the dining hall. COVID-19 has made these challenges even greater for the student body. They need friends/accompanies or other sources of motivation. 
+97% of BU students say they can live healthier. However they believe its difficult to build positive habits and behaviors for practicing healthy behavior. Health information is available but isn’t necessarily helpful as students eat at the dining hall. COVID-19 has made these challenges even greater for the student body. They need friends/accompanies or other sources of motivation. All of our code is Open-Source for anyone interested to create any vision of FitStart they envision!
 
 
 ### Solution 
